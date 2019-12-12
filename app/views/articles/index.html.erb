@@ -1,0 +1,342 @@
+<h1>ロゴ挿入</h1>
+
+<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+
+        <div class="theTarget">
+            <div class="pic1">
+            	<div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic2">
+            	<div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic3">
+            	<div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic4">
+            	<div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic5">
+            	<div class="box-left"></div><div class="box-right"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+        <br><br><br>
+
+
+
+  <div class="container">
+   <div class="row">
+     <div class="col-xs-12">
+
+
+     	<table>
+     		 <div class="find-friend">
+        <span class="find-friend-title">FIND/フェス仲間を探す</span></div>
+
+    <% @articles.each_slice(4) do |article1, article2, article3| %>
+
+     		<tbody>
+     			<tr class="find-friend-tr">
+
+     				<td class="find-friend-td">
+     					<% if article1 != nil%>
+     					<div class="current_user"><%= current_user.nickname %>さん</div>
+     					<%= link_to user_path(article1.id) do %>
+     					<%= attachment_image_tag article1, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+     					<% end %>
+     						<div class="text-size">
+     							<%=link_to article1.name, item_path(article1.id) %>
+     						</div>
+                            <div class="index-artist-box">
+     							<%= article1.artist.name %>
+                            </div>
+     						 <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article1.include_tax_price %>円</div>
+
+                        <% if article1.total_arrival_calculate - article1.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article1.total_arrival_calculate - article1.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+     					<% end %>
+     				</td>
+
+     				<td class="item-index-td">
+     					<% if article2 != nil%>
+     					<%= link_to item_path(article2.id) do %>
+     					<%= attachment_image_tag article2, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+     					<% end %>
+     						<div class="text-size">
+     							<%=link_to article2.name, item_path(article2.id) %>
+     						</div>
+                             <div class="index-artist-box">
+                                <%= article2.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article2.include_tax_price %>円</div>
+
+                        <% if article2.total_arrival_calculate - article2.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article2.total_arrival_calculate - article2.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫なし</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+     					<% end %>
+     				</td>
+     				<td class="item-index-td">
+     					<% if article3 != nil%>
+     					<%= link_to item_path(article3.id) do %>
+     					<%= attachment_image_tag article3, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+     					<% end %>
+     						<div class="text-size">
+     							<%=link_to article3.name, item_path(article3.id) %>
+     						</div>
+                             <div class="index-artist-box">
+                                <%= article3.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article3.include_tax_price %>円</div>
+
+                        <% if article3.total_arrival_calculate - article3.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article3.total_arrival_calculate - article3.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫なし</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+     					<% end %>
+     				</td>
+     			</tr>
+     		</tbody>
+     		<% end %>
+     	</table>
+
+
+
+     	<table>
+    <div class="memories">
+        <span class="memories-title">MEMORIES/思い出</span></div>
+
+    <% @articles.each_slice(4) do |article1, article2, article3, article4| %>
+
+		<tbody>
+				<tr class="item-index-tr">
+						<td class="item-index-td">
+
+						<% if article1 != nil%>
+						<div class="current_user"><%= current_user.nickname %>さん</div>
+					       <%= link_to item_path(article1.id) do %>
+					          <%= attachment_image_tag article1, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	                    <% end %>
+						    <div class="text-size">
+					           <%=link_to article1.name, item_path(article1.id) %>
+					        </div>
+                            <div class="index-artist-box">
+                                <%= article1.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article1.include_tax_price %>円</div>
+
+                        <% if article1.total_arrival_calculate - article1.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article1.total_arrival_calculate - article1.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+	                   </td>
+
+                       <td class="item-index-td">
+                        <% if article2 != nil%>
+                           <%= link_to item_path(article2.id) do %>
+                              <%= attachment_image_tag article2, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+                        <% end %>
+                            <div class="text-size">
+                               <%=link_to article2.name, item_path(article2.id) %>
+                            </div>
+                            <div class="index-artist-box">
+                                <%= article2.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article2.include_tax_price %>円</div>
+
+                        <% if article2.total_arrival_calculate - article2.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article2.total_arrival_calculate - article2.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+                       </td>
+
+                       <td class="item-index-td">
+                        <% if article3 != nil%>
+                           <%= link_to item_path(article3.id) do %>
+                              <%= attachment_image_tag article3, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+                        <% end %>
+                            <div class="text-size">
+                               <%=link_to article3.name, item_path(article3.id) %>
+                            </div>
+                            <div class="index-artist-box">
+                                <%= article3.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article3.include_tax_price %>円</div>
+
+                        <% if article3.total_arrival_calculate - article3.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article3.total_arrival_calculate - article3.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+                       </td>
+
+                       <td class="item-index-td">
+                        <% if article4 != nil%>
+                           <%= link_to item_path(article4.id) do %>
+                              <%= attachment_image_tag article4, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+                        <% end %>
+                            <div class="text-size">
+                               <%=link_to article4.name, item_path(article4.id) %>
+                            </div>
+                            <div class="index-artist-box">
+                                <%= article4.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article4.include_tax_price %>円</div>
+
+                        <% if article4.total_arrival_calculate - article4.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article4.total_arrival_calculate - article4.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+                       </td>
+		          </tr>
+            </tbody>
+        <% end %>
+    </table>
+
+
+
+     	<table>
+    <div class="recommend">
+        <span class="recommend-title">RECOMMEND/おすすめ</span></div>
+
+    <% @articles.each_slice(4) do |article1, article2, article3, article4, article5| %>
+
+		<tbody>
+				<tr class="item-index-tr">
+						<td class="item-index-td">
+
+						<% if article1 != nil%>
+					       <%= link_to item_path(article1.id) do %>
+					          <%= attachment_image_tag article1, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	                    <% end %>
+						    <div class="text-size">
+					           <%=link_to article1.name, item_path(article1.id) %>
+					        </div>
+                            <div class="index-artist-box">
+                                <%= article1.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article1.include_tax_price %>円</div>
+
+                        <% if article1.total_arrival_calculate - article1.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article1.total_arrival_calculate - article1.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+	                   </td>
+
+                       <td class="item-index-td">
+                        <% if article2 != nil%>
+                           <%= link_to item_path(article2.id) do %>
+                              <%= attachment_image_tag article2, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+                        <% end %>
+                            <div class="text-size">
+                               <%=link_to article2.name, item_path(article2.id) %>
+                            </div>
+                            <div class="index-artist-box">
+                                <%= article2.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article2.include_tax_price %>円</div>
+
+                        <% if article2.total_arrival_calculate - article2.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article2.total_arrival_calculate - article2.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+                       </td>
+
+                       <td class="item-index-td">
+                        <% if article3 != nil%>
+                           <%= link_to item_path(article3.id) do %>
+                              <%= attachment_image_tag article3, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+                        <% end %>
+                            <div class="text-size">
+                               <%=link_to article3.name, item_path(article3.id) %>
+                            </div>
+                            <div class="index-artist-box">
+                                <%= article3.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article3.include_tax_price %>円</div>
+
+                        <% if article3.total_arrival_calculate - article3.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article3.total_arrival_calculate - article3.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+                       </td>
+
+                       <td class="item-index-td">
+                        <% if article4 != nil%>
+                           <%= link_to item_path(article4.id) do %>
+                              <%= attachment_image_tag article4, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+                        <% end %>
+                            <div class="text-size">
+                               <%=link_to article4.name, item_path(article4.id) %>
+                            </div>
+                            <div class="index-artist-box">
+                                <%= article4.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article4.include_tax_price %>円</div>
+
+                        <% if article4.total_arrival_calculate - article4.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article4.total_arrival_calculate - article4.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+                       </td>
+
+                       <td class="item-index-td">
+                        <% if article5 != nil%>
+                           <%= link_to item_path(article5.id) do %>
+                              <%= attachment_image_tag article5, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+                        <% end %>
+                            <div class="text-size">
+                               <%=link_to article5.name, item_path(article5.id) %>
+                            </div>
+                            <div class="index-artist-box">
+                                <%= article5.artist.name %>
+                            </div>
+                             <div class="index-item-price-box">価格<span class="index-tax-text">(税込) </span>:　<%= article5.include_tax_price %>円</div>
+
+                        <% if article5.total_arrival_calculate - article4.total_item_order_calculate >= 1 %>
+                            <span class="index-user-stock-quantity">在庫数: 残り<%= article5.total_arrival_calculate - article5.total_item_order_calculate %>点</span>
+                            <% else %>
+                            <span class="index-stock-quantity">在庫無</span>
+                            <span class="index-no-stock-text">【入荷待ち】</span>
+                            <% end %>
+                         <% end %>
+                       </td>
+		          </tr>
+            </tbody>
+        <% end %>
+    </table>
+

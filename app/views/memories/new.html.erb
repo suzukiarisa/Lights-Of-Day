@@ -1,0 +1,36 @@
+
+
+<div class="container">
+	<div calss="row">
+		<div class="col-xs-6 col-xs-offset-3">
+		<%= form_for @memory do |f| %>
+			<table class="table table-striped table-bordered create-memory-table">
+				<tbody>
+					<tr>
+						<div class="post-memory_user"><%= current_user.nickname %>さん</div>
+					</tr>
+					<tr>
+						 <%= f.file_field :image %>
+                         <%= f.submit 'Choice Foto'%>
+					</tr>
+					<tr>
+						<h1>場所</h1>
+					</tr>
+					<tr>
+						<div class="">
+							<td rowspan="2" class="memory-table-height"><%= f.label :body, '内容 ' %></td>
+							<td class="memory-table-height"><%= f.text_area :body,class:"col-xs-8 memory-height" %></td>
+						</div>
+					</tr>
+					<tr>
+						<td style="border-top-style: hidden;" class="contact-info"><small>＊全角２００文字以内</small></td>
+					</tr>
+				</tbody>
+			</table>
+			<%= f.submit 'Post', class:'btn btn-primary col-xs-4 col-xs-offset-4' %>
+		<% end %>
+		</div>
+		<%= link_to root_path do %>
+		<div class="col-xs-2 col-xs-offset-3 index-box1"><記事一覧へ戻る</div>
+		<% end %>
+	</div>
