@@ -7,14 +7,10 @@
 			<table class="table table-striped table-bordered create-memory-table">
 				<tbody>
 					<tr>
-						<div class="post-memory_user"><%= current_user.nickname %>さん</div>
-					</tr>
-					<tr>
 						 <%= f.file_field :image %>
-                         <%= f.submit 'Choice Foto'%>
 					</tr>
 					<tr>
-						<h1>場所</h1>
+						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfEiombqtK2bGlN0FZpHAL28zXb0Ptxew&callback=initMap" type="text/javascript"></script>
 					</tr>
 					<tr>
 						<div class="">
@@ -31,6 +27,6 @@
 		<% end %>
 		</div>
 		<%= link_to root_path do %>
-		<div class="col-xs-2 col-xs-offset-3 index-box1"><記事一覧へ戻る</div>
+		<div class="col-xs-2 col-xs-offset-3"><記事一覧へ戻る</div>
 		<% end %>
 	</div>

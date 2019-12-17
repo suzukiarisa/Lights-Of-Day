@@ -25,16 +25,18 @@
 
 
             <div class="actions col-xs-1 col-xs-offset-5">
-              <div class="login-button-space">
-              <%= f.submit "ログイン", class:"btn btn-success btn-lg" %>
+              <div class="signin-button-space">
+              <%= f.submit "サインイン", class:"btn btn-success btn-lg" %>
               </div>
            </div>
           </div>
           </div>
           <% end %>
 
-          <div class="col-xs-6 col-xs-offset-3">
-            <div class="login-button-bottom-space">
+          <div class="link-to-signin">
+            <div class="col-xs-3 col-xs-offset-5">
+                <div class="signin-button-bottom-space">
             新規登録の方は<%= link_to "こちら", new_user_registration_path  %>
+               </div>
             </div>
-            </div>
+          </div>

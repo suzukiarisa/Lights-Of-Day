@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 2019_12_11_102456) do
   create_table "festivals", force: :cascade do |t|
     t.integer "fastival_name_id"
     t.integer "place_id"
-    t.string "image_id"
+    t.string "image"
     t.string "event_date"
-    t.string "prefecture_name"
+    t.integer "prefecture_id"
     t.text "body"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_102456) do
 
   create_table "find_friends", force: :cascade do |t|
     t.integer "user_id"
+    t.string "image"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_102456) do
     t.integer "user_id"
     t.string "post_date"
     t.string "spot"
-    t.string "image_id"
+    t.string "image"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,7 +109,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_102456) do
     t.integer "user_id"
     t.string "post_date"
     t.string "spot"
-    t.string "image_id"
+    t.string "image"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -122,8 +123,8 @@ ActiveRecord::Schema.define(version: 2019_12_11_102456) do
     t.datetime "remember_created_at"
     t.string "nickname"
     t.integer "prefecture_id"
-    t.string "image_id"
-    t.string "favorite_artist"
+    t.string "image"
+    t.string "favorite_artists"
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false

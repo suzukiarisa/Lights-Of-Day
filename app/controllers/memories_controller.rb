@@ -4,14 +4,14 @@ class MemoriesController < ApplicationController
 	end
 
 	def create
-	   #item = Item.find(params[:id])
+	   article = Article.find(params[:id])
 	   @memory = Memory.new(memory_params)
 	   @memory.user_id = current_user.id
 	 if @memory.save
         redirect_to memories_path
 	 else
 	   puts @memory.errors.full_messages
-	   render :new
+	   render 'new'
 	 end
 	end
 

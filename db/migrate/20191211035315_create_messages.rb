@@ -7,6 +7,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
 	    t.string :send_time
         t.string :content
 
+
         t.timestamps
     end
   end

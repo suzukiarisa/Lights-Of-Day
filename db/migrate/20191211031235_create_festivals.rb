@@ -4,9 +4,9 @@ class CreateFestivals < ActiveRecord::Migration[5.2]
 
     	t.integer :fastival_name_id
 	    t.integer :place_id
-	    t.string :image_id
+	    t.string :image
 	    t.string :event_date
-	    t.string :prefecture_name
+	    t.integer :prefecture_id
 	    t.text :body
 	    t.datetime :deleted_at
 	    t.datetime :created_at, null: false

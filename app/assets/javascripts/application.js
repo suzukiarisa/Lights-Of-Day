@@ -19,3 +19,18 @@
 //= require_tree .
 
 
+
+
+ $(function() {
+  $('#check_all').on('click', function() {
+    $('.check').prop('checked', this.checked);
+  });
+
+  $('.check').on('click', function() {
+    if ($('#favorite-checkbox :checked').length == $('#favorite-checkbox :input').length){
+      $('#check_all').prop('checked', 'checked');
+    }else{
+      $('#check_all').prop('checked', false);
+    }
+  });
+});

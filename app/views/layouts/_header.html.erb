@@ -1,0 +1,60 @@
+
+      <div class="container">
+      <div class="row">
+      <div class="header">
+
+    <nav>
+     <ul class="nav navbar-nav navbar-center col-xs-7">
+        <!-- アドミンでログイン -->
+        <% if admin_signed_in? %>
+        <div class="admin_user-box">
+        <span class="admin_user"> フェス一覧管理画面<br>　　　管理者　様</span>
+        </div>
+        <div class="admin-signout-box">
+        <%= link_to(destroy_admin_session_path, method: :delete) do %>
+        <span class="admin_signout"> Sign Out</span>
+        <% end %>
+        </div>
+        <!-- エンドユーザーでログイン -->
+        <% elsif user_signed_in?%>
+        <span class="current_user"><%= current_user.nickname %> さん</span>
+        <br>
+        <div class="header-menu">
+        <%= link_to(festivals_path) do %>
+        <span class="festivals"> Festivals</span>
+        <% end %>
+        <%= link_to(new_memory_path) do %>
+        <span class="memories"> Post Memories</span>
+        <% end %>
+        <%= link_to(new_recommend_path) do %>
+        <span class="recommends"> Post Recommends</span>
+        <% end %>
+        <% link_to favorites_path do %>
+        <span class="favorites"> Favorites</span>
+        <% end %>
+        <%= link_to(mypage_path(current_user.id)) do %>
+        <span class="mypage"> My Page</span>
+        <% end %>
+        <%= link_to(destroy_user_session_path, method: :delete) do %>
+        <span class="signout"> Sign Out</span>
+      </div>
+        <% end %>
+        <!-- 非ログイン時 -->
+      <% else %>
+      <%= link_to(new_user_registration_path) do %>
+        <span class="signup"> Sign Up</span>
+      <% end %>
+      <%= link_to(new_user_session_path) do %>
+        <span class="signin"> Sign In</span>
+      <% end %>
+      <%= link_to(homes_about_path) do %>
+        <span class="about"> About</span>
+      <% end %>
+    <% end %>
+     </ul>
+    </nav>
+  </div>
+</div>
+</div>
+</div>
+</div>

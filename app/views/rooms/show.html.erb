@@ -1,2 +1,16 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+
+ <div class="container">
+   <h1>Chat Room</h1>
+	  <form class="form-inline">
+		 <div class="form-group">
+	       <input type="text" class="form-control" id="chat-input" ></input>
+	     </div>
+	       <buttom id="button" class="btn btn-primary">送信</buttom>
+	  </form>
+	    <div id="messages">
+	  	  <ul>
+		    <%= render @messages %>
+	      </ul>
+	    </div>
+ </div>
+

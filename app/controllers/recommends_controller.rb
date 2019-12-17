@@ -4,14 +4,14 @@ class RecommendsController < ApplicationController
 	end
 
 	def create
-	   #item = Item.find(params[:id])
+	   article = Article.find(params[:id])
 	   @recommend = Recommend.new(recommend_params)
 	   @recommend.user_id = current_user.id
 	 if @recommend.save
         redirect_to recommends_path
 	 else
 	   puts @recommend.errors.full_messages
-	   render :new
+	   render 'new'
 	 end
 	end
 
@@ -22,6 +22,6 @@ class RecommendsController < ApplicationController
 	private
 
 	def memory_params
-		params.require(:recommend).permit(:spot, :body, :post_date, :user_id, :image_id)
+		params.require(:recommend).permit(:spot, :body, :post_date, :user_id, :image)
 	end
  end

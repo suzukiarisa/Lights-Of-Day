@@ -20,7 +20,254 @@
 
  /*User*/
 
+.signup-image-position{
+	margin-left: 250px;
+}
+
+.signup-space-top{
+	margin-top: 50px;
+}
+
+.signup-button-space{
+	margin-left: 120px;
+}
+
+.signup-button-bottom-space{
+	margin-top: 20px;
+	margin-left: 25px;
+}
+
+.link-to-signup {
+	margin-right: 32px;
+}
+
 .signin-space-top{
-	height: 50px;
 	margin: 0 auto;
+}
+
+
+.signin-button-space{
+	margin: 15px;
+}
+
+.signin-button-bottom-space{
+    height: 100px;
+	margin: 15px;
+}
+
+.link-to-signin {
+	margin-left: 59px;
+}
+
+/*Articles*/
+
+.text-size {
+   font-size: 20px;
+}
+
+.article-box{
+  	margin-bottom: 5px;
+}
+
+.article-title{
+	margin-left: 120px;
+}
+
+.find-friend-td{
+  padding-top: 50px;
+  height: 300px;
+  border-bottom: solid 1px #dadada;
+  width: 300px;
+}
+
+.memories-td{
+  padding-top: 50px;
+  height: 300px;
+  border-bottom: solid 1px #dadada;
+  width: 300px;
+}
+
+.recommends-td{
+  padding-top: 50px;
+  height: 300px;
+  border-bottom: solid 1px #dadada;
+  width: 300px;
+}
+
+.article-tr{
+  vertical-align: initial;
+}
+
+
+/*Header*/
+
+.signup{
+	color:#4682B4;
+	margin-left: 450px;
+	line-height: 60px;
+}
+.signin{
+	color:#4682B4;
+	margin-left: 50px;
+	line-height: 60px;
+}
+
+.about{
+	color:#4682B4;
+	margin-left: 50px;
+	line-height: 60px;
+}
+
+.navbar-center{
+	width: 73%;
+	padding-top:20px;
+	white-space: nowrap;
+}
+
+.header{
+	height: 90px;
+	margin-bottom:20px;
+	display:block;
+}
+
+.header-menu{
+	float: right;
+	margin: 10px, 0;
+}
+
+i{
+	color:#B22222;
+}
+.favorites{
+	padding-left:30px;
+}
+.mypage{
+	padding-left:30px;
+}
+.festivals{
+	padding-left:30px;
+}
+.recommends{
+	padding-left:30px;
+}
+.memories{
+	padding-left:30px;
+}
+.signout{
+	padding-left:30px;
+	margin:0 0 0 auto;
+}
+.current_user{
+	float: right;
+	text-decoration: underline;
+}
+
+.admin_user-box{
+	margin-left: 400px;
+	margin-top: 15px;
+}
+
+.admin_user{
+	float:left;
+}
+
+.admin_signout-box{
+	margin-top: 40px;
+}
+.admin_signout{
+	float:right;
+	line-height: 45px;
+}
+
+
+/*Admin*/
+
+/*Admin Sidemenu*/
+
+ul {
+  padding: 0;
+}
+
+.detail-list{
+  color: #404040;
+  border-left: solid 6px #4682B4;/*左側の線*/
+  border-bottom: solid 2px #dadada;/*下に灰色線*/
+  background: whitesmoke;
+  margin-bottom: 10px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 1em;
+  list-style-type: none!important;/*ポチ消す*/
+  font-weight: bold;
+}
+
+.side-menu-title{
+	margin-top: 20px;
+}
+
+.side-menu-title-text{
+	text-align: center;
+	font-size: 20px;
+}
+
+.side-list{
+	margin-top: 20px;
+}
+
+/*Admin Places*/
+
+.label-place{
+	display: inline;
+	text-align: center;
+	margin-left: 260px;
+}
+
+.place-border {
+    width: 80%;
+    height: 2px;
+    background-color:#dadada;
+    margin: 0 auto;
+}
+
+.place-category-box{
+	margin-top: 100px;
+}
+
+/*Admin FestivalNames*/
+
+.label-festival-name{
+	display: inline;
+	text-align: center;
+	margin-left: 260px;
+}
+
+.festival-names-border {
+    width: 80%;
+    height: 2px;
+    background-color:#dadada;
+    margin: 0 auto;
+}
+
+.festival-name-category-box{
+	margin-top: 100px;
+}
+
+/*Admin Festivals*/
+
+
+
+
+
+/*Footer*/
+
+
+.footer_text{
+    bottom: 0;
+    padding-top:70px;
+    padding-bottom: 30px;
+    width:100%;
+}
+
+.footer-text-content{
+	color:#4682B4;
+	text-align:right;
 }

@@ -1,2 +1,25 @@
-<h1>Admin::FestivalNames#edit</h1>
-<p>Find me in app/views/admin/festival_names/edit.html.erb</p>
+
+<%#= render 'admin/sidemenu' %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-9">
+
+			<h2 class="label-festival-name">フェス名の編集・削除</h2>
+			<div class="festival-names-border"></div>
+
+			<div class="col-xs-6 col-xs-offset-3 festival-name-category-box">
+			  <%= form_for @festival_name, url: admin_festival_name_path do |f| %>
+
+			  <%= f.label :フェス名 %>
+			  <%= f.text_field :name, autofocus: true %>
+
+			  <%= f.submit '保存する', class: "btn btn-primary" %>
+
+			  <%= link_to '削除する', admin_festival_name_path, method: :delete ,"data-confirm" => "本当に消しますか？" ,class: 'btn btn-danger' %>
+
+			  <% end %>
+			</div>
+		</div>
+	</div>
+</div>

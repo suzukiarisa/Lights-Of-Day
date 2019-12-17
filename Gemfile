@@ -79,3 +79,4 @@ gem 'bootstrap3-datetimepicker-rails'
 
 gem 'cocoon'
 gem 'carrierwave'
+gem 'pry-rails'

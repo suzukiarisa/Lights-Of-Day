@@ -6,21 +6,21 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :places, only: [:new, :edit, :create, :update, :destroy]
     resources :festival_names, only: [:new, :edit, :create, :update, :destroy]
-    resources :festivals, only: [:new, :edit, :create, :update, :destroy]
+    resources :festivals, only: [:new, :index, :edit, :create, :update, :destroy]
     get 'festivals/autocomplete_festival_name/:term' => 'festivals#autocomplete_festival_name'
     get 'festivals/autocomplete_place/:term' => 'festivals#autocomplete_place'
   end
 
   # ユーザー
     devise_for :users
+    get 'users/:id/exit' => 'users#exit', as: 'exit'
     get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
-    #get 'memories/:id/new' => 'memories#new', as: 'memories_new'
     post 'memories/:id' => 'memories#create', as: 'memories_create'
-    #get 'recommends/:id/new' => 'recommends#new', as: 'recommends_new'
     post 'recommends/:id' => 'recommends#create', as: 'recommends_create'
 
     root to: 'articles#index'
-    resources :articles, only: [:index]
+    get 'homes/about' => 'homes#about'
+    mount ActionCable.server => '/cable'
     resources :recommends, only: [:new, :index, :update, :destroy]
     resources :memories, only: [:new, :index, :update, :destroy]
     resources :find_friends, only: [:create, :update, :destroy]
