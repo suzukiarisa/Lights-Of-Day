@@ -18,87 +18,6 @@
  @import "bootstrap";
 
 
- /*User*/
-
-.signup-image-position{
-	margin-left: 250px;
-}
-
-.signup-space-top{
-	margin-top: 50px;
-}
-
-.signup-button-space{
-	margin-left: 120px;
-}
-
-.signup-button-bottom-space{
-	margin-top: 20px;
-	margin-left: 25px;
-}
-
-.link-to-signup {
-	margin-right: 32px;
-}
-
-.signin-space-top{
-	margin: 0 auto;
-}
-
-
-.signin-button-space{
-	margin: 15px;
-}
-
-.signin-button-bottom-space{
-    height: 100px;
-	margin: 15px;
-}
-
-.link-to-signin {
-	margin-left: 59px;
-}
-
-/*Articles*/
-
-.text-size {
-   font-size: 20px;
-}
-
-.article-box{
-  	margin-bottom: 5px;
-}
-
-.article-title{
-	margin-left: 120px;
-}
-
-.find-friend-td{
-  padding-top: 50px;
-  height: 300px;
-  border-bottom: solid 1px #dadada;
-  width: 300px;
-}
-
-.memories-td{
-  padding-top: 50px;
-  height: 300px;
-  border-bottom: solid 1px #dadada;
-  width: 300px;
-}
-
-.recommends-td{
-  padding-top: 50px;
-  height: 300px;
-  border-bottom: solid 1px #dadada;
-  width: 300px;
-}
-
-.article-tr{
-  vertical-align: initial;
-}
-
-
 /*Header*/
 
 .signup{
@@ -139,25 +58,38 @@ i{
 	color:#B22222;
 }
 .favorites{
-	padding-left:30px;
+	padding-left: 30px;
 }
 .mypage{
-	padding-left:30px;
+	padding-left: 30px;
 }
 .festivals{
-	padding-left:30px;
+	padding-left: 30px;
 }
 .recommends{
-	padding-left:30px;
+	padding-left: 30px;
 }
 .memories{
-	padding-left:30px;
+	padding-left: 30px;
+}
+.admin_festival{
+	padding-left: 30px;
+}
+.admin_festival_name{
+	padding-left: 30px;
+}
+.admin_place{
+	padding-left: 30px;
 }
 .signout{
-	padding-left:30px;
+	padding-left: 30px;
 	margin:0 0 0 auto;
 }
 .current_user{
+	float: right;
+	text-decoration: underline;
+}
+.admin_user{
 	float: right;
 	text-decoration: underline;
 }

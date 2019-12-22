@@ -1,7 +1,7 @@
 class Memory < ApplicationRecord
 
 	belongs_to :user
-	belongs_to :article
+	has_many :memory_photos
 
-	mount_uploader :image, ImageUploader
+	accepts_nested_attributes_for :memory_photos
 end

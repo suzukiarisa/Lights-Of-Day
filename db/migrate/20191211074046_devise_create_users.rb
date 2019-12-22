@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :nickname
       t.integer :prefecture_id
-      t.string :image
+      t.string :image_id
       t.string :favorite_artists
       t.datetime :updated_at
       t.datetime :deleted_at

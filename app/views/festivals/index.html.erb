@@ -1,2 +1,330 @@
-<h1>Festivals#index</h1>
-<p>Find me in app/views/festivals/index.html.erb</p>
+
+<a id="hokkaido">北海道</a>
+<a id="tohoku">東北</a>
+<a id="kanto">関東</a>
+<a id="chubu">中部</a>
+<a id="kinki">近畿</a>
+<a id="chugoku">中国</a>
+<a id="shikoku">四国</a>
+<a id="kyushu">九州</a>
+<a id="okinawa">沖縄</a>
+
+	<a href="#hokkaido">北海道</a>
+   		<% @hokkaido_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#tohoku">東北</a>
+   		<% @tohoku_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#kanto">関東</a>
+   		<% @kanto_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#chubu">中部</a>
+   		<% @chubu_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#kinki">近畿</a>
+   		<% @kinki_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#chugoku">中国</a>
+   		<% @chugoku_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#shikoku">四国</a>
+   		<% @shikoku_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#kyushu">九州</a>
+   		<% @kyushu_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+        <a href="#okinawa">沖縄</a>
+   		<% @okinawa_festivals.each do |festival| %>
+
+                <div class="text-size">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="text-size">
+			        <%= festival.festival_name.name %>
+			    </div>
+
+			    <% if festival.favorited_by?(current_user) %>
+			      <%= link_to favorites_path(festival.id), method: :delete do %>
+				    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				  <% end %>
+				<% else %>
+				  <%= link_to favorites_path(festival.id), method: :post do %>
+				    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+				  <% end %>
+				<% end %>
+
+				<div class="text-size">
+					<%= festival.event_date %>
+				</div>
+
+				<div class="text-size">
+			        <%= festival.place.name %>
+			    </div>
+
+			    <div class="text-size">
+			        <%= festival.body %>
+			    </div>
+
+        <% end %>
+
+
+
+
+

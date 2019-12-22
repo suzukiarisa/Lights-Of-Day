@@ -1,7 +1,8 @@
 class Recommend < ApplicationRecord
 
 	belongs_to :user
-	belongs_to :article
+	has_many :recommend_photos
 
-	mount_uploader :image, ImageUploader
+	#モデル同士が関連付けられている時に、ネストさせることで一度にまとめてレコードの更新ができる
+	accepts_nested_attributes_for :recommend_photos
 end

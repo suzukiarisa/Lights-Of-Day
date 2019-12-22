@@ -1,0 +1,91 @@
+
+
+<h1>ロゴ挿入</h1>
+
+<div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+
+        <div class="theTarget">
+            <div class="pic1">
+                <div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic2">
+                <div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic3">
+                <div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic4">
+                <div class="box-left"></div><div class="box-right"></div>
+            </div>
+            <div class="pic5">
+                <div class="box-left"></div><div class="box-right"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+        <br><br><br>
+
+
+
+  <div class="container">
+   <div class="row">
+     <div class="col-xs-12">
+
+    <table>
+      <div class="memories">
+        <span class="top-title">Memories/メモリー</span></div>
+      <% @memories.each do |memory| %>
+         <tbody>
+             <tr class="top-tr">
+                <td class="memories-td">
+                   <div class="current_user"><%= memory.user.nickname %>さん</div>
+                      <%= link_to user_path(memory) do %>
+                        <% if memory.memory_photos.length == 0 %>
+                              <% image_tag "/no_image.jpg" %>
+                        <% else %>
+                           <% memory.memory_photos.each do |photo| %>
+                              <%= image_tag photo.image.url %>
+                           <% end %>
+                        <% end %>
+                      <% end %>
+                    <div class="text-size"><%= memory.post_date %></div>
+                    <div class="text-size"><%= memory.spot %></div>
+                    <div class="text-size"><%= memory.title %></div>
+                    <div class="text-size"><%= memory.body %></div>
+                </td>
+             </tr>
+         </tbody>
+      <% end %>
+    </table>
+
+
+    <table>
+      <div class="recommends">
+        <span class="top-title">Recommends/オススメ</span></div>
+      <% @recommends.each do |recommend| %>
+         <tbody>
+             <tr class="top-tr">
+                <td class="recommend-td">
+                   <div class="current_user"><%= recommend.user.nickname %>さん</div>
+                      <%= link_to user_path(recommend) do %>
+                        <% if recommend.recommend_photos.length == 0 %>
+                              <% image_tag "/no_image.jpg" %>
+                        <% else %>
+                           <% recommend.recommend_photos.each do |photo| %>
+                              <%= image_tag photo.image.url %>
+                           <% end %>
+                        <% end %>
+                      <% end %>
+                    <div class="text-size"><%= recommend.post_date %></div>
+                    <div class="text-size"><%= recommend.spot %></div>
+                    <div class="text-size"><%= recommend.title %></div>
+                    <div class="text-size"><%= recommend.body %></div>
+                </td>
+             </tr>
+         </tbody>
+      <% end %>
+    </table>
+
+

@@ -7,12 +7,20 @@
      <ul class="nav navbar-nav navbar-center col-xs-7">
         <!-- アドミンでログイン -->
         <% if admin_signed_in? %>
-        <div class="admin_user-box">
-        <span class="admin_user"> フェス一覧管理画面<br>　　　管理者　様</span>
-        </div>
-        <div class="admin-signout-box">
+        <span class="admin_user">管理者　様</span>
+        <br>
+        <div class="header-menu">
+          <%= link_to(new_admins_festival_path) do %>
+        <span class="admin_festival"> Festival</span>
+        <% end %>
+        <%= link_to(new_admins_festival_name_path) do %>
+        <span class="admin_festival_name"> Festival Name</span>
+        <% end %>
+        <%= link_to(new_admins_place_path) do %>
+        <span class="admin_place"> Place</span>
+        <% end %>
         <%= link_to(destroy_admin_session_path, method: :delete) do %>
-        <span class="admin_signout"> Sign Out</span>
+        <span class="signout"> Sign Out</span>
         <% end %>
         </div>
         <!-- エンドユーザーでログイン -->
@@ -23,10 +31,10 @@
         <%= link_to(festivals_path) do %>
         <span class="festivals"> Festivals</span>
         <% end %>
-        <%= link_to(new_memory_path) do %>
+        <%= link_to new_memory_path, data: {"turbolinks" => false} do %>
         <span class="memories"> Post Memories</span>
         <% end %>
-        <%= link_to(new_recommend_path) do %>
+        <%= link_to new_recommend_path, data: {"turbolinks" => false} do %>
         <span class="recommends"> Post Recommends</span>
         <% end %>
         <% link_to favorites_path do %>
@@ -37,7 +45,7 @@
         <% end %>
         <%= link_to(destroy_user_session_path, method: :delete) do %>
         <span class="signout"> Sign Out</span>
-      </div>
+        </div>
         <% end %>
         <!-- 非ログイン時 -->
       <% else %>

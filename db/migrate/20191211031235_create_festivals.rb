@@ -2,9 +2,9 @@ class CreateFestivals < ActiveRecord::Migration[5.2]
   def change
     create_table :festivals do |t|
 
-    	t.integer :fastival_name_id
+    	t.integer :festival_name_id
 	    t.integer :place_id
-	    t.string :image
+	    t.string :image_id
 	    t.string :event_date
 	    t.integer :prefecture_id
 	    t.text :body

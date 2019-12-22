@@ -1,0 +1,20 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-9">
+
+			<h2 class="label-festival-name">フェスの新規登録</h2>
+			<div class="festival-names-border"></div>
+			<div class="col-xs-5 col-xs-offset-3 festival-name-category-box">
+			  <%= form_for @festival_name, url: admins_festival_names_path do |f| %>
+
+			  <%= f.label :フェス名 %>
+			  <%= f.text_field :name %>
+
+			  <%= f.submit '登録する', class: "btn btn-primary" %>
+
+			  <% end %>
+			</div>
+		</div>
+	</div>
+</div>

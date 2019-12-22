@@ -5,7 +5,8 @@ class CreateMemories < ActiveRecord::Migration[5.2]
         t.integer :user_id
   	    t.string :post_date
   	    t.string :spot
-  	    t.string :image
+  	    t.integer :image
+        t.string :title
   	    t.text :body
   	    t.datetime :created_at, null: false
         t.datetime :updated_at, null: false

@@ -1,15 +1,64 @@
-
-  <div class="container">
+<div class="container">
 	<div calss="row">
 		<div class="col-xs-6 col-xs-offset-3">
+			<table class="table table-striped table-bordered create-recommend-table">
 		  <%= form_for @recommend do |f| %>
-			<table class="table table-striped table-bordered create-memory-table">
 				<tbody>
+
 					<tr>
-					   <%= f.file_field :image %>
+						 <%= f.fields_for :images do |image| %>
+                       <div class="dropzone-container.clearfix">
+                          <div id="preview"></div>
+                          <div class="dropzone-area">
+                             <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
+                               <div class="input_area">
+                                   <%= image.file_field :image, multiple: true, name: 'recommend_images[images][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
+                                        <i class="far fa-caret-square-down"></i>
+                                   <% end %>
+                               </div>
+							      <div id="preview2"></div>
+							      <div class="dropzone-area2">
+							        <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
+							          <i class="far fa-caret-square-down"></i>
+							        <% end %>
+							      </div>
+						  </div>
+					   </div>
+					     <% end %>
+					</tr>
+
+					<tr>
+						<div class="">
+							<tr><label class="recommend-post-date">投稿日</label></tr>
+							  <tr>
+								<div class="form-group">
+								  <div class="input-group date" id="date" date-target-input="nearest">
+								    <%= f.text_field :post_date, class:"form-control datetimepicker-input", data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "YYYY/MM/DD" %>
+								  </div>
+									<script type="text/javascript">
+										$(function () {
+							  			$(".datetimepicker-input").datetimepicker({
+							  				format:'YYYY/MM/DD'
+							  			});
+										});
+									</script>
+							    </div>
+							  </tr>
+						</div>
+					<tr>
+						<%= f.hidden_field :user_id, :value => @user_id %>
 					</tr>
 					<tr>
-						<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfEiombqtK2bGlN0FZpHAL28zXb0Ptxew&callback=initMap" type="text/javascript"></script>
+						<div class="">
+							<td class="recommend-spot-box"><%= f.label :spot, '場所' %></td>
+							<td class="recommend-spot-box-content"><%= f.text_field :spot,class:"col-xs-6" %></td>
+						</div>
+					</tr>
+					<tr>
+						<div class="">
+							<td class="recommend-title-box"><%= f.label :title, 'タイトル ' %></td>
+							<td class="recommend-title-box-content"><%= f.text_field :title,class:"col-xs-6" %></td>
+						</div>
 					</tr>
 					<tr>
 						<div class="">
@@ -19,7 +68,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<%= f.submit 'Post', class:'btn btn-primary col-xs-4 col-xs-offset-4' %>
+			<%= f.submit '投稿', class:'btn btn-primary col-xs-4 col-xs-offset-4' %>
 		  <% end %>
 		</div>
 		  <%= link_to root_path do %>

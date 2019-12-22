@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
-  # 管理者
-  namespace :admin do
+# 管理者
+    get 'favorites/index'
+    devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+    }
+
+  namespace :admins do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :places, only: [:new, :edit, :create, :update, :destroy]
     resources :festival_names, only: [:new, :edit, :create, :update, :destroy]
@@ -12,21 +18,25 @@ Rails.application.routes.draw do
   end
 
   # ユーザー
-    devise_for :users
+    devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+    }
+
     get 'users/:id/exit' => 'users#exit', as: 'exit'
     get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
-    post 'memories/:id' => 'memories#create', as: 'memories_create'
-    post 'recommends/:id' => 'recommends#create', as: 'recommends_create'
 
-    root to: 'articles#index'
+    root to: 'tops#index'
     get 'homes/about' => 'homes#about'
     mount ActionCable.server => '/cable'
-    resources :recommends, only: [:new, :index, :update, :destroy]
-    resources :memories, only: [:new, :index, :update, :destroy]
-    resources :find_friends, only: [:create, :update, :destroy]
+    resources :tops, only: [:index]
+    resources :recommends, only: [:new, :index, :create, :update, :destroy]
+    resources :memories, only: [:new, :index, :create, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
     resources :festivals, only: [:index]
     resources :follows, only: [:index, :create, :destroy]
+    resources :user_relationships, only: [:create, :destroy]
     resources :rooms, only: [:show, :create]
     resources :homes, only: [:about]
     resources :favorites, only: [:index]
