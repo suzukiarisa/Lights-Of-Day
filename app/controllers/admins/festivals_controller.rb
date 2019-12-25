@@ -1,28 +1,31 @@
 class Admins::FestivalsController < ApplicationController
   def index
-    if admin_signed_in?
-    @search = Festival.includes(:festival_name,:place).ransack(params[:q])
-    @festival_result = @search.result.page(params[:page]).per(20)
-  else
-    redirect_to root_path
-  end
+    @hokkaido_festivals = Festival.where(prefecture_id: 0)
+    @tohoku_festivals = Festival.where(prefecture_id: [1, 2, 3, 4, 5, 6])
+    @kanto_festivals = Festival.where(prefecture_id: [7, 8, 9, 10, 11, 12, 13])
+    @chubu_festivals = Festival.where(prefecture_id: [14, 15, 16, 17, 18, 19, 20, 21, 22, 23])
+    @kinki_festivals = Festival.where(prefecture_id: [24, 25, 26, 27, 28, 29])
+    @chugoku_festivals = Festival.where(prefecture_id: [30, 31, 32, 33, 34])
+    @shikoku_festivals = Festival.where(prefecture_id: [35, 36, 37, 38])
+    @kyushu_festivals = Festival.where(prefecture_id: [39, 40, 41, 42, 43, 44, 45])
+    @okinawa_festivals = Festival.where(prefecture_id: 46)
+
   end
 
   def edit
     if admin_signed_in?
     @festival = Festival.find(params[:id])
-  else
+    else
     redirect_to root_path
-  end
+    end
   end
 
   def new
     if admin_signed_in?
-    @festival = Festival.new
-  else
-    redirect_to root_path
-  end
-
+      @festival = Festival.new
+    else
+      redirect_to root_path
+    end
   end
 
   def autocomplete_festival_name
@@ -46,31 +49,31 @@ class Admins::FestivalsController < ApplicationController
   end
 
   def create
-    @festival_name = FestivalName.find_by(name: params[:festival][:festival_name_id])
-    @place = Place.find_by(name: params[:festival][:place_id])
+      @festival_name = FestivalName.find_by(name: params[:festival][:festival_name_id])
+      @place = Place.find_by(name: params[:festival][:place_id])
 
-    @festival = Festival.new(festival_params)
-    @festival.festival_name_id = @festival_name.id
-    @festival.place_id = @place.id
+      @festival = Festival.new(festival_params)
+      @festival.festival_name_id = @festival_name.id
+      @festival.place_id = @place.id
     if @festival.save
       redirect_to new_admins_festival_path
     else
       render 'new'
-  end
+    end
   end
 
   def update
-    @festival_name = FestivalName.find_by(name: params[:festival][:festival_name_id])
-    @place = Place.find_by(name: params[:festival][:place_id])
+      @festival_name = FestivalName.find_by(name: params[:festival][:festival_name_id])
+      @place = Place.find_by(name: params[:festival][:place_id])
 
-    @festival = Festival.find(params[:id])
-    @festival.festival_name_id = @festival_name.id
-    @festival.place_id = @place.id
+      @festival = Festival.find(params[:id])
+      @festival.festival_name_id = @festival_name.id
+      @festival.place_id = @place.id
     if @festival.update(festival_params)
       redirect_to admin_festival_path(params[:id])
     else
       render 'edit'
-  end
+    end
   end
 
   def destroy

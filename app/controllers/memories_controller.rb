@@ -7,6 +7,7 @@ class MemoriesController < ApplicationController
 
   def index
     @memories = Memory.all
+    @memories = Memory.page(params[:page]).per(12)
   end
 
   def create
@@ -18,7 +19,7 @@ class MemoriesController < ApplicationController
             @memory.memory_photos.create(image: image, memory_id: @memory.id)
           end
         end
-        format.html{redirect_to root_path}
+        format.html{redirect_to memories_path}
       else
         @memory.memory_photos.build
         format.html{render action: 'new'}

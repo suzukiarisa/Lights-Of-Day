@@ -7,6 +7,7 @@ class RecommendsController < ApplicationController
 
   def index
     @recommends = Recommend.all
+    @recommends = Recommend.page(params[:page]).per(12)
   end
 
   def create
@@ -18,7 +19,7 @@ class RecommendsController < ApplicationController
             @recommend.recommend_photos.create(image: image, recommend_id: @recommend.id)
           end
         end
-        format.html{redirect_to root_path}
+        format.html{redirect_to recommends_path}
       else
         @recommend.recommend_photos.build
         format.html{render action: 'new'}

@@ -1,0 +1,24 @@
+
+
+<div class="container">
+  <h2 class="user-title">退会</h2>
+  <div class="border"></div>
+  	<div class="row end_user">
+  	  <div class="col-xs-8 col-xs-offset-2">
+  	  	<h3>下記の登録情報がすべてご利用できなくなります。</h3>
+  	  	  <ul class="exit-list">
+  	  	    <li>My Post</li>
+  	  	    <li>Follow</li>
+  	  	    <li>Favorite Festivals</li>
+  	  	    <li>My profile</li>
+  	  	  </ul>
+  	  	<div class="row text-center exit-btn">
+  	  	  <%= link_to '退会する', user_registration_path, method: :delete, class: "btn btn-danger btn-lg" %>
+  	    </div>
+  	  	<div class="row">
+  	  	  <%= link_to '< マイページへ', mypage_path(current_user.id) %>
+  	  	</div>
+
+  	  </div>
+  	</div>
+</div>

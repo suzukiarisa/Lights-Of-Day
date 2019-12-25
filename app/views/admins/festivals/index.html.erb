@@ -1,0 +1,338 @@
+
+<div class="container">
+	<div class="row">
+		<div class="festival-location1">
+			<a href="#hokkaido" class="hok">Hokkaido / 北海道</a>
+			<div class="hokkaido-festival-text">RISING SUN ROCK FESTIVAL</div>
+			<div class="hokkaido-festival-text">JOIN ALIVE</div>
+			<a href="#tohoku" class="toh">Tohoku / 東北</a>
+			<div class="tohoku-festival-text">ARABAKI ROCK FEST.20</div>
+			<div class="tohoku-festival-text">ISHINOMAKI BUCHI ROCK</div>
+			<div class="tohoku-festival-text">OGA NAMAHAGE ROCK FESTIVAL</div>
+		</div>
+		<div class="festival-location2">
+			<a href="#kanto" class="kan">Kanto / 関東</a>
+			<div class="kanto-festival-text">リスアニ!LIVE</div>
+			<div class="kanto-festival-text">COUNTDOWN JAPAN</div>
+			<div class="kanto-festival-text">ビクターロック祭り</div>
+			<div class="kanto-festival-text">JAPAN JAM</div>
+			<div class="kanto-festival-text">VIVA LA ROCKL</div>
+			<div class="kanto-festival-text">ROCK IN JAPAN FESTIVAL</div>
+			<div class="kanto-festival-text">ULTRA JAPAN</div>
+			<div class="kanto-festival-text">MUSIC COMPLEX</div>
+			<div class="kanto-festival-text">METROCK</div>
+			<div class="kanto-festival-text">SUMMER SONIC</div>
+			<div class="kanto-festival-text">氣志團万博</div>
+		</div>
+		<div class="festival-location3">
+			<a href="#chubu" class="chub">Chubu / 中部</a>
+			<div class="chubu-festival-text">YON FES 2020</div>
+			<div class="chubu-festival-text">マグロック</div>
+			<div class="chubu-festival-text">森、道、市場 2019</div>
+			<div class="chubu-festival-text">TREASURE05X</div>
+			<div class="chubu-festival-text">中津川 THE SOLAR BUDOKAN</div>
+			<div class="chubu-festival-text">SWEET LOVE SHOWER 2020</div>
+			<div class="chubu-festival-text">FUJI ROCK FESTIVAL ’20</div>
+			<div class="chubu-festival-text">音楽と髭達</div>
+			<a href="#kinki" class="kin">Kinki / 近畿</a>
+			<div class="kinki-festival-text">RADIO CRAZY</div>
+			<div class="kinki-festival-text">ポルノ超特急</div>
+			<div class="kinki-festival-text">METROPOLITAN ROCK FESTIVAL</div>
+			<div class="kinki-festival-text">HIGH! HIGH! HIGH!</div>
+			<div class="kinki-festival-text">SUMMER SONIC</div>
+			<div class="kinki-festival-text">RUSH BALL</div>
+			<div class="kinki-festival-text">OTODAMA</div>
+			<div class="kinki-festival-text">京都大作戦</div>
+		</div>
+		<div class="festival-location4">
+			<a href="#chugoku" class="chug">Chugoku / 中国</a>
+			<div class="chugoku-festival-text">桃太郎フェス</div>
+			<div class="chugoku-festival-text">WILD BUNCH FEST.</div>
+			<a href="#shikoku" class="shi">Shikoku / 四国</a>
+			<div class="shikoku-festival-text">MONSTER baSH</div>
+			<a href="#kyushu" class="kyu">Kyushu / 九州</a>
+			<div class="kyushu-festival-text">NUMBER SHOT</div>
+			<div class="kyushu-festival-text">Sky Jamboree</div>
+			<a href="#okinawa" class="oki">Okinawa / 沖縄</a>
+			<div class="okinawa-festival-text">MIYAKO ISLAND ROCK FESTIVAL</div>
+		</div>
+	</div>
+
+
+
+	<div class="row">
+	  <div class="hokkaido-text-color"><a id="hokkaido">Hokkaido / 北海道</a><div>
+	   		<% @hokkaido_festivals.each do |festival| %>
+	   		  <%= render 'admins/sidemenu',festival: festival %>
+				  <div class="hokkaido-festival">
+					　<div class="col-xs-11">
+
+		                <div class="text-size">
+					    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+			            </div>
+
+						<div class="text-size">
+					        <%= festival.event_date %>
+					    </div>
+
+						<div class="text-size">
+							<%= festival.festival_name.name %>
+						</div>
+
+						<div class="text-size">
+					        <%= festival.place.name %>
+					    </div>
+
+					    <div class="text-size">
+					        <%= festival.body %>
+					    </div>
+				    </div>
+				　</div>
+	        <% end %>
+    </div>
+
+	<div class="row">
+        <div class="tohoku-text-color"><a id="tohoku">Tohoku / 東北</a></div>
+   		   <% @tohoku_festivals.each do |festival| %>
+   		     <%= render 'admins/sidemenu',festival: festival %>
+   		       <div class="tohoku-festival">
+				 <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+			     </div>
+			  </div>
+           <% end %>
+	</div>
+
+
+	<div class="row">
+        <div class="kanto-text-color"><a id="kanto">Kanto / 関東</a></div>
+   		   <% @kanto_festivals.each do |festival| %>
+   		     <%= render 'admins/sidemenu',festival: festival %>
+               <div class="kanto-festival">
+				 <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+			     </div>
+			   </div>
+           <% end %>
+    </div>
+
+    <div class="row">
+        <div class="chubu-text-color"><a id="chubu">Chubu / 中部</a></div>
+   		   <% @chubu_festivals.each do |festival| %>
+   		     <%= render 'admins/sidemenu',festival: festival %>
+               <div class="chubu-festival">
+                 <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+				 </div>
+			   </div>
+           <% end %>
+    </div>
+
+    <div class="row">
+    	<div class="kinki-text-color"><a id="kinki">Kinki / 近畿</a></div>
+		   <% @kinki_festivals.each do |festival| %>
+		     <%= render 'admins/sidemenu',festival: festival %>
+               <div class="kinki-festival">
+	   		     <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+			     </div>
+			   </div>
+           <% end %>
+    </div>
+
+    <div class="row">
+        <div class="chugoku-text-color"><a id="chugoku">Chugoku / 中国</a></div>
+   		   <% @chugoku_festivals.each do |festival| %>
+   		     <%= render 'admins/sidemenu',festival: festival %>
+               <div class="chugoku-festival">
+	   		     <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+				 </div>
+			   </div>
+           <% end %>
+    </div>
+
+    <div class="row">
+    	<div class="shikoku-text-color"><a id="shikoku">Shikoku / 四国</a></div>
+   		   <% @shikoku_festivals.each do |festival| %>
+   		     <%= render 'admins/sidemenu',festival: festival %>
+               <div class="shikoku-festival">
+                 <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+				 </div>
+			   </div>
+           <% end %>
+    </div>
+
+    <div class="row">
+    	<div class="kyushu-text-color"><a id="kyushu">Kyushu / 九州</a></div>
+   		   <% @kyushu_festivals.each do |festival| %>
+   		     <%= render 'admins/sidemenu',festival: festival %>
+               <div class="kyushu-festival">
+                 <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+				 </div>
+			   </div>
+           <% end %>
+    </div>
+
+    <div class="row">
+        <div class="okinawa-text-color"><a id="okinawa">Okinawa / 沖縄</a></div>
+   	       <% @okinawa_festivals.each do |festival| %>
+   	         <%= render 'admins/sidemenu',festival: festival %>
+               <div class="okinawa-festival">
+                 <div class="col-xs-11">
+	                <div class="text-size">
+				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		            </div>
+
+					<div class="text-size">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="text-size">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="text-size">
+				        <%= festival.place.name %>
+				    </div>
+
+				    <div class="text-size">
+				        <%= festival.body %>
+				    </div>
+				 </div>
+			   </div>
+           <% end %>
+    </div>
+
+</div>
+
+
+

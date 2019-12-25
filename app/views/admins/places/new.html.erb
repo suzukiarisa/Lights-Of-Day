@@ -1,22 +1,23 @@
-<%#= render 'admin/sidemenu' %>
 
 <div class="container">
 	<div class="row">
 		<div class="col-xs-9">
 
-			<h2 class="label-place">フェスの新規登録</h2>
-			<div class="place-border"></div>
+	      <h2 class="label-place">フェスの新規登録</h2>
+		  <div class="place-border"></div>
 
 			<div class="col-xs-5 col-xs-offset-3 place-category-box">
 			  <%= form_for @place, url: admins_places_path do |f| %>
 
-			  <%= f.label :開催地 %>
-			  <%= f.text_field :name %>
+			    <%= f.label :開催地 %>
+				<%= f.text_field :name %>
 
-			  <%= f.submit '登録する', class: "btn btn-primary" %>
+			    <%= f.submit '登録する', class: "btn btn-primary" %>
 
 			  <% end %>
 			</div>
 		</div>
 	</div>
 </div>
+
+

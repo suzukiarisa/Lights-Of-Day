@@ -6,7 +6,7 @@
         <div class="col-xs-6">
         	<%= link_to user_path, class:'link-menu' do %>
             <div class="jumbotron text-center">
-              <span class="glyphicon glyphicon-camera" style="font-size: 60px"></span>
+              <span class="icon glyphicon glyphicon-camera" style="font-size: 60px"></span>
               <h3 class="menu">My Post</h3>
                 <div class="content">自分の投稿一覧が見れます。</div>
             </div>
@@ -16,7 +16,7 @@
         <div class="col-xs-6">
         	<%= link_to follows_path(current_user.id), class:'link-menu' do %>
             <div class="jumbotron text-center">
-              <span class="glyphicon glyphicon-user" style="font-size: 60px"></span>
+              <span class="icon glyphicon glyphicon-user" style="font-size: 60px"></span>
               <h3 class="menu">Follow</h3>
                 <div class="content">フォローの確認と削除<br>ができます。</div>
             </div>
@@ -39,9 +39,9 @@
 
 
         <div class="col-xs-6">
-          <%= link_to user_path(current_user.id), class:'link-menu' do %>
+          <%= link_to edit_user_path(current_user.id), class:'link-menu' do %>
             <div class="jumbotron text-center">
-              <span class="glyphicon glyphicon-cog" style="font-size: 60px"></span>
+              <span class="icon glyphicon glyphicon-cog" style="font-size: 60px"></span>
 
               <h3 class="menu">My Profile</h3>
                 <div class="content">プロフィールの確認,<br>変更ができます。</div>
@@ -52,12 +52,4 @@
     </div>
 
     <div class="row text-center"><%= link_to '退会', exit_path(current_user.id), class: "btn btn-default" %></div>
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div class="back-to-article">
-          <%= link_to "< 記事一覧へ", root_path %>
-        </div>
-      </div>
-    </div>
-
 </div>

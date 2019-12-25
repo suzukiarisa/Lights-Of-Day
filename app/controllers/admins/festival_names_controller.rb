@@ -1,4 +1,5 @@
 class Admins::FestivalNamesController < ApplicationController
+
  def new
     if admin_signed_in?
   	@festival_name = FestivalName.new
@@ -18,7 +19,7 @@ class Admins::FestivalNamesController < ApplicationController
 
   def edit
     if admin_signed_in?
-  	@festival_name = FestivalName.find(params[:id])
+  	 @festival_name = FestivalName.find(params[:id])
     else
       redirect_to root_path
     end
@@ -35,7 +36,7 @@ class Admins::FestivalNamesController < ApplicationController
   end
 end
 
-  	 def destroy
+  def destroy
     FestivalName.find(params[:id]).destroy
     flash[:success] = "フェス名を削除しました"
       redirect_to new_admins_festival_name_path

@@ -21,18 +21,18 @@
 /*Header*/
 
 .signup{
-	color:#4682B4;
+	color:#FF8C00;
 	margin-left: 450px;
 	line-height: 60px;
 }
 .signin{
-	color:#4682B4;
+	color:#FF8C00;
 	margin-left: 50px;
 	line-height: 60px;
 }
 
 .about{
-	color:#4682B4;
+	color:#FF8C00;
 	margin-left: 50px;
 	line-height: 60px;
 }
@@ -53,45 +53,50 @@
 	float: right;
 	margin: 10px, 0;
 }
-
-i{
-	color:#B22222;
-}
-.favorites{
-	padding-left: 30px;
-}
 .mypage{
+	color:#FF8C00;
 	padding-left: 30px;
 }
 .festivals{
+	color:#FF8C00;
 	padding-left: 30px;
 }
 .recommends{
+	color:#FF8C00;
 	padding-left: 30px;
 }
 .memories{
+	color:#FF8C00;
 	padding-left: 30px;
 }
 .admin_festival{
+	color:#FF8C00;
 	padding-left: 30px;
 }
 .admin_festival_name{
+	color:#FF8C00;
 	padding-left: 30px;
 }
 .admin_place{
+	color:#FF8C00;
 	padding-left: 30px;
 }
 .signout{
+	color:#FF8C00;
 	padding-left: 30px;
 	margin:0 0 0 auto;
 }
 .current_user{
+	color: #888888;
 	float: right;
-	text-decoration: underline;
+	position: relative;
+    left: 200px;
 }
 .admin_user{
+	color: #888888;
 	float: right;
-	text-decoration: underline;
+	position: relative;
+    left: 200px;
 }
 
 .admin_user-box{
@@ -99,16 +104,44 @@ i{
 	margin-top: 15px;
 }
 
-.admin_user{
-	float:left;
-}
-
 .admin_signout-box{
 	margin-top: 40px;
 }
 .admin_signout{
+	color:#FF8C00;
 	float:right;
 	line-height: 45px;
+}
+
+/*Tops*/
+
+.theTarget{
+	height: 500px !important;
+	width: 1100px;
+	position: relative;
+	top: 70px;
+    left: 165px;
+}
+
+.pic1{
+	background-image: url("IMG_4605.jpeg");
+	background-position: top;
+}
+.pic2{
+	background-image: url("IMG_4721.jpeg");
+	background-position: center 65%;
+}
+.pic3{
+	background-image: url(".jpeg");
+	background-position: center 50%;
+}
+.pic4{
+	background-image: url(".jpeg");
+	background-position: center 45%;
+}
+.pic5{
+	background-image: url(".jpg");
+	background-position: center 28%;
 }
 
 
@@ -132,17 +165,16 @@ ul {
   font-weight: bold;
 }
 
-.side-menu-title{
-	margin-top: 20px;
-}
-
 .side-menu-title-text{
 	text-align: center;
 	font-size: 20px;
 }
 
 .side-list{
-	margin-top: 20px;
+	width: 100px;
+	position: relative;
+    top: 23px;
+    right: 80px;
 }
 
 /*Admin Places*/
@@ -183,11 +215,6 @@ ul {
 	margin-top: 100px;
 }
 
-/*Admin Festivals*/
-
-
-
-
 
 /*Footer*/
 
@@ -200,6 +227,6 @@ ul {
 }
 
 .footer-text-content{
-	color:#4682B4;
+	color:#FF8C00;
 	text-align:right;
 }

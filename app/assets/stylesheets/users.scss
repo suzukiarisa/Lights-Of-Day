@@ -54,6 +54,58 @@
 	height: 43vh;
 }
 
+.icon {
+	color: #a7a7a7;
+}
+
 .menu {
+    color: #aaaaaa;
 	font-size: auto;
+}
+
+.content {
+	color: 	#aaaaaa;
+}
+
+/*Edit*/
+
+.user-edit-title1 {
+	color: #FF8C00;
+    position: relative;
+    left: 300px;
+    bottom: 20px;
+}
+
+.user-edit-title2{
+	color: #FF8C00;
+	font-size: 18px;
+    position: relative;
+    left: 402px;
+    bottom: 55px;
+}
+
+.edit-image-position {
+	color: #777777;
+    position: relative;
+    left: 80px;
+    top: 33px;
+}
+
+.edit-form-position {
+	color: #777777;
+	position: relative;
+    right: 45px;
+}
+
+.edit-push {
+	position: relative;
+    right: 220px;
+    top: 240px;
+}
+
+.link-to-mypage {
+	color: #777777;
+	position: relative;
+    right: 500px;
+    top: 240px;
 }

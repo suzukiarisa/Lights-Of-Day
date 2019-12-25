@@ -9,20 +9,20 @@
 						 <%= f.fields_for :images do |image| %>
                        <div class="dropzone-container.clearfix">
                           <div id="preview"></div>
-                          <div class="dropzone-area">
-                             <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
-                               <div class="input_area">
+                            <div class="dropzone-area">
+                              <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
+                                <div class="input_area">
                                    <%= image.file_field :image, multiple: true, name: 'recommend_images[images][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
                                         <i class="far fa-caret-square-down"></i>
                                    <% end %>
-                               </div>
+                                </div>
 							      <div id="preview2"></div>
 							      <div class="dropzone-area2">
 							        <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
 							          <i class="far fa-caret-square-down"></i>
 							        <% end %>
 							      </div>
-						  </div>
+						    </div>
 					   </div>
 					     <% end %>
 					</tr>

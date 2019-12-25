@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  mount_uploader :image, ImageUploader
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates :nickname, presence: true, length: { maximum: 10 }
   validates :favorite_artists, presence: true, length: { maximum: 30 }
@@ -21,8 +23,6 @@ class User < ApplicationRecord
 
   #acts_as_paranoidとは? データを論理削除する
   acts_as_paranoid
-
-  mount_uploader :image, ImagesUploader
 
   def follow(other_user)
     unless self == other_user #フォローしようとしている other_user が自分自身ではないかを検証
