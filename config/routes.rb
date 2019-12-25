@@ -44,6 +44,6 @@ Rails.application.routes.draw do
     delete 'favorites/destroy_all' => 'favorites#destroy_all', as: 'destroy_all'
 
     resources :festivals, only: [:index] do
-    resources :favorites, only: [:create, :destroy]
+        resource :favorite, only: [:create, :destroy]
   end
 end

@@ -1,0 +1,179 @@
+
+
+<div class="container">
+   <div class="row">
+      <div class="col-xs-12">
+
+			<table>
+			  <div class="user-index">
+			    <span class="users-title">All Users</span></div>
+
+			        <% @users.each_slice(4) do |user1, user2, user3, user4| %>
+
+						<tbody>
+						  <tr class="user-index-tr">
+							    <td class="user-index-td">
+								  <% if user1.present? %>
+							        <%#= link_to item_path(item1.id) do %>
+			                            <div class="user-image">
+									      <% if user1.image %>
+			                                  <%= image_tag "/no_image.jpg" %>
+			                              <% else %>
+			                                  <%= image_tag image.url %>
+			                              <% end %>
+									    </div>
+
+									    <% unless current_user == user1 %>
+										  <% if current_user.following?(user1) %>
+										    <%= form_for(current_user.user_relationships.find_by(follow_id: user1.id), html: { method: :delete }) do |f| %>
+										      <%= hidden_field_tag :follow_id, user.id %>
+										      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
+										    <% end %>
+										  <% else %>
+										    <%= form_for(current_user.user_relationships.build) do |f| %>
+										      <%= hidden_field_tag :follow_id, user1.id %>
+										      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
+										    <% end %>
+										  <% end %>
+										<% end %>
+
+										<div class="user-name">
+									        <%= user1.nickname %>
+									    </div>
+
+										<div class="user-post-date">
+											<%= user1.favorite_artists %>
+										</div>
+
+										<div class="user-spot">
+									        <%= user1.prefecture %>
+									    </div>
+								    <% end %>
+							     </td>
+
+							    <td class="user-index-td">
+								  <% if user2.present? %>
+							        <%#= link_to item_path(item1.id) do %>
+			                            <div class="user-image">
+									      <% if user2.image %>
+			                                  <%= image_tag "/no_image.jpg" %>
+			                              <% else %>
+			                                  <%= image_tag image.url %>
+			                              <% end %>
+									    </div>
+
+									    <% unless current_user == user2 %>
+										  <% if current_user.following?(user2) %>
+										    <%= form_for(current_user.user_relationships.find_by(follow_id: user2.id), html: { method: :delete }) do |f| %>
+										      <%= hidden_field_tag :follow_id, user.id %>
+										      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
+										    <% end %>
+										  <% else %>
+										    <%= form_for(current_user.user_relationships.build) do |f| %>
+										      <%= hidden_field_tag :follow_id, user2.id %>
+										      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
+										    <% end %>
+										  <% end %>
+										<% end %>
+
+										<div class="user-name">
+									        <%= user1.nickname %>
+									    </div>
+
+										<div class="user-post-date">
+											<%= user1.favorite_artists %>
+										</div>
+
+										<div class="user-spot">
+									        <%= user1.prefecture %>
+									    </div>
+								    <% end %>
+							     </td>
+
+							     <td class="user-index-td">
+								  <% if user3.present? %>
+							        <%#= link_to item_path(item1.id) do %>
+			                            <div class="user-image">
+									      <% if user3.image %>
+			                                  <%= image_tag "/no_image.jpg" %>
+			                              <% else %>
+			                                  <%= image_tag image.url %>
+			                              <% end %>
+									    </div>
+
+									    <% unless current_user == user3 %>
+										  <% if current_user.following?(user3) %>
+										    <%= form_for(current_user.user_relationships.find_by(follow_id: user3.id), html: { method: :delete }) do |f| %>
+										      <%= hidden_field_tag :follow_id, user.id %>
+										      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
+										    <% end %>
+										  <% else %>
+										    <%= form_for(current_user.user_relationships.build) do |f| %>
+										      <%= hidden_field_tag :follow_id, user3.id %>
+										      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
+										    <% end %>
+										  <% end %>
+										<% end %>
+
+										<div class="user-name">
+									        <%= user3.nickname %>
+									    </div>
+
+										<div class="user-post-date">
+											<%= user3.favorite_artists %>
+										</div>
+
+										<div class="user-spot">
+									        <%= user3.prefecture %>
+									    </div>
+								    <% end %>
+							     </td>
+
+							     <td class="user-index-td">
+								  <% if user4.present? %>
+							        <%#= link_to item_path(item1.id) do %>
+			                            <div class="user-image">
+									      <% if user4.image %>
+			                                  <%= image_tag "/no_image.jpg" %>
+			                              <% else %>
+			                                  <%= image_tag image.url %>
+			                              <% end %>
+									    </div>
+
+									    <% unless current_user == user4 %>
+										  <% if current_user.following?(user4) %>
+										    <%= form_for(current_user.user_relationships.find_by(follow_id: user4.id), html: { method: :delete }) do |f| %>
+										      <%= hidden_field_tag :follow_id, user.id %>
+										      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
+										    <% end %>
+										  <% else %>
+										    <%= form_for(current_user.user_relationships.build) do |f| %>
+										      <%= hidden_field_tag :follow_id, user4.id %>
+										      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
+										    <% end %>
+										  <% end %>
+										<% end %>
+
+										<div class="user-name">
+									        <%= user4.nickname %>
+									    </div>
+
+										<div class="user-post-date">
+											<%= user4.favorite_artists %>
+										</div>
+
+										<div class="user-spot">
+									        <%= user4.prefecture %>
+									    </div>
+								    <% end %>
+							     </td>
+						  </tr>
+						</tbody>
+			        <% end %>
+			</table>
+
+			<div class="users-page"><%#= paginate @users %></div>
+
+	  </div>
+   </div>
+</div>

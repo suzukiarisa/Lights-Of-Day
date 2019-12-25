@@ -6,15 +6,13 @@
 .favorite-title {
     color:#FF8C00;
     font-size: 25px;
-    position: relative;
-    top: 120px;
-    left: 30px;
 }
 
 .favorite-festival-index {
 	height: 400px;
     width: 260px;
     margin: 15px;
+    color: #777777;
 	float: left;
 	position: relative;
     top: 120px;
@@ -38,4 +36,18 @@
 .favorite-festival-body {
 	font-size: 18px;
     text-align: center;
+}
+
+.destroy-favorite-box {
+    font-size: 18px;
+    position: relative;
+    top: 120px;
+    left: 720px;
+}
+
+.favorite-pagenate {
+    font-size: 25px;
+    position: relative;
+    top: 120px;
+    left: 755px;
 }

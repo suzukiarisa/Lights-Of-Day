@@ -1,20 +1,20 @@
 class FavoritesController < ApplicationController
   def index
        @favorites = Favorite.where(user_id: current_user.id)
-       @favorites = Favorite.page(params[:page]).per(2)
+       @favorites = Favorite.page(params[:page]).per(4)
       end
 
       def create
       	@festival = Festival.find(params[:festival_id])
-        @favorite = current_user.favorites.new(festival_id: festival.id)
-        favorite.save
+        @favorite = current_user.favorites.new(festival_id: @festival.id)
+        @favorite.save
         redirect_to festivals_path(@festival), notice: "お気に入りに登録しました"
       end
 
       def destroy
         @festival = Festival.find(params[:festival_id])
-        @favorite = current_user.favorites.find_by(festival_id: festival.id)
-        favorite.destroy
+        @favorite = current_user.favorites.find_by(festival_id: @festival.id)
+        @favorite.destroy
         redirect_to festivals_path(@festival)
      end
 
