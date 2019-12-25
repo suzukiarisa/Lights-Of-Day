@@ -3,14 +3,160 @@
    <div class="row">
       <div class="col-xs-12">
 
+      	<table>
+			  <div class="memory-index">
+			    <span class="memories-title">My Memory</span></div>
+			        <% @memories.each_slice(4) do |memory1, memory2, memory3, memory4| %>
+
+						<tbody>
+						  <tr class="memory-index-tr">
+
+							    <td class="memory-index-td">
+								  <% if memory1.present? %>
+							        <%#= link_to item_path(item1.id) do %>
+			                        <% if memory1.memory_photos.length == 0 %>
+			                           <%= image_tag "/no_image.jpg" %>
+			                        <% else %>
+			                           <% memory1.memory_photos.each do |photo| %>
+			                              <%= image_tag photo.image.url %>
+			                           <% end %>
+			                        <% end %>
+										<div class="memory-name">
+									        <%= memory1.user.nickname %>
+									    </div>
+
+										<div class="memory-post-date">
+											<%= memory1.post_date %>
+										</div>
+
+										<div class="memory-spot">
+									        <%= memory1.spot %>
+									    </div>
+
+									    <div class="memory-title">
+									        <%= memory1.title %>
+									    </div>
+
+									    <div class="memory-body">
+									        <%= memory1.body %>
+									    </div>
+								    <% end %>
+							     </td>
+
+							    <td class="memory-index-td">
+								  <% if memory2.present? %>
+							        <%#= link_to item_path(item2.id) do %>
+			                        <% if memory2.memory_photos.length == 0 %>
+			                              <%= image_tag "/no_image.jpg" %>
+			                          <% else %>
+			                           <% memory2.memory_photos.each do |photo| %>
+			                              <%= image_tag photo.image.url %>
+			                          <% end %>
+			                        <% end %>
+										<div class="memory-name">
+									        <%= memory2.user.nickname %>
+									    </div>
+
+										<div class="memory-post-date">
+											<%= memory2.post_date %>
+										</div>
+
+										<div class="memory-spot">
+									        <%= memory2.spot %>
+									    </div>
+
+									    <div class="memory-title">
+									        <%= memory2.title %>
+									    </div>
+
+									    <div class="memory-body">
+									        <%= memory2.body %>
+									    </div>
+								    <% end %>
+							    </td>
+
+							     <td class="memory-index-td">
+								  <% if memory3.present? %>
+							        <%#= link_to item_path(item2.id) do %>
+								    <% if memory2.memory_photos.length == 0 %>
+			                              <%= image_tag "/no_image.jpg" %>
+			                          <% else %>
+			                           <% memory2.memory_photos.each do |photo| %>
+			                              <%= image_tag photo.image.url %>
+			                          <% end %>
+			                        <% end %>
+
+										<div class="memory-name">
+									        <%= memory3.user.nickname %>
+									    </div>
+
+										<div class="memory-post-date">
+											<%= memory3.post_date %>
+										</div>
+
+										<div class="memory-spot">
+									        <%= memory3.spot %>
+									    </div>
+
+									    <div class="memory-title">
+									        <%= memory3.title %>
+									    </div>
+
+									    <div class="memory-body">
+									        <%= memory3.body %>
+									    </div>
+								    <% end %>
+							    </td>
+
+							     <td class="memory-index-td">
+								  <% if memory4.present? %>
+
+							        <%#= link_to item_path(item2.id) do %>
+								    <% if memory2.memory_photos.length == 0 %>
+			                              <%= image_tag "/no_image.jpg" %>
+			                          <% else %>
+			                           <% memory2.memory_photos.each do |photo| %>
+			                              <%= image_tag photo.image.url %>
+			                          <% end %>
+			                        <% end %>
+
+										<div class="memory-name">
+									        <%= memory4.user.nickname %>
+									    </div>
+
+										<div class="memory-post-date">
+											<%= memory4.post_date %>
+										</div>
+
+										<div class="memory-spot">
+									        <%= memory4.spot %>
+									    </div>
+
+									    <div class="memory-title">
+									        <%= memory4.title %>
+									    </div>
+
+									    <div class="memory-body">
+									        <%= memory4.body %>
+									    </div>
+								    <% end %>
+
+							    </td>
+						  </tr>
+						</tbody>
+			        <% end %>
+			</table>
+
+	  </div>
+   </div>
+   <div class="row">
+      <div class="col-xs-12">
+
+
+
 			<table>
 			  <div class="recommend-index">
-			    <span class="recommends-title">All Recommends</span></div>
-			      <div class="recommend-new-link">
-			      	<% link_to new_recommend_path do %>
-			          <span class="recommend-plus"> オススメを投稿する <i class="fas fa-plus"></i></span>
-			        <% end %>
-			      </div>
+			    <span class="recommends-title">My Recommend</span></div>
 
 			        <% @recommends.each_slice(4) do |recommend1, recommend2, recommend3, recommend4| %>
 
@@ -152,8 +298,6 @@
 						</tbody>
 			        <% end %>
 			</table>
-
-			<div class="recommends-page"><%= paginate @recommends %></div>
 
 	  </div>
    </div>

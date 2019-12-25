@@ -1,0 +1,57 @@
+
+<div class="container">
+	<div class="row">
+		<div class="favorite-title">Favorite / いいね<div>
+	   		<% @favorites.each do |favorite| %>
+				  <div class="favorite-festival-index">
+				  	<div class="checkbox-size">
+					<%= check_box_tag 'favorites[]', favorite.id, false, {id: favorite.id, form: "formtag"}%>
+			        </div>
+					　<div class="col-xs-11">
+
+		                <div class="favorite-festival-image">
+					    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+			            </div>
+
+						<div class="festival-event-date">
+					        <%= festival.event_date %>
+					    </div>
+
+					    <div class="favorite-festival">
+						    <% if @festival.favorited_by?(current_user) %>
+						      <%= link_to festival_favorite_path(@festival.id), method: :delete do %>
+							    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+							  <% end %>
+							<% else %>
+							  <%= link_to festival_favorites_path(@festival.id), method: :post do %>
+							    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+							  <% end %>
+							<% end %>
+						</div>
+
+						<div class="favorite-festival-name">
+							<%= festival.festival_name.name %>
+						</div>
+
+						<div class="favorite-festival-place">
+					        @ <%= festival.place.name %>
+					    </div>
+
+					    <div class="favorite-festival-body">
+					        <%= festival.body %>
+					    </div>
+				    </div>
+				　</div>
+	        <% end %>
+    </div>
+</div>
+
+　　　　　<div class="favorite-pagenate"><%= paginate @favorites %></div>
+			<div class="favorite-border"></div>
+			<%= form_tag(destroy_all_path, method: :delete, id:"formtag") do %>
+
+				<div class="destroy-favorite-box">
+				<%= submit_tag "チェックしたアイテムを削除" %>
+				</div>
+
+			<% end %>

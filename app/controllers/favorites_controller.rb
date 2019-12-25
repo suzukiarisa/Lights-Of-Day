@@ -6,17 +6,15 @@ class FavoritesController < ApplicationController
 
       def create
       	@festival = Festival.find(params[:festival_id])
-        @favorite = Favorite.new
-        @favorite.festival_id = @festival.id
-        @favorite.user_id = current_user.id
-        @favorite.save
+        @favorite = current_user.favorites.new(festival_id: festival.id)
+        favorite.save
         redirect_to festivals_path(@festival), notice: "お気に入りに登録しました"
       end
 
       def destroy
-        @festival = Festival.find(params[:festivsl_id])
-      	@favorite = Favorite.find_by(festival_id: params[:id], user_id: current_user.id)
-        @favorite.destroy
+        @festival = Festival.find(params[:festival_id])
+        @favorite = current_user.favorites.find_by(festival_id: festival.id)
+        favorite.destroy
         redirect_to festivals_path(@festival)
      end
 

@@ -1,303 +1,53 @@
+
 <div class="container">
-   <div class="row">
-      <div class="col-xs-12">
+  <div class="row">
+  	<h2 class="user-confirm-title1">User Confirmation </h2>
+     <div class="user-confirm-title2">/ 確認</div>
+       <div class="col-xs-8 col-xs-offset-2">
 
-      	<table>
-			  <div class="memory-index">
-			    <span class="memories-title">My Memory</span></div>
-			        <% @memories.each_slice(4) do |memory1, memory2, memory3, memory4| %>
+    		 <%= form_for(@user) do |f| %>
 
-						<tbody>
-						  <tr class="memory-index-tr">
+            <div class="conform-image-position">
+              <div class="col-xs-3">
+               <%= image_tag @user.image.url %>
+              </div>
+            </div>
 
-							    <td class="memory-index-td">
-								  <% if memory1.present? %>
-							        <%#= link_to item_path(item1.id) do %>
-			                        <% if memory1.memory_photos.length == 0 %>
-			                           <%= image_tag "/no_image.jpg" %>
-			                        <% else %>
-			                           <% memory1.memory_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                           <% end %>
-			                        <% end %>
-										<div class="memory-name">
-									        <%= memory1.user.nickname %>
-									    </div>
+            <div class="conform-form-position">
+              <div class="col-xs-3 col-xs-offset-3">
+                <label class="float-left">ニックネーム </label>
+                <input type="text" class="col-auto form-control" value="<%= @user.nickname %>" readonly>
+              </div>
 
-										<div class="memory-post-date">
-											<%= memory1.post_date %>
-										</div>
+              <div class="col-xs-3">
+                <label class="float-left">好きなアーティスト </label>
+                <input type="text" class="col-auto form-control" value="<%= @user.favorite_artists %>" readonly>
+              </div>
 
-										<div class="memory-spot">
-									        <%= memory1.spot %>
-									    </div>
+              <div class="col-xs-3 col-xs-offset-3">
+                <div class="col-xs-3 col-xs-offset-3">
+                  <%= f.label :居住地, class: "float-left" %><br />
+                  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, {:disabled => true} %>
+                </div>
+              </div>
 
-									    <div class="memory-title">
-									        <%= memory1.title %>
-									    </div>
-
-									    <div class="memory-body">
-									        <%= memory1.body %>
-									    </div>
-								    <% end %>
-							     </td>
-
-							    <td class="memory-index-td">
-								  <% if memory2.present? %>
-							        <%#= link_to item_path(item2.id) do %>
-			                        <% if memory2.memory_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% memory2.memory_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-										<div class="memory-name">
-									        <%= memory2.user.nickname %>
-									    </div>
-
-										<div class="memory-post-date">
-											<%= memory2.post_date %>
-										</div>
-
-										<div class="memory-spot">
-									        <%= memory2.spot %>
-									    </div>
-
-									    <div class="memory-title">
-									        <%= memory2.title %>
-									    </div>
-
-									    <div class="memory-body">
-									        <%= memory2.body %>
-									    </div>
-								    <% end %>
-							    </td>
-
-							     <td class="memory-index-td">
-								  <% if memory3.present? %>
-							        <%#= link_to item_path(item2.id) do %>
-								    <% if memory2.memory_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% memory2.memory_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-
-										<div class="memory-name">
-									        <%= memory3.user.nickname %>
-									    </div>
-
-										<div class="memory-post-date">
-											<%= memory3.post_date %>
-										</div>
-
-										<div class="memory-spot">
-									        <%= memory3.spot %>
-									    </div>
-
-									    <div class="memory-title">
-									        <%= memory3.title %>
-									    </div>
-
-									    <div class="memory-body">
-									        <%= memory3.body %>
-									    </div>
-								    <% end %>
-							    </td>
-
-							     <td class="memory-index-td">
-								  <% if memory4.present? %>
-
-							        <%#= link_to item_path(item2.id) do %>
-								    <% if memory2.memory_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% memory2.memory_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-
-										<div class="memory-name">
-									        <%= memory4.user.nickname %>
-									    </div>
-
-										<div class="memory-post-date">
-											<%= memory4.post_date %>
-										</div>
-
-										<div class="memory-spot">
-									        <%= memory4.spot %>
-									    </div>
-
-									    <div class="memory-title">
-									        <%= memory4.title %>
-									    </div>
-
-									    <div class="memory-body">
-									        <%= memory4.body %>
-									    </div>
-								    <% end %>
-
-							    </td>
-						  </tr>
-						</tbody>
-			        <% end %>
-			</table>
-
-	  </div>
-   </div>
-   <div class="row">
-      <div class="col-xs-12">
-
-
-
-			<table>
-			  <div class="recommend-index">
-			    <span class="recommends-title">My Recommend</span></div>
-
-			        <% @recommends.each_slice(4) do |recommend1, recommend2, recommend3, recommend4| %>
-
-						<tbody>
-						  <tr class="recommend-index-tr">
-
-							    <td class="recommend-index-td">
-								  <% if recommend1.present? %>
-							        <%#= link_to item_path(item1.id) do %>
-			                        <% if recommend1.recommend_photos.length == 0 %>
-			                           <%= image_tag "/no_image.jpg" %>
-			                        <% else %>
-			                           <% recommend1.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                           <% end %>
-			                        <% end %>
-										<div class="recommend-name">
-									        <%= recommend1.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend1.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend1.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend1.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend1.body %>
-									    </div>
-								    <% end %>
-							     </td>
-
-							    <td class="recommend-index-td">
-								  <% if recommend2.present? %>
-							        <%#= link_to item_path(item2.id) do %>
-			                        <% if recommend2.recommend_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% recommend2.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-										<div class="recommend-name">
-									        <%= recommend2.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend2.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend2.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend2.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend2.body %>
-									    </div>
-								    <% end %>
-							    </td>
-
-							     <td class="recommend-index-td">
-								  <% if recommend3.present? %>
-							        <%#= link_to item_path(item2.id) do %>
-								    <% if recommend2.recommend_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% recommend2.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-
-										<div class="recommend-name">
-									        <%= recommend3.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend3.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend3.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend3.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend3.body %>
-									    </div>
-								    <% end %>
-							    </td>
-
-							     <td class="recommend-index-td">
-								  <% if recommend4.present? %>
-
-							        <%#= link_to item_path(item2.id) do %>
-								    <% if recommend2.recommend_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% recommend2.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-
-										<div class="recommend-name">
-									        <%= recommend4.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend4.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend4.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend4.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend4.body %>
-									    </div>
-								    <% end %>
-
-							    </td>
-						  </tr>
-						</tbody>
-			        <% end %>
-			</table>
-
-	  </div>
-   </div>
+              <div class="col-xs-6 col-xs-offset-3">
+                <label class="control-label" for="InputText">メールアドレス </label>
+                <input type="text" class="col-auto form-control" id="InputText" value="<%= @user.email %>" readonly>
+              </div>
+            </div>
+    	   <% end %>
+       </div>
+  </div>
 </div>
+
+
+     <div class="row">
+        <%= link_to "編集する", edit_user_path(current_user.id), class: "btn btn-success mx-auto btn-lg" %>
+     </div>
+
+     <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+          <%= link_to "< マイページへ", mypage_path %>
+      </div>
+    </div>

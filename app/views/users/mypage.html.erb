@@ -4,7 +4,7 @@
     <div class="row  text-center row-eq-height">
       <div class="col-xs-8 col-xs-offset-2">
         <div class="col-xs-6">
-        	<%= link_to user_path, class:'link-menu' do %>
+        	<%= link_to post_path, class:'link-menu' do %>
             <div class="jumbotron text-center">
               <span class="icon glyphicon glyphicon-camera" style="font-size: 60px"></span>
               <h3 class="menu">My Post</h3>
@@ -39,7 +39,7 @@
 
 
         <div class="col-xs-6">
-          <%= link_to edit_user_path(current_user.id), class:'link-menu' do %>
+          <%= link_to user_path(current_user.id), class:'link-menu' do %>
             <div class="jumbotron text-center">
               <span class="icon glyphicon glyphicon-cog" style="font-size: 60px"></span>
 

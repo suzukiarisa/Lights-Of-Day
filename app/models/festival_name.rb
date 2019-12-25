@@ -1,7 +1,7 @@
 class FestivalName < ApplicationRecord
 
-	belongs_to :festival
-	accepts_nested_attributes_for :festival
+	has_many :festivals
+	accepts_nested_attributes_for :festivals
 
 	validates :name, presence: true
 

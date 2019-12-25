@@ -10,6 +10,6 @@ class Festival < ApplicationRecord
     attachment :image
 
   def favorited_by?(user)
-    self.favorites.where(user_id: user.id).exists?
+    favorites.where(user_id: user.id).exists?
   end
 end

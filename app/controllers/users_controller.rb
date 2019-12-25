@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
 
-	def index
+	  def index
+    end
+
+    def post
+     @user = User.find(params[:id])
+     @memories = @user.memories
+     @recommends = @user.recommends
     end
 
     def show
      @user = User.find(params[:id])
-     @memories = @user.memories
-     @recommends = @user.recommends
+     @user = current_user
     end
 
     def edit

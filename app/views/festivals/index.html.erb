@@ -75,16 +75,16 @@
 					    </div>
 
 					    <div class="favorite-festival">
-						    <% if festival.favorited_by?(current_user) %>
-						      <%= link_to favorites_path(festival.id), method: :delete do %>
-							    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-							  <% end %>
-							<% else %>
-							  <%= link_to favorites_path(festival.id), method: :post do %>
-							    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-							  <% end %>
-							<% end %>
-						</div>
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 						<div class="festival-name">
 							<%= festival.festival_name.name %>
@@ -116,13 +116,13 @@
 				    </div>
 
 				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
+				      <% if @festival.favorited_by?(current_user) %>
+				        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+				       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
 					    <% end %>
 					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
+					    <%= link_to festival_favorites_path(@festival), method: :post do %>
+					      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
 					    <% end %>
 					  <% end %>
 				    </div>
@@ -157,17 +157,17 @@
 				        <%= festival.event_date %>
 				    </div>
 
-				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-					    <% end %>
-					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-					    <% end %>
-					  <% end %>
-				    </div>
+				        <div class="favorite-festival">
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 					<div class="festival-name">
 						<%= festival.festival_name.name %>
@@ -198,17 +198,17 @@
 				        <%= festival.event_date %>
 				    </div>
 
-				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-					    <% end %>
-					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-					    <% end %>
-					  <% end %>
-				    </div>
+				        <div class="favorite-festival">
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 					<div class="festival-name">
 						<%= festival.festival_name.name %>
@@ -239,17 +239,17 @@
 				        <%= festival.event_date %>
 				    </div>
 
-				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-					    <% end %>
-					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-					    <% end %>
-					  <% end %>
-				    </div>
+				        <div class="favorite-festival">
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 					<div class="festival-name">
 						<%= festival.festival_name.name %>
@@ -280,17 +280,17 @@
 				        <%= festival.event_date %>
 				    </div>
 
-				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-					    <% end %>
-					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-					    <% end %>
-					  <% end %>
-				    </div>
+				        <div class="favorite-festival">
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 					<div class="festival-name">
 						<%= festival.festival_name.name %>
@@ -321,17 +321,17 @@
 				        <%= festival.event_date %>
 				    </div>
 
-				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-					    <% end %>
-					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-					    <% end %>
-					  <% end %>
-				    </div>
+				        <div class="favorite-festival">
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 					<div class="festival-name">
 						<%= festival.festival_name.name %>
@@ -362,17 +362,17 @@
 				        <%= festival.event_date %>
 				    </div>
 
-				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-					    <% end %>
-					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-					    <% end %>
-					  <% end %>
-				    </div>
+				        <div class="favorite-festival">
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 					<div class="festival-name">
 						<%= festival.festival_name.name %>
@@ -403,17 +403,17 @@
 				        <%= festival.event_date %>
 				    </div>
 
-				    <div class="favorite-festival">
-				      <% if festival.favorited_by?(current_user) %>
-				        <%= link_to favorites_path(festival.id), method: :delete do %>
-					      <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-					    <% end %>
-					  <% else %>
-					    <%= link_to favorites_path(festival.id), method: :post do %>
-					      <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-					    <% end %>
-					  <% end %>
-				    </div>
+				        <div class="favorite-festival">
+					      <% if @festival.favorited_by?(current_user) %>
+					        <%= link_to festival_favorite_path(@festival), method: :delete do %>
+					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+						    <% end %>
+						  <% else %>
+						    <%= link_to festival_favorites_path(@festival), method: :post do %>
+						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+						    <% end %>
+						  <% end %>
+					    </div>
 
 					<div class="festival-name">
 						<%= festival.festival_name.name %>

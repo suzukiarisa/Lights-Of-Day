@@ -49,12 +49,7 @@ class Admins::FestivalsController < ApplicationController
   end
 
   def create
-      @festival_name = FestivalName.find_by(name: params[:festival][:festival_name_id])
-      @place = Place.find_by(name: params[:festival][:place_id])
-
       @festival = Festival.new(festival_params)
-      @festival.festival_name_id = @festival_name.id
-      @festival.place_id = @place.id
     if @festival.save
       redirect_to new_admins_festival_path
     else
@@ -86,6 +81,6 @@ class Admins::FestivalsController < ApplicationController
   private
   #cocoon用記述。_destroyがないと削除できない。
   def festival_params
-    params.require(:festival).permit(:image, :event_date, :prefecture_id, :body, :fastival_name_id, :place_id)
+    params.require(:festival).permit(:image, :event_date, :prefecture_id, :body, :festival_name_id, :place_id)
   end
 end

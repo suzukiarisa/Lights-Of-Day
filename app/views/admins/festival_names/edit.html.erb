@@ -8,14 +8,14 @@
 			<div class="festival-names-border"></div>
 
 			<div class="col-xs-6 col-xs-offset-3 festival-name-category-box">
-			  <%= form_for @festival_name, url: admin_festival_name_path do |f| %>
+			  <%= form_for @festival_name, url: edit_admins_festival_name_path do |f| %>
 
 			  <%= f.label :フェス名 %>
 			  <%= f.text_field :name, autofocus: true %>
 
 			  <%= f.submit '保存する', class: "btn btn-primary" %>
 
-			  <%= link_to '削除する', admin_festival_name_path, method: :delete ,"data-confirm" => "本当に消しますか？" ,class: 'btn btn-danger' %>
+			  <%= link_to '削除する', admins_festival_name_path, method: :delete ,"data-confirm" => "本当に消しますか？" ,class: 'btn btn-danger' %>
 
 			  <% end %>
 			</div>

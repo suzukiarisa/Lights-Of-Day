@@ -1,6 +1,6 @@
 class Place < ApplicationRecord
 
-	belongs_to :festival
+	has_many :festivals
 	validates :name, presence: true
 
 	#オートコンプリート用

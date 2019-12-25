@@ -5,7 +5,11 @@
 			<table>
 			  <div class="memory-index">
 			    <span class="memories-title">All Memories</span></div>
-			    <div class="memory-new-link"><%= link_to "メモリーの投稿をする", new_memory_path %></div>
+			      <div class="memory-new-link">
+			      	<% link_to new_memory_path do %>
+			          <span class="memory-plus"> メモリーを投稿する <i class="fas fa-plus"></i></span>
+			        <% end %>
+			      </div>
 
 			        <% @memories.each_slice(4) do |memory1, memory2, memory3, memory4| %>
 

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
     get 'users/:id/exit' => 'users#exit', as: 'exit'
     get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
+    get 'users/:id/post' => 'users#post', as: 'post'
 
     root to: 'tops#index'
     get 'homes/about' => 'homes#about'

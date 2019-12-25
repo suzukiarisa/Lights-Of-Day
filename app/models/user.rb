@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable
 
   validates :nickname, presence: true, length: { maximum: 10 }
   validates :favorite_artists, presence: true, length: { maximum: 30 }
@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
 
   belongs_to :prefecture, optional: true
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_festivals, through: :favorites, source: :festival
   has_many :messages
   has_many :memories, dependent: :destroy
   has_many :recommends, dependent: :destroy

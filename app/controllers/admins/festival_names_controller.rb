@@ -45,5 +45,5 @@ end
   private
   def festival_name_params
   	params.require(:festival_name).permit(:name)
-end
+  end
 end

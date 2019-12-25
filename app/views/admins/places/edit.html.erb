@@ -7,14 +7,14 @@
 			<div class="place-border"></div>
 
 			<div class="col-xs-6 col-xs-offset-3 place-category-box">
-			  <%= form_for @place, url: admin_place_path do |f| %>
+			  <%= form_for @place, url: edit_admins_place_path do |f| %>
 
 			  <%= f.label :開催地 %>
 			  <%= f.text_field :name, autofocus: true %>
 
 			  <%= f.submit '保存する', class: "btn btn-primary" %>
 
-			  <%= link_to '削除する', admin_place_path, method: :delete ,"data-confirm" => "本当に消しますか？" ,class: 'btn btn-danger' %>
+			  <%= link_to '削除する', admins_place_path, method: :delete ,"data-confirm" => "本当に消しますか？" ,class: 'btn btn-danger' %>
 
 			  <% end %>
 			</div>
