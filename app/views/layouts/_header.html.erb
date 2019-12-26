@@ -28,6 +28,12 @@
               <span class="current_user"><%= current_user.nickname %> さん</span>
               <br>
               <div class="header-menu">
+              <%= link_to(root_path) do %>
+              <span class="tops"> Top</span>
+              <% end %>
+              <%= link_to users_path, data: {"turbolinks" => false} do %>
+              <span class="users"> Users</span>
+              <% end %>
               <%= link_to(festivals_path) do %>
               <span class="festivals"> Festivals</span>
               <% end %>

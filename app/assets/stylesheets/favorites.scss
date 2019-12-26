@@ -15,12 +15,7 @@
     color: #777777;
 	float: left;
 	position: relative;
-    top: 120px;
     left: 30px;
-}
-
-.favorite-festival {
-    font-size: 20px;
 }
 
 .favorite-festival-name {
@@ -41,13 +36,20 @@
 .destroy-favorite-box {
     font-size: 18px;
     position: relative;
-    top: 120px;
+    top: 220px;
     left: 720px;
 }
 
 .favorite-pagenate {
     font-size: 25px;
     position: relative;
-    top: 120px;
+    top: 200px;
     left: 755px;
+}
+
+.checkbox-size {
+    transform: scale(1.5);
+    position: relative;
+    bottom: 10px;
+    left: 190px;
 }

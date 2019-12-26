@@ -61,52 +61,59 @@
 
 
 	<div class="row">
-	  <div class="hokkaido-text-color"><a id="hokkaido">Hokkaido / 北海道</a><div>
-	   		<% @hokkaido_festivals.each do |festival| %>
-				  <div class="hokkaido-festival">
-					　<div class="col-xs-11">
+	  <div class="hokkaido-text-color">
+	  	<a id="hokkaido">Hokkaido / 北海道</a>
+	  <div>
+	  	<div class="row">
+	   	  <% @hokkaido_festivals.each do |festival| %>
+		    <div class="col-xs-3">
+	   		  <div class="col-xs-11">
 
-		                <div class="festival-image">
-					    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-			            </div>
+                <div class="festival-image">
+			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
 
-						<div class="festival-event-date">
-					        <%= festival.event_date %>
-					    </div>
+				<div class="festival-event-date">
+			        <%= festival.event_date %>
+			    </div>
 
-					    <div class="favorite-festival">
-					      <% if festival.favorited_by?(current_user) %>
-					        <%= link_to festival_favorite_path(festival), method: :delete do %>
-					       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
-						    <% end %>
-						  <% else %>
-						    <%= link_to festival_favorite_path(festival), method: :post do %>
-						      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
-						    <% end %>
-						  <% end %>
-					    </div>
+			    <div class="favorite-festival">
+			      <% if festival.favorited_by?(current_user) %>
+			        <%= link_to festival_favorite_path(festival), method: :delete do %>
+			       	  <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+				    <% end %>
+				  <% else %>
+				    <%= link_to festival_favorite_path(festival), method: :post do %>
+				      <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+				    <% end %>
+				  <% end %>
+			    </div>
 
-						<div class="festival-name">
-							<%= festival.festival_name.name %>
-						</div>
+				<div class="festival-name">
+					<%= festival.festival_name.name %>
+				</div>
 
-						<div class="festival-place">
-					        @ <%= festival.place.name %>
-					    </div>
+				<div class="festival-place">
+			        @ <%= festival.place.name %>
+			    </div>
 
-					    <div class="festival-body">
-					        <%= festival.body %>
-					    </div>
-				    </div>
-				　</div>
-	        <% end %>
+			    <div class="festival-body">
+			        <%= festival.body %>
+			    </div>
+	          </div>
+			</div>
+	      <% end %>
+	    </div>
     </div>
 
 	<div class="row">
-        <div class="tohoku-text-color"><a id="tohoku">Tohoku / 東北</a></div>
-   		   <% @tohoku_festivals.each do |festival| %>
-   		       <div class="tohoku-festival">
-				 <div class="col-xs-11">
+        <div class="tohoku-text-color">
+        	<a id="tohoku">Tohoku / 東北</a>
+        </div>
+          <div class="row">
+   		    <% @tohoku_festivals.each do |festival| %>
+   		      <div class="col-xs-3">
+	   		    <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -139,17 +146,21 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-			     </div>
+			    </div>
 			  </div>
            <% end %>
+          </div>
 	</div>
 
 
 	<div class="row">
-        <div class="kanto-text-color"><a id="kanto">Kanto / 関東</a></div>
-   		   <% @kanto_festivals.each do |festival| %>
-               <div class="kanto-festival">
-				 <div class="col-xs-11">
+        <div class="kanto-text-color">
+        	<a id="kanto">Kanto / 関東</a>
+        </div>
+          <div class="row">
+   		    <% @kanto_festivals.each do |festival| %>
+              <div class="col-xs-3">
+	   		    <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -181,16 +192,20 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-			     </div>
-			   </div>
+			    </div>
+			  </div>
            <% end %>
+          </div>
     </div>
 
     <div class="row">
-        <div class="chubu-text-color"><a id="chubu">Chubu / 中部</a></div>
-   		   <% @chubu_festivals.each do |festival| %>
-               <div class="chubu-festival">
-                 <div class="col-xs-11">
+        <div class="chubu-text-color">
+        	<a id="chubu">Chubu / 中部</a>
+        </div>
+          <div class="row">
+   		    <% @chubu_festivals.each do |festival| %>
+              <div class="col-xs-3">
+	   		    <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -222,16 +237,20 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-				 </div>
-			   </div>
+				</div>
+			  </div>
            <% end %>
+          </div>
     </div>
 
     <div class="row">
-    	<div class="kinki-text-color"><a id="kinki">Kinki / 近畿</a></div>
-		   <% @kinki_festivals.each do |festival| %>
-               <div class="kinki-festival">
-	   		     <div class="col-xs-11">
+    	<div class="kinki-text-color">
+    		<a id="kinki">Kinki / 近畿</a>
+    	</div>
+    	  <div class="row">
+		    <% @kinki_festivals.each do |festival| %>
+              <div class="col-xs-3">
+	   		    <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -263,16 +282,20 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-			     </div>
-			   </div>
+			    </div>
+			  </div>
            <% end %>
+          </div>
     </div>
 
     <div class="row">
-        <div class="chugoku-text-color"><a id="chugoku">Chugoku / 中国</a></div>
-   		   <% @chugoku_festivals.each do |festival| %>
-               <div class="chugoku-festival">
-	   		     <div class="col-xs-11">
+        <div class="chugoku-text-color">
+        	<a id="chugoku">Chugoku / 中国</a>
+        </div>
+          <div class="row">
+   		    <% @chugoku_festivals.each do |festival| %>
+              <div class="col-xs-3">
+   		        <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -304,16 +327,20 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-				 </div>
-			   </div>
+			    </div>
+			  </div>
            <% end %>
+          </div>
     </div>
 
     <div class="row">
-    	<div class="shikoku-text-color"><a id="shikoku">Shikoku / 四国</a></div>
-   		   <% @shikoku_festivals.each do |festival| %>
-               <div class="shikoku-festival">
-                 <div class="col-xs-11">
+    	<div class="shikoku-text-color">
+    		<a id="shikoku">Shikoku / 四国</a>
+    	</div>
+    	  <div class="row">
+   		    <% @shikoku_festivals.each do |festival| %>
+              <div class="col-xs-3">
+	   		    <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -345,16 +372,20 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-				 </div>
-			   </div>
+			    </div>
+			  </div>
            <% end %>
+          </div>
     </div>
 
     <div class="row">
-    	<div class="kyushu-text-color"><a id="kyushu">Kyushu / 九州</a></div>
-   		   <% @kyushu_festivals.each do |festival| %>
-               <div class="kyushu-festival">
-                 <div class="col-xs-11">
+    	<div class="kyushu-text-color">
+    		<a id="kyushu">Kyushu / 九州</a>
+    	</div>
+    	  <div class="row">
+   		    <% @kyushu_festivals.each do |festival| %>
+              <div class="col-xs-3">
+	   		    <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -386,16 +417,20 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-				 </div>
-			   </div>
+			    </div>
+			  </div>
            <% end %>
+          </div>
     </div>
 
     <div class="row">
-        <div class="okinawa-text-color"><a id="okinawa">Okinawa / 沖縄</a></div>
-   	       <% @okinawa_festivals.each do |festival| %>
-               <div class="okinawa-festival">
-                 <div class="col-xs-11">
+        <div class="okinawa-text-color">
+        	<a id="okinawa">Okinawa / 沖縄</a>
+        </div>
+          <div class="row">
+   	        <% @okinawa_festivals.each do |festival| %>
+              <div class="col-xs-3">
+	   		    <div class="col-xs-11">
 	                <div class="festival-image">
 				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
 		            </div>
@@ -427,9 +462,10 @@
 				    <div class="festival-body">
 				        <%= festival.body %>
 				    </div>
-				 </div>
-			   </div>
+			    </div>
+			  </div>
            <% end %>
+          </div>
     </div>
 
 </div>

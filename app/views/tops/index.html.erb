@@ -1,9 +1,6 @@
 
-
-<h1>ロゴ挿入</h1>
-
-<div class="row">
-  <div class="col-xs-11 col-xs-offset-1">
+  <h1>ロゴ挿入</h1>
+    <div class="row">
 
       <div class="theTarget">
           <div class="pic1">
@@ -22,78 +19,71 @@
               <div class="box-left"></div><div class="box-right"></div>
           </div>
       </div>
-  </div>
-</div>
-        <br><br><br>
-
-
+    </div>
+  <br><br><br>
 
 <div class="container">
   <div class="row">
-      <table>
-        <div class="top-memory">
-          <span class="top-memory-title">Memories/メモリー</span></div>
-            <% @random_memories.each do |memory| %>
-              <div class="memories-position">
-                <div class="col-xs-12">
-                  <tbody>
-                     <tr class="top-tr">
-                        <td class="top-memories-td">
-                              <%= link_to user_path(memory) do %>
-                                <% if memory.memory_photos.length == 0 %>
-                                      <% image_tag "/no_image.jpg" %>
-                                <% else %>
-                                   <% memory.memory_photos.each do |photo| %>
-                                      <%= image_tag photo.image.url %>
-                                   <% end %>
-                                <% end %>
-                              <% end %>
-                            <div class="memory-current-user"><%= memory.user.nickname %>さん</div>
-                            <div class="text-size"><%= memory.post_date %></div>
-                            <div class="text-size"><%= memory.spot %></div>
-                            <div class="text-size"><%= memory.title %></div>
-                            <div class="text-size"><%= memory.body %></div>
-                        </td>
-                     </tr>
-                  </tbody>
-                </div>
+    <div class="top-memory">
+      <span class="top-memory-title">Memories/メモリー</span>
+    </div>
+    <br>
+      <div class="row">
+        <div class="top-content">
+          <% @random_memories.each do |memory| %>
+            <div class="col-xs-3">
+              <div class="col-xs-9">
+                <%= link_to user_path(memory) do %>
+                  <% if memory.memory_photos.length == 0 %>
+                        <% image_tag "/no_image.jpg" %>
+                  <% else %>
+                     <% memory.memory_photos.each do |photo| %>
+                        <%= image_tag photo.image.url %>
+                     <% end %>
+                  <% end %>
+                <% end %>
+                  <div class="memory-current-user"><%= memory.user.nickname %>さん</div>
+                  <div class="text-size"><%= memory.post_date %></div>
+                  <div class="text-size"><%= memory.spot %></div>
+                  <div class="text-size"><%= memory.title %></div>
+                  <div class="text-size"><%= memory.body %></div>
               </div>
-            <% end %>
-      </table>
+            </div>
+          <% end %>
+        </div>
+      </div>
   </div>
-
+<br><br><br>
 
   <div class="row">
-      <table>
-        <div class="top-recommend">
-          <span class="top-recommend-title">Recommends/オススメ</span></div>
-            <% @random_recommends.each do |recommend| %>
-              <div class="recommends-position">
-                <div class="col-xs-12">
-                  <tbody>
-                    <tr class="top-tr">
-                      <td class="top-recommend-td">
-                            <%= link_to user_path(recommend) do %>
-                              <% if recommend.recommend_photos.length == 0 %>
-                                    <% image_tag "/no_image.jpg" %>
-                              <% else %>
-                                 <% recommend.recommend_photos.each do |photo| %>
-                                    <%= image_tag photo.image.url %>
-                                 <% end %>
-                              <% end %>
-                            <% end %>
-                          <div class="recommend-current-user"><%= recommend.user.nickname %>さん</div>
-                          <div class="text-size"><%= recommend.post_date %></div>
-                          <div class="text-size"><%= recommend.spot %></div>
-                          <div class="text-size"><%= recommend.title %></div>
-                          <div class="text-size"><%= recommend.body %></div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </div>
+    <div class="top-recommend">
+      <span class="top-recommend-title">Recommends/オススメ</span>
+    </div>
+    <br>
+      <div class="row">
+        <div class="top-content">
+          <% @random_recommends.each do |recommend| %>
+            <div class="col-xs-3">
+              <div class="col-xs-9">
+                <%= link_to user_path(recommend) do %>
+                  <% if recommend.recommend_photos.length == 0 %>
+                        <% image_tag "/no_image.jpg" %>
+                  <% else %>
+                     <% recommend.recommend_photos.each do |photo| %>
+                        <%= image_tag photo.image.url %>
+                     <% end %>
+                  <% end %>
+                <% end %>
+                  <div class="recommend-current-user"><%= recommend.user.nickname %>さん</div>
+                  <div class="text-size"><%= recommend.post_date %></div>
+                  <div class="text-size"><%= recommend.spot %></div>
+                  <div class="text-size"><%= recommend.title %></div>
+                  <div class="text-size"><%= recommend.body %></div>
+                  </div>
               </div>
-            <% end %>
-      </table>
+          <% end %>
+        </div>
+      </div>
   </div>
 </div>
 

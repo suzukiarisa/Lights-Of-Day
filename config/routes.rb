@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :festivals, only: [:index]
     resources :follows, only: [:index, :create, :destroy]
-    resources :user_relationships, only: [:create, :destroy]
+    resource :user_relationship, only: [:create, :destroy]
     resources :rooms, only: [:show, :create]
     resources :homes, only: [:about]
     resources :favorites, only: [:index]

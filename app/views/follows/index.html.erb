@@ -1,2 +1,58 @@
-<h1>Follows#index</h1>
-<p>Find me in app/views/follows/index.html.erb</p>
+
+
+<div class="container">
+  <div class="row">
+	<div class="follow-index">
+	  <span class="follow-title-index">Follows</span>
+	</div>
+
+	  <div class="row">
+	   	<% @users.each do |user| %>
+		  <div class="col-xs-3">
+	   	    <div class="col-xs-11">
+	        <%#= link_to item_path(item1.id) do %>
+	          <div class="follow-index-box">
+	            <div class="follow-index-image">
+			      <% if follow.user.image %>
+	                  <%= image_tag "/no_image.jpg" %>
+	              <% else %>
+	                  <%= image_tag image.url %>
+	              <% end %>
+			    </div>
+
+			    <% unless current_user == user %>
+	              <% if current_user.following?(user) %>
+				    <%= form_with url: user_relationship_path, html: { method: :delete } do |f| %>
+				      <%= hidden_field_tag '[user_relationship][user_id]', current_user.id %>
+				      <%= hidden_field_tag '[user_relationship][follow_id]', user.id %>
+
+				      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
+				    <% end %>
+				  <% else %>
+				    <%= form_with url: user_relationship_path, html: { method: :post } do |f| %>
+				      <%= hidden_field_tag '[user_relationship][user_id]', current_user.id %>
+				      <%= hidden_field_tag '[user_relationship][follow_id]', user.id %>
+				      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
+				    <% end %>
+				  <% end %>
+				<% end %>
+
+
+				<div class="follow-index-nickname">
+			        <%= follow.user.nickname %>
+			    </div>
+
+				<div class="user-index-favorite-artist">
+					<%= follow.user.favorite_artists %>
+				</div>
+
+				<div class="user-index-prefecture">
+			        <%= follow.user.prefecture %>
+			    </div>
+			  </div>
+			</div>
+		  </div>
+		<% end %>
+	  </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 	  def index
+      @user_relationship = UserRelationship.new
       @users = User.all
     end
 
@@ -23,8 +24,10 @@ class UsersController < ApplicationController
   def update
       @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to edit_user_path
+      flash[:success] = '情報を更新しました'
+      redirect_to user_path
     else
+      flash.now[:alert] = '情報の更新に失敗しました'
       render 'edit'
     end
   end

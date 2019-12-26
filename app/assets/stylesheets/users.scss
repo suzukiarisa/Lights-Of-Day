@@ -6,7 +6,7 @@
 /*sign-up*/
 
 .signup-image-position{
-	margin-left: 250px;
+	margin-left: 200px;
 }
 
 .signup-space-top{
@@ -24,6 +24,10 @@
 
 .link-to-signup {
 	margin-right: 32px;
+}
+
+.signup-form {
+	color: #777777;
 }
 
 /*sign-in*/
@@ -46,6 +50,10 @@
 	margin-left: 59px;
 }
 
+.signin-form {
+	color: #777777;
+}
+
 /*mypage*/
 
 .jumbotron {
@@ -55,16 +63,65 @@
 }
 
 .icon {
-	color: #a7a7a7;
+	color: #95b3d0;
 }
 
 .menu {
-    color: #aaaaaa;
+    color: #95b3d0;
 	font-size: auto;
 }
 
 .content {
-	color: 	#aaaaaa;
+	color: #95b3d0;
+}
+
+/*index*/
+.user-index-box {
+	color: #777777;
+}
+
+.users-title-index{
+	font-size: 30px;
+	color: #FF8C00;
+}
+
+.user-index-nickname {
+	font-size: 19px;
+}
+
+.user-index-favorite-artist {
+	font-size: 15px;
+}
+
+.user-index-prefecture {
+	font-size: 15px;
+}
+
+/*Show*/
+
+.user-confirm-title1 {
+	color: #FF8C00;
+    position: relative;
+    left: 320px;
+    bottom: 20px;
+}
+
+.user-confirm-title2{
+	color: #FF8C00;
+	font-size: 18px;
+    position: relative;
+    left: 580px;
+    bottom: 55px;
+}
+
+.confirm-form {
+	color: #777777;
+}
+
+.link-to-edit {
+	position: relative;
+    left: 85px;
+    bottom: 20px;
 }
 
 /*Edit*/
@@ -88,24 +145,22 @@
 	color: #777777;
     position: relative;
     left: 80px;
-    top: 33px;
 }
 
 .edit-form-position {
 	color: #777777;
 	position: relative;
-    right: 45px;
+    right: 35px;
+    bottom: 40px;
 }
 
 .edit-push {
 	position: relative;
-    right: 220px;
+    right: 215px;
     top: 240px;
 }
 
-.link-to-mypage {
-	color: #777777;
-	position: relative;
-    right: 500px;
-    top: 240px;
+  /*Exit*/
+.exit-list {
+	font-size: 22px;
 }

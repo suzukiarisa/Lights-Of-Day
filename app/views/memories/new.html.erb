@@ -7,30 +7,26 @@
 				<tbody>
 
 					<tr>
-						 <%= f.fields_for :images do |image| %>
+				     <%= f.fields_for :images do |image| %>
                        <div class="dropzone-container.clearfix">
-                          <div id="preview"></div>
-                          <div class="dropzone-area">
+                       	 <div class="memory-box">
+                           <div id="preview"></div>
+                           <div class="dropzone-area">
                              <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
                                <div class="input_area">
                                    <%= image.file_field :image, multiple: true, name: 'memory_images[images][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
                                         <i class="far fa-caret-square-down"></i>
-                                   <% end %>
                                </div>
-							      <div id="preview2"></div>
-							      <div class="dropzone-area2">
-							        <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
-							          <i class="far fa-caret-square-down"></i>
-							        <% end %>
-							      </div>
-						  </div>
+                             <% end %>
+						   </div>
+					     </div>
 					   </div>
-					     <% end %>
+					 <% end %>
 					</tr>
 
 					<tr>
 						<div class="">
-							<tr><label class="memory-post-date">投稿日</label></tr>
+							<tr><label class="memory-box">投稿日</label></tr>
 							  <tr>
 								<div class="form-group">
 								  <div class="input-group date" id="date" date-target-input="nearest">
@@ -51,29 +47,26 @@
 					</tr>
 					<tr>
 						<div class="">
-							<td class="memory-spot-box"><%= f.label :spot, '場所' %></td>
+							<td class="memory-box"><%= f.label :spot, '場所' %></td>
 							<td class="memory-spot-box-content"><%= f.text_field :spot,class:"col-xs-6" %></td>
 						</div>
 					</tr>
 					<tr>
 						<div class="">
-							<td class="memory-title-box"><%= f.label :title, 'タイトル ' %></td>
+							<td class="memory-box"><%= f.label :title, 'タイトル ' %></td>
 							<td class="memory-title-box-content"><%= f.text_field :title,class:"col-xs-6" %></td>
 						</div>
 					</tr>
 					<tr>
 						<div class="">
-							<td rowspan="2" class="memory-table-height"><%= f.label :body, '内容 ' %></td>
+							<td rowspan="2" class="memory-box"><%= f.label :body, '内容 ' %></td>
 							<td class="memory-table-height"><%= f.text_area :body,class:"col-xs-8 memory-height" %></td>
 						</div>
 					</tr>
 				</tbody>
 			</table>
-			<%= f.submit '投稿', class:'btn btn-primary col-xs-4 col-xs-offset-4' %>
+			<%= f.submit '投稿', class:'btn btn-warning col-xs-4 col-xs-offset-4' %>
 		  <% end %>
 		</div>
-		  <%= link_to root_path do %>
-		    <div class="col-xs-2 col-xs-offset-3"><記事一覧へ戻る</div>
-		  <% end %>
 	</div>
   </div>

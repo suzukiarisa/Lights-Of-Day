@@ -17,18 +17,6 @@
 					        <%= favorite.festival.event_date %>
 					    </div>
 
-					    <div class="favorite-festival">
-						    <% if favorite.festival.favorited_by?(current_user) %>
-						      <%= link_to festival_favorite_path(favorite.festival), method: :delete do %>
-							    <i class="fa fa-heart favorite-festival" aria-hidden="true" style="color: red;"></i>
-							  <% end %>
-							<% else %>
-							  <%= link_to festival_favorite_path(favorite.festival), method: :post do %>
-							    <i class="fa fa-heart-o favorite-festival" aria-hidden="true"></i>
-							  <% end %>
-							<% end %>
-						</div>
-
 						<div class="favorite-festival-name">
 							<%= favorite.festival.festival_name.name %>
 						</div>
