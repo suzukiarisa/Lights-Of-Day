@@ -1,8 +1,8 @@
 class TopsController < ApplicationController
 
   def index
-    @random_memories = Memory.order("RANDOM()").limit(4)
-    @random_recommends = Recommend.order("RANDOM()").limit(4)
+    @random_memories = Memory.where(id: rand(Memory.first.id..Memory.last.id)).limit(4)
+    @random_recommends = Recommend.where(id: rand(Recommend.first.id..Recommend.last.id)).limit(4)
   end
 
   def memory_params
