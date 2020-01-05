@@ -80,3 +80,7 @@ gem 'bootstrap3-datetimepicker-rails'
 gem 'cocoon'
 gem 'carrierwave'
 gem 'pry-rails'
+
+group :production do
+  gem 'mysql2'
+end
