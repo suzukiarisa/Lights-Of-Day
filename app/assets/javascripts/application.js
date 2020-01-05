@@ -71,7 +71,7 @@
         image.attr('data-image', index);
         preview2.append(image);
         dropzone2.css({
-          'width': `calc(100% - (135px * ${images.length - 5}))`
+          'width': 'calc(100% - (135px * ${images.length - 5}))'
         })
       })
       if(images.length == 9) {
@@ -84,7 +84,7 @@
           preview.append(image);
         })
         dropzone.css({
-          'width': `calc(100% - (135px * ${images.length}))`
+          'width': 'calc(100% - (135px * ${images.length}))'
         })
       }
       if(images.length == 4) {
@@ -96,7 +96,7 @@
       })
       return;
     }
-    var new_image = $(`<input multiple= "multiple" name="product_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+    var new_image = $('<input multiple= "multiple" name="product_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">');
     input_area.prepend(new_image);
   });
   $(document).on('click', '.delete', function() {
@@ -134,7 +134,7 @@
         preview2.append(image);
       })
       dropzone2.css({
-        'width': `calc(100% - (135px * ${images.length - 5}))`
+        'width': 'calc(100% - (135px * ${images.length - 5}))'
       })
       if(images.length == 9) {
         dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
@@ -151,7 +151,7 @@
         preview.append(image);
       })
       dropzone.css({
-        'width': `calc(100% - (135px * ${images.length}))`
+        'width': 'calc(100% - (135px * ${images.length}))'
       })
     }
     if(images.length == 4) {
