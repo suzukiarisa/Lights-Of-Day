@@ -1,16 +1,19 @@
 
  <div class="container">
    <h1>Chat Room</h1>
-	  <form class="form-inline">
-		 <div class="form-group">
-	       <input type="text" class="form-control" id="chat-input" ></input>
-	     </div>
-	       <buttom id="button" class="btn btn-primary">送信</buttom>
-	  </form>
-	    <div id="messages">
-	  	  <ul>
-		    <%= render @messages %>
-	      </ul>
-	    </div>
+     <%= form_for(@message, url: rooms_path) do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+	     <form class="form-inline">
+		   <div class="form-group">
+	         <input type="text" class="form-control" id="chat-input" ></input>
+	       </div>
+	         <buttom id="button" class="btn btn-primary">Done</buttom>
+	     </form>
+	   <div id="messages">
+	     <ul>
+		   <%= render :partial => "message", :collection => @messages %>
+	     </ul>
+	   </div>
+	 <% end %>
  </div>
 

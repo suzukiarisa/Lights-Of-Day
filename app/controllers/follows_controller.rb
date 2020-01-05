@@ -1,6 +1,5 @@
 class FollowsController < ApplicationController
   def index
-  	@follow = Follow.new
-    @follow = Follow.where(user_id: current_user.id)
+  	@followings = current_user.followings
   end
 end

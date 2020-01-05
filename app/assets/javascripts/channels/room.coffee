@@ -6,7 +6,18 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
+    console.log("received")
+    $('#messages').append "<li>"+data['message']+"</li>"
     # Called when there's incoming data on the websocket for this channel
 
-  talk: ->
-    @perform 'talk'
+  speak: (message) ->
+    console.log("speak")
+    @perform 'speak', message: message, user_id:$('#user_id').text()
+
+  $(document).on 'keypress', '#chat-input', (event) ->
+   console.log("-------")
+   if event.keyCode is 13 # return = send
+     console.log("++++++++++")
+     App.room.speak event.target.value
+     event.target.value = ''
+     event.preventDefault()

@@ -1,5 +1,10 @@
 class RoomsController < ApplicationController
   def show
-  	@messages = Message.all
+  	@message = Message.new
   end
+
+  def create
+    @message = Message.new
+  end
+
 end

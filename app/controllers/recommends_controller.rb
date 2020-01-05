@@ -1,4 +1,5 @@
 class RecommendsController < ApplicationController
+
  def new
      @recommend = Recommend.new
      @recommend.recommend_photos.build

@@ -34,10 +34,11 @@ Rails.application.routes.draw do
     resources :tops, only: [:index]
     resources :recommends, only: [:new, :index, :create, :update, :destroy]
     resources :memories, only: [:new, :index, :create, :update, :destroy]
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update] do
+        resource :user_relationship, only: [:create, :destroy]
+    end
     resources :festivals, only: [:index]
     resources :follows, only: [:index, :create, :destroy]
-    resource :user_relationship, only: [:create, :destroy]
     resources :rooms, only: [:show, :create]
     resources :homes, only: [:about]
     resources :favorites, only: [:index]

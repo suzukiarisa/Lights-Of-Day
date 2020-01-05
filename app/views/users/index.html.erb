@@ -5,37 +5,28 @@
 	  <span class="users-title-index">All Users</span>
 	</div>
 
-	  <div class="row">
+　　　<div class="row">
 	   	<% @users.each do |user| %>
 		  <div class="col-xs-3">
-	   	    <div class="col-xs-11">
 	        <%#= link_to item_path(item1.id) do %>
 	          <div class="user-index-box">
 	            <div class="user-index-image">
-			      <% if user.image %>
+			      <% if user.image.blank? %>
 	                  <%= image_tag "/no_image.jpg" %>
 	              <% else %>
-	                  <%= image_tag image.url %>
+	                  <%= image_tag "#{user.image}", class: "pimg" %>
 	              <% end %>
 			    </div>
 
-			    <% unless current_user == user %>
-	              <% if current_user.following?(user) %>
-				    <%= form_with url: user_relationship_path, html: { method: :delete } do |f| %>
-				      <%= hidden_field_tag '[user_relationship][user_id]', current_user.id %>
-				      <%= hidden_field_tag '[user_relationship][follow_id]', user.id %>
+			     <% if current_user != user %>
+			        <% if user.followed_by?(current_user) %>
+			            <p><%=link_to "Unfollow", user_user_relationship_path(user.id), method: :delete %></p>
+			        <% else %>
+			            <p><%=link_to "Follow", user_user_relationship_path(user.id), method: :post %></p>
+			        <% end %>
+			    <% end %>
 
-				      <%= f.submit 'Unfollow', class: 'btn btn-danger btn-block' %>
-				    <% end %>
-				  <% else %>
-				    <%= form_with url: user_relationship_path, html: { method: :post } do |f| %>
-				      <%= hidden_field_tag '[user_relationship][user_id]', current_user.id %>
-				      <%= hidden_field_tag '[user_relationship][follow_id]', user.id %>
-				      <%= f.submit 'Follow', class: 'btn btn-primary btn-block' %>
-				    <% end %>
-				  <% end %>
-				<% end %>
-
+			    <%= link_to "DM", room_path(current_user.id), class: 'btn btn-default' %>
 
 				<div class="user-index-nickname">
 			        <%= user.nickname %>
@@ -49,9 +40,9 @@
 			        <%= user.prefecture %>
 			    </div>
 			  </div>
-			</div>
 		  </div>
 		<% end %>
-	  </div>
+	</div>
+	  <div class="user-index-border"></div>
   </div>
 </div>

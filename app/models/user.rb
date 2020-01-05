@@ -17,26 +17,21 @@ class User < ApplicationRecord
   has_many :messages
   has_many :memories, dependent: :destroy
   has_many :recommends, dependent: :destroy
-  has_many :user_relationships
-  has_many :followings, through: :user_relationships, source: :follow
-  has_many :reverse_of_user_relationships, class_name: 'UserRelationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_user_relationships, source: :user
+
+  #自分がフォローしているユーザーとの関連
+  has_many :active_relationships, class_name: "UserRelationship", foreign_key: :following_id
+  has_many :followings, through: :active_relationships, source: :follower
+
+  # ====================自分がフォローされるユーザーとの関連 ===================================
+  #フォローされる側のUserから見て、フォローしてくる側のUserを(中間テーブルを介して)集める。なので親はfollower_id(フォローされる側)
+  has_many :passive_relationships, class_name: "UserRelationship", foreign_key: :follower_id
+  has_many :followers, through: :passive_relationships, source: :following
 
   #acts_as_paranoidとは? データを論理削除する
   acts_as_paranoid
 
-  def follow(other_user)
-    unless self == other_user #フォローしようとしている other_user が自分自身ではないかを検証
-      self.user_relationships.find_or_create_by(follow_id: other_user.id)
-    end
-  end
-
-  def unfollow(other_user)
-    user_relationship = self.user_relationships.find_by(follow_id: other_user.id)
-    user_relationship.destroy if user_relationship
-  end
-
-  def following?(other_user)
-    self.followings.include?(other_user)
+  def followed_by?(user)
+# 今自分(引数のuser)がフォローしようとしているユーザー(レシーバー)がフォローされているユーザー(つまりpassive)の中から、引数に渡されたユーザー(自分)がいるかどうかを調べる
+      passive_relationships.find_by(following_id: user.id).present?
   end
 end

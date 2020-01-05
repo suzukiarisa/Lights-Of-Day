@@ -78,6 +78,7 @@
 /*index*/
 .user-index-box {
 	color: #777777;
+	text-align: center;
 }
 
 .users-title-index{
@@ -96,6 +97,17 @@
 .user-index-prefecture {
 	font-size: 15px;
 }
+
+.pimg {
+	border-radius: 50%;
+    width:  180px;
+    height: 180px;
+}
+
+.user-index-border {
+  border-bottom: solid 1px #dadada;
+}
+
 
 /*Show*/
 
