@@ -3,6 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/*Top*/
+
+.theTarget{
+	height: 600px !important;
+	width: 100%;
+}
+
+.pic1{
+	background-image: url("IMG_4605.jpeg");
+	background-position: center;
+}
+.pic2{
+	background-image: url("IMG_4721.jpeg");
+	background-position: center;
+}
+.pic3{
+	background-image: url("IMG_8419.jpeg");
+	background-position: center;
+}
+.pic4{
+	background-image: url("IMG_5907.jpeg");
+	background-position: center;
+}
+.pic5{
+	background-image: url("IMG_5945.jpg");
+	background-position: center;
+}
+
 .memory-current-user {
 	color: #888888;
 }
