@@ -6,7 +6,6 @@ class MemoriesController < ApplicationController
 	end
 
   def index
-    @memories = Memory.all
     @memories = Memory.page(params[:page]).per(12)
   end
 
@@ -18,7 +17,18 @@ class MemoriesController < ApplicationController
           params[:memory_images][:images].each do |image|
             @memory.memory_photos.create(image: image, memory_id: @memory.id)
           end
+              rc = Vision.get_image_data(@memory.memory_photos[0].image)
+              p rc
+           if rc["adult"] == "VERY_LIKELY" || rc["adult"] == "LIKELY" || 
+            rc["violence"] == 'VERY_LIKELY' || rc["violence"] == 'LIKELY' || 
+            rc["medical"] == 'VERY_LIKELY' || rc["medical"] == 'LIKELY'
+             @memory.destroy
+              flash[:error] = "不適切な画像と判断されました"
+              redirect_to new_memory_path
+              return
+           end
         end
+
         format.html{redirect_to memories_path}
       else
         @memory.memory_photos.build
@@ -34,7 +44,7 @@ class MemoriesController < ApplicationController
 	private
 
 	def memory_params
-		params.require(:memory).permit(:spot, :body, :post_date, :user_id, :image, :title)
+		params.require(:memory).permit(:spot, :body, :post_date, :user_id, :memory_photo_id, :title)
 	end
 
 def product_parameter
