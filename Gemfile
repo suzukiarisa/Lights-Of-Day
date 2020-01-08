@@ -86,3 +86,4 @@ group :production do
 end
 
 gem 'dotenv-rails'
+gem 'seed-fu'

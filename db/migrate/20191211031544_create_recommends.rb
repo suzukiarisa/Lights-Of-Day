@@ -5,7 +5,7 @@ class CreateRecommends < ActiveRecord::Migration[5.2]
     	t.integer :user_id
 	    t.string :post_date
 	    t.string :spot
-	    t.integer :photo_id
+	    t.integer :recommend_photo_id
       t.string :title
 	    t.text :body
 	    t.datetime :created_at, null: false

@@ -30,8 +30,6 @@ ActiveRecord::Schema.define(version: 2019_12_21_103217) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["festival_id"], name: "index_favorites_on_festival_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "festival_names", force: :cascade do |t|
@@ -62,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_103217) do
     t.integer "user_id"
     t.string "post_date"
     t.string "spot"
-    t.integer "image"
+    t.integer "memory_photo_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
@@ -78,10 +76,10 @@ ActiveRecord::Schema.define(version: 2019_12_21_103217) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "send_date"
-    t.string "send_time"
-    t.string "content"
+    t.text "content"
+    t.integer "from_id"
+    t.integer "to_id"
+    t.string "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -110,7 +108,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_103217) do
     t.integer "user_id"
     t.string "post_date"
     t.string "spot"
-    t.integer "photo_id"
+    t.integer "recommend_photo_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false

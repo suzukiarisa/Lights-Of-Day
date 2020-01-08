@@ -2,13 +2,12 @@ class CreateMessages < ActiveRecord::Migration[5.2]
   def change
     create_table :messages do |t|
 
-    	t.integer :user_id
-	    t.string :send_date
-	    t.string :send_time
-        t.string :content
+	    t.text :content
+	    t.integer :from_id
+	    t.integer :to_id
+	    t.string :room_id
 
-
-        t.timestamps
+	    t.timestamps
     end
   end
 end
