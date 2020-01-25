@@ -9,5 +9,6 @@ class CreateMessages < ActiveRecord::Migration[5.2]
 
 	    t.timestamps
     end
+    add_index :messages, [:room_id, :created_at]
   end
 end

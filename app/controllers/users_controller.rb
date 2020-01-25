@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	  def index
       @user_relationship = UserRelationship.new
-      @users = User.all
+      @users = User.where.not(id: current_user.id)
     end
 
     def post

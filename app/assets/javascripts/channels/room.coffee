@@ -6,13 +6,15 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log("received")
-    $('#messages').append "<li>"+data['message']+"</li>"
+    fromId = $('#messages').data('from-id')
+    console.log(fromId)
+    side = if fromId == data.from_id then 'right_side' else 'left_side'
+    $('#messages').append "<li class='" + side + "'>" + data['content'] + "</li>"
     # Called when there's incoming data on the websocket for this channel
 
   speak: (message) ->
     console.log("speak")
-    @perform 'speak', message: message, user_id:$('#user_id').text()
+    @perform 'speak', message: message, from_id:$('#message_from_id').val(), to_id:$('#message_to_id').val(), room_id:$('#message_room_id').val()
 
   $(document).on 'keypress', '#chat-input', (event) ->
    console.log("-------")

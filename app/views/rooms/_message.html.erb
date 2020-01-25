@@ -1,4 +1,14 @@
 
-<li class="list-group-item">
-  <p><%= message.content %></p>
-</li>
+<div class="message">
+    <% if message.from_id == current_user.id %>
+	    <div class='clearfix'>
+	    	<p class="right_side">
+		      <%= message.content %>
+		    </p>
+	    </div>
+	    <% else %>
+	    <p class="left_side">
+	      <%= message.content %>
+	    </p>
+    <% end %>
+</div>

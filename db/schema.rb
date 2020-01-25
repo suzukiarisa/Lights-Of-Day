@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_103217) do
     t.string "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id", "created_at"], name: "index_messages_on_room_id_and_created_at"
   end
 
   create_table "places", force: :cascade do |t|

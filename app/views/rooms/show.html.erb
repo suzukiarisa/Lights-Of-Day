@@ -2,16 +2,18 @@
  <div class="container">
    <h1>Chat Room</h1>
      <%= form_for(@message, url: rooms_path) do |f| %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :from_id, :value => current_user.id %>
+      <%= f.hidden_field :to_id, :value => @to_user.id %>
+      <%= f.hidden_field :room_id, :value => @room_id %>
 	     <form class="form-inline">
-		   <div class="form-group">
+	       <label>Say something:</label><br>
 	         <input type="text" class="form-control" id="chat-input" ></input>
-	       </div>
-	         <buttom id="button" class="btn btn-primary">Done</buttom>
 	     </form>
-	   <div id="messages">
+	   <div id="messages" data-from-id='<%= current_user.id %>'>
 	     <ul>
-		   <%= render :partial => "message", :collection => @messages %>
+	       <li>
+		     <%= render :partial => "message", :collection => @messages %>
+		   </li>
 	     </ul>
 	   </div>
 	 <% end %>
