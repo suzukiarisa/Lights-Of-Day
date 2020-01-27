@@ -96,13 +96,11 @@
 }
 .current_user{
 	color: #888888;
-	float: right;
 	position: relative;
     left: 200px;
 }
 .admin_user{
 	color: #888888;
-	float: right;
 	position: relative;
     left: 200px;
 }
@@ -117,8 +115,20 @@
 }
 .admin_signout{
 	color:#FF8C00;
-	float:right;
 	line-height: 45px;
+}
+
+/*Footer*/
+
+footer{
+    width: 100%;
+    background-color: #FFF;
+    color: #FF8C00;
+    text-align: center;
+    /*position: absolute;*/
+    /*←絶対位置*/
+    /*bottom: 0;*/
+     /*下に固定*/
 }
 
 /*Admin*/
@@ -189,20 +199,4 @@ ul {
 
 .festival-name-category-box{
 	margin-top: 100px;
-}
-
-
-/*Footer*/
-
-
-.footer_text{
-    bottom: 0;
-    padding-top:70px;
-    padding-bottom: 30px;
-    width:100%;
-}
-
-.footer-text-content{
-	color:#FF8C00;
-	text-align:right;
 }

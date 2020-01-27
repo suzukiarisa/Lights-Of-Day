@@ -4,30 +4,127 @@
 
 /*MemoryIndex*/
 
-.memory-index-tr{
-  vertical-align: initial;
-}
-
-.memory-index-td{
-  padding-top: 50px;
-  height: 400px;
-  border-bottom: solid 1px #dadada;
-  width: 300px;
-  color:#888888;
-}
-
 .memories-title{
-    color:#FF8C00;
-    font-size: 25px;
+  color:#FF8C00;
+  font-size: 25px;
 }
 
 .memory-font {
-    font-size: 17px;
-    color: #95b3d0;
-    position: relative;
-    left: 75px;
+  font-size: 17px;
+  color: #95b3d0;
+  position: relative;
+  left: 75px;
 }
 
-.memory-box {
-	 color: #777777;
+.memory-img {
+  width:  180px;
+  height: 180px;
+}
+
+/*MemoryNew*/
+
+#img_field {
+  font-size: 15px;
+  margin-top: 10px;
+  padding: 5px 8px;
+  border: solid 1px #EDBC6C;
+  color: #666;
+  position: relative;
+  padding: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 500px;
+  height: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 0.3s ease-out;
+  position: absolute;
+  right: 53%;
+}
+
+#img_field i {
+  font-size: 100px;
+  color: #aaa;
+  line-height: 250px;
+  transition: 0.3s ease-out;
+}
+
+#img_field i.add {
+  display: none;
+  font-size: 50px;
+  position: absolute;
+  top: -90px;
+  right: 15px;
+}
+
+#img_field:hover {
+  background-color: #EDBC6C;
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
+
+#img_field:hover i {
+  transition: 0.3s ease-out;
+  display: block;
+  color: #fff;
+}
+
+.memory-place-label{
+  font-size: 30px;
+  color: #777777;
+  position: absolute;
+  right: 47%;
+  top: 19%;
+}
+
+.memory-place-box {
+  width: 10%;
+  height: 10px;
+  position: absolute;
+  left: 48%;
+  top: 24%;
+}
+
+.memory-title-label {
+  font-size: 30px;
+  color: #777777;
+  position: absolute;
+  right: 48%;
+  top: 27%;
+}
+
+.memory-title-box {
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  left: 48%;
+  top: 32%;
+}
+
+.memory-text-label {
+  font-size: 30px;
+  color: #777777;
+  position: absolute;
+  right: 48%;
+  top: 35%;
+}
+
+.memory-text-box {
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  left: 48%;
+  top: 40%;
+}
+
+.memory-post {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 40%;
+  top: 80%;
 }

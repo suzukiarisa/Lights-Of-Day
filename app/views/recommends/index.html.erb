@@ -1,3 +1,9 @@
+<head>
+	<link href="js/slick-theme.css" rel="stylesheet" type="text/css">
+	<link href="js/slick.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+</head>
 
 <div class="container">
    <div class="row">
@@ -23,9 +29,11 @@
 			                        <% if recommend1.recommend_photos.length == 0 %>
 			                           <%= image_tag "/no_image.jpg" %>
 			                        <% else %>
-			                           <% recommend1.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                           <% end %>
+			                          <ul class="slider">
+			                             <% recommend1.recommend_photos.each do |photo| %>
+			                               <li><%= image_tag photo.image.url %></li>
+			                             <% end %>
+			                          </ul>
 			                        <% end %>
 										<div class="recommend-name">
 									        <%= recommend1.user.nickname %>

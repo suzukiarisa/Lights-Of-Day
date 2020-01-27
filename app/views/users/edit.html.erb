@@ -10,7 +10,7 @@
 
               <div class="edit-image-position">
                 <div class="col-xs-3">
-                 <%= image_tag @user.image.url %>
+                 <%= image_tag @user.image.url, :size => '270x270' %>
                  <%= f.file_field :image %>
                 </div>
               </div>

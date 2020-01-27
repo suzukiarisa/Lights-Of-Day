@@ -8,16 +8,18 @@
 　　　<div class="row">
 	   	<% @users.each do |user| %>
 		  <div class="col-xs-3">
-	        <%#= link_to item_path(item1.id) do %>
-	          <div class="user-index-box">
+		    <div class="user-index-box">
+	          <div class="user-index-text">
 	            <div class="user-index-image">
 			      <% if user.image.blank? %>
-	                  <%= image_tag "/no_image.jpg" %>
+	                  <%= image_tag "/no_image.jpg", class: "user-img"  %>
 	              <% else %>
-	                  <%= image_tag "#{user.image}", class: "pimg" %>
+	                  <%= image_tag "#{user.image}", class: "user-img" %>
 	              <% end %>
 			    </div>
 
+
+			   <div class="follow-btn">
 			     <% if current_user != user %>
 			        <% if user.followed_by?(current_user) %>
 			            <p><%=link_to "Unfollow", user_user_relationship_path(user.id), method: :delete %></p>
@@ -25,21 +27,23 @@
 			            <p><%=link_to "Follow", user_user_relationship_path(user.id), method: :post %></p>
 			        <% end %>
 			    <% end %>
+			   </div>
 
-			    <%= link_to "DM", room_path(current_user.id), class: 'btn btn-default' %>
+			    <%= link_to "DM", room_path("#{current_user.id}-#{user.id}", to: user.id), class: 'btn btn-default' %>
 
 				<div class="user-index-nickname">
-			        <%= user.nickname %>
+			      <%= user.nickname %>
 			    </div>
 
 				<div class="user-index-favorite-artist">
-					<%= user.favorite_artists %>
+			      Favorite Artist: <%= user.favorite_artists %>
 				</div>
 
 				<div class="user-index-prefecture">
-			        <%= user.prefecture %>
+                  Residence: <%= user.prefecture.name %>
 			    </div>
 			  </div>
+			</div>
 		  </div>
 		<% end %>
 	</div>

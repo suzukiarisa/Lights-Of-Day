@@ -1,78 +1,52 @@
-	<script type="text/javascript">
-		$(function () {
-			//$(".datetimepicker-input").datetimepicker({
-				//format:'YYYY/MM/DD'
-			//});
-			    $('#bbb').click(function() {
-		         $('#new_recommend').submit();
-		     });
-		});
-	      $(document).ready(function() {
-	});
-	</script>
-
 <div class="container">
-	<div calss="row">
-		<div class="col-xs-6 col-xs-offset-3">
-			<table class="table table-striped table-bordered create-recommend-table">
-		  <%= form_for @recommend ,id: "aaa" do |f| %>
-				<tbody>
+  <div calss="row">
+　  <%= form_for @recommend do |f| %>
 
-				   <tr>
-				     <%= f.fields_for :images do |image| %>
-                       <div class="dropzone-container.clearfix">
-                       	 <div class="recommend-box">
-                           <div id="preview"></div>
-                             <div class="dropzone-area">
-                               <%= image.label :image, class: "dropzone-box", for: "upload-image" do %>
-                                 <div class="input_area">
-                                    <%= image.file_field :image, multiple: true, name: 'recommend_images[images][]', id: "upload-image", class: "upload-image", 'data-image': 0 %>
-                                        <i class="far fa-caret-square-down"></i>
-                                 </div>
-                               <% end %>
-						     </div>
-					     </div>
-					   </div>
-					 <% end %>
-				   </tr>
+		<div class="field image">
+		  <%= form_with(model: @recommend, local: true) do |form| %>
+		    <%= form.label '＜下枠をクリックして写真を選択＞' %>
 
-					<tr>
-						<div class="">
-							<tr><label class="recommend-box">投稿日</label></tr>
-							  <tr>
-								<div class="form-group">
-								  <div class="input-group date" id="date" date-target-input="nearest">
-								    <%= f.text_field :post_date, class:"form-control datetimepicker-input", data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "YYYY/MM/DD" %>
-								  </div>
+		       <!--id "file"で、fileとdivを紐付けクリック時に連動 -->
+		       <div id="img_field" onClick="$('#file').click()" >
 
-							    </div>
-							  </tr>
-						</div>
-					<tr>
-						<%= f.hidden_field :user_id, :value => @user_id %>
-					</tr>
-					<tr>
-						<div class="">
-							<td class="recommend-box"><%= f.label :spot, '場所' %></td>
-							<td class="recommend-spot-box-content"><%= f.text_field :spot,class:"col-xs-6" %></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="">
-							<td class="recommend-box"><%= f.label :title, 'タイトル ' %></td>
-							<td class="recommend-title-box-content"><%= f.text_field :title,class:"col-xs-6" %></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="">
-							<td rowspan="2" class="recommend-box"><%= f.label :body, '内容 ' %></td>
-							<td class="recommend-table-height"><%= f.text_area :body,class:"col-xs-8 recommend-height" %></td>
-						</div>
-					</tr>
-				</tbody>
-			</table>
-			<%= f.submit '投稿', class:'btn btn-warning col-xs-4 col-xs-offset-4' ,id: "bbb" %>
+		        <!-- 画像があるときは画像を表示する -->
+		        <% if @recommend.recommend_photos.first.image.url.present? %>
+		          <%= image_tag(@recommend.recommend_photos.first.image.url) %>
+		        <% else %>
+		          <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
+		        <% end %>
+
+		       </div>
+	              <!-- id "file"をつけ、「display:none;」で隠す -->
+		          <%= form.file_field :image, class: "image", style: "display:none;", id: "file"%>
 		  <% end %>
 		</div>
-	</div>
+          <%= f.hidden_field :user_id, :value => @user_id %>
+		    <div class="recommend-date">
+　　　　　　　  <%= @recommend.created_at %>
+		    </div>
+
+			<div class="recommend-place-label">
+			  <%= f.label :spot, 'Place' %>
+			</div>
+			<div class="recommend-place-box">
+			  <%= f.text_field :spot %>
+			</div>
+			<div class="recommend-title-label">
+			  <%= f.label :title, 'Title' %>
+			</div>
+			<div class="recommend-title-box">
+		      <%= f.text_field :title %>
+			</div>
+			<div class="recommend-text-label">
+		      <%= f.label :body, 'Text' %>
+		    </div>
+		    <div class="recommend-text-box">
+			  <%= f.text_area :body %>
+			</div>
+			<div class="recommend-post">
+		      <%= f.submit '投稿', class:'btn btn-warning' %>
+		    </div>
+    <% end %>
   </div>
+</div>

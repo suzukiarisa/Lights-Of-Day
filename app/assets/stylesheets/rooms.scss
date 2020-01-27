@@ -4,9 +4,46 @@
 
 
 li {
-	list-style: none;
+  list-style: none;
 }
 
 .right_side{
-	float: right;
+  float: right;
+  clear: both;
+}
+
+label{
+  font-size: 22px;
+  color: #777777;
+  position: absolute;
+  left: 295px;
+  top: 49%;
+}
+
+h1{
+  color: #777777;
+}
+
+.message-form{
+  width: 920px;
+  height: 35px;
+  margin-left: 190px;
+}
+
+.message-user-image{
+  margin-top: 30px;
+  margin-left: 40px;
+  border-radius: 10px;
+}
+
+.message-user{
+  font-size: 20px;
+  color: #777777;
+  position: absolute;
+  left: 525px;
+  top: 32%;
+}
+
+.message-box{
+  margin-top: 30px;
 }
