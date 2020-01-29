@@ -21,6 +21,12 @@
   height: 180px;
 }
 
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
 /*MemoryNew*/
 
 #img_field {
@@ -42,8 +48,6 @@
   overflow: hidden;
   box-sizing: border-box;
   transition: 0.3s ease-out;
-  position: absolute;
-  right: 53%;
 }
 
 #img_field i {
@@ -127,4 +131,10 @@
   position: absolute;
   left: 40%;
   top: 80%;
+}
+
+.fa-image {
+  font-size: 250px ;
+  margin-top: 50px;
+  margin-left: 200px;
 }

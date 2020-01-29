@@ -1,26 +1,25 @@
-<div class="container">
+<div class="container h-50">
   <div calss="row">
 　  <%= form_for @memory do |f| %>
+	  <div class="field image">
+	    <%= f.label '＜下枠をクリックして写真を選択＞' %>
 
-		<div class="field image">
-		  <%= form_with(model: @memory, local: true) do |form| %>
-		    <%= form.label '＜下枠をクリックして写真を選択＞' %>
+	      <!--id "file"で、fileとdivを紐付けクリック時に連動 -->
+	      <div id="img_field" onClick="$('#file').click()" >
 
-		       <!--id "file"で、fileとdivを紐付けクリック時に連動 -->
-		       <div id="img_field" onClick="$('#file').click()" >
+	        <!-- 画像があるときは画像を表示する -->
+	        <% if @memory.memory_photos.first.blank? %>
+	          <%= image_tag(@memory.memory_photos.first.image.url) %>
+	        <% else %>
+	          <i class="fas fa-image "></i>
+	        <% end %>
 
-		        <!-- 画像があるときは画像を表示する -->
-		        <% if @memory.memory_photos.first.image.url.present? %>
-		          <%= image_tag(@memory.memory_photos.first.image.url) %>
-		        <% else %>
-		          <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
-		        <% end %>
-
-		       </div>
-	              <!-- id "file"をつけ、「display:none;」で隠す -->
-		          <%= form.file_field :image, class: "image", style: "display:none;", id: "file"%>
-		  <% end %>
-		</div>
+		  </div>
+	        <!-- id "file"をつけ、「display:none;」で隠す -->
+	        <%= f.fields_for :memory_photos do |mf| %>
+	          <%= mf.file_field :image, class: "image", style: "display:none;", id: "file"%>
+	        <% end %>
+	  </div>
           <%= f.hidden_field :user_id, :value => @user_id %>
 		    <div class="memory-date">
 　　　　　　　  <%= @memory.created_at %>
@@ -50,3 +49,5 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>

@@ -12,7 +12,7 @@ li {
   clear: both;
 }
 
-label{
+.say-something {
   font-size: 22px;
   color: #777777;
   position: absolute;
@@ -46,4 +46,8 @@ h1{
 
 .message-box{
   margin-top: 30px;
+}
+
+.message-size{
+  font-size: 22px;
 }

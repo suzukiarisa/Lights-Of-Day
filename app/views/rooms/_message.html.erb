@@ -1,14 +1,18 @@
 
 <div class="message">
-    <% if message.from_id == current_user.id %>
-	    <div class='clearfix'>
-	    	<p class="right_side">
-		      <%= message.content %>
-		    </p>
-	    </div>
-	    <% else %>
-	    <p class="left_side">
+  <% if message.from_id == current_user.id %>
+    <div class='clearfix'>
+      <div class="message-size">
+	    <p class="right_side">
+		    <%= message.content %>
+	    </p>
+	  </div>
+	</div>
+  <% else %>
+    <div class="message-size">
+      <p class="left_side">
 	      <%= message.content %>
 	    </p>
-    <% end %>
+    </div>
+  <% end %>
 </div>

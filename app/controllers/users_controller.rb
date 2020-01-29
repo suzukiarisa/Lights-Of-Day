@@ -3,6 +3,29 @@ class UsersController < ApplicationController
 	  def index
       @user_relationship = UserRelationship.new
       @users = User.where.not(id: current_user.id)
+
+      @q = User.ransack(params[:q])
+      @q.build_condition if @q.conditions.empty?
+      @users = @q.result(distinct: true).page(params[:page]).per(20)
+      @search = User.ransack(params[:q])
+      @users = @search.result.page(params[:page]).per(30)
+
+      @follow_ranks = User.where(:id => UserRelationship.group(:follower_id).
+                       order("count(*) desc").
+                       limit(5).
+                       count.
+                       keys)
+
+      # group(:following_id).order('count(following_id) desc')
+    end
+
+    def index_result
+      @q = User.ransack(params[:q])
+      @q.build_condition if @q.conditions.empty?
+      @users = @q.result(distinct: true).page(params[:page]).per(20)
+
+      @search = User.ransack(params[:q])
+      @users = @search.result.page(params[:page]).per(30)
     end
 
     def post

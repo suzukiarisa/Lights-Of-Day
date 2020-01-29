@@ -1,168 +1,44 @@
-<head>
-	<link href="js/slick-theme.css" rel="stylesheet" type="text/css">
-	<link href="js/slick.css" rel="stylesheet" type="text/css">
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="js/slick.min.js"></script>
-</head>
-
 <div class="container">
-   <div class="row">
-      <div class="col-xs-12">
-
-			<table>
-			  <div class="recommend-index">
-			    <span class="recommends-title">All Recommends</span></div>
-			      <div class="recommend-new-link">
-			      	<%= link_to new_recommend_path,data: {"turbolinks" => false} do %>
-			          <span class="recommend-font"> オススメを投稿する <i class="far fa-arrow-alt-circle-left"></i></span>
-			        <% end %>
-			      </div>
-
-			        <% @recommends.each_slice(4) do |recommend1, recommend2, recommend3, recommend4| %>
-
-						<tbody>
-						  <tr class="recommend-index-tr">
-
-							    <td class="recommend-index-td">
-								  <% if recommend1.present? %>
-							        <%#= link_to item_path(item1.id) do %>
-			                        <% if recommend1.recommend_photos.length == 0 %>
-			                           <%= image_tag "/no_image.jpg" %>
-			                        <% else %>
-			                          <ul class="slider">
-			                             <% recommend1.recommend_photos.each do |photo| %>
-			                               <li><%= image_tag photo.image.url %></li>
-			                             <% end %>
-			                          </ul>
-			                        <% end %>
-										<div class="recommend-name">
-									        <%= recommend1.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend1.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend1.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend1.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend1.body %>
-									    </div>
-								    <% end %>
-							     </td>
-
-							    <td class="recommend-index-td">
-								  <% if recommend2.present? %>
-							        <%#= link_to item_path(item2.id) do %>
-			                        <% if recommend2.recommend_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% recommend2.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-										<div class="recommend-name">
-									        <%= recommend2.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend2.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend2.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend2.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend2.body %>
-									    </div>
-								    <% end %>
-							    </td>
-
-							     <td class="recommend-index-td">
-								  <% if recommend3.present? %>
-							        <%#= link_to item_path(item2.id) do %>
-								    <% if recommend2.recommend_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% recommend2.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-
-										<div class="recommend-name">
-									        <%= recommend3.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend3.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend3.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend3.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend3.body %>
-									    </div>
-								    <% end %>
-							    </td>
-
-							     <td class="recommend-index-td">
-								  <% if recommend4.present? %>
-
-							        <%#= link_to item_path(item2.id) do %>
-								    <% if recommend2.recommend_photos.length == 0 %>
-			                              <%= image_tag "/no_image.jpg" %>
-			                          <% else %>
-			                           <% recommend2.recommend_photos.each do |photo| %>
-			                              <%= image_tag photo.image.url %>
-			                          <% end %>
-			                        <% end %>
-
-										<div class="recommend-name">
-									        <%= recommend4.user.nickname %>
-									    </div>
-
-										<div class="recommend-post-date">
-											<%= recommend4.post_date %>
-										</div>
-
-										<div class="recommend-spot">
-									        <%= recommend4.spot %>
-									    </div>
-
-									    <div class="recommend-title">
-									        <%= recommend4.title %>
-									    </div>
-
-									    <div class="recommend-body">
-									        <%= recommend4.body %>
-									    </div>
-								    <% end %>
-
-							    </td>
-						  </tr>
-						</tbody>
-			        <% end %>
-			</table>
-
-			<div class="recommends-page"><%= paginate @recommends %></div>
-
+  <div class="row">
+	<div class="recommend-index">
+      <span class="recommends-title">Recommends</span>
+	</div>
+	<div class="recommend-new-link">
+	  <%= link_to new_recommend_path,data: {"turbolinks" => false} do %>
+	    <span class="recommend-font"> オススメスポットを投稿する <i class="far fa-arrow-alt-circle-left"></i></span>
+	  <% end %>
+	</div>
+	  <div class="row">
+	  	<% @recommends.each do |recommend| %>
+		  <div class="col-xs-3">
+		    <% if recommend.present? %>
+	          <% if recommend.recommend_photos.length == 0 %>
+	            <%= image_tag "/no_image.jpg", class: "recommend-img" %>
+	          <% else %>
+	            <% recommend.recommend_photos.each do |photo| %>
+	              <%= image_tag photo.image.url, class: "recommend-img" %>
+	            <% end %>
+	          <% end %>
+	            <div class="recommend-index-name">
+			      <%= recommend.user.nickname %>
+			    </div>
+				<div class="recommend-index-created">
+			      <%= l(recommend.created_at, format: :short) %>
+				</div>
+				<div class="recommend-index-spot">
+			      <%= recommend.spot %>
+			    </div>
+			    <div class="recommend-index-title">
+			      <%= recommend.title %>
+			    </div>
+			    <div class="recommend-index-body">
+			      <%= recommend.body %>
+			    </div>
+	        <% end %>
+	      </div>
+	      <% end %>
 	  </div>
-   </div>
+  </div>
 </div>
+
+<%= link_to "Back to top", root_path, class: 'btn btn-primary w-25' %>

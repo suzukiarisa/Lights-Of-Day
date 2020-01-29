@@ -6,7 +6,7 @@ class MemoriesController < ApplicationController
 	end
 
   def index
-    @memories = Memory.page(params[:page]).per(12)
+    @memories = Memory.page(params[:page]).per(12).reverse_order
   end
 
   def create
@@ -14,10 +14,7 @@ class MemoriesController < ApplicationController
     respond_to do |format|
       if @memory.save
         if params[:memory_images]
-          params[:memory_images][:images].each do |image|
-            @memory.memory_photos.create(image: image, memory_id: @memory.id)
-          end
-              rc = Vision.get_image_data(@memory.memory_photos[0].image)
+             rc = Vision.get_image_data(@memory.memory_photos[0].image)
               p rc
            if rc["adult"] == "VERY_LIKELY" || rc["adult"] == "LIKELY" || 
             rc["violence"] == 'VERY_LIKELY' || rc["violence"] == 'LIKELY' || 
@@ -44,7 +41,7 @@ class MemoriesController < ApplicationController
 	private
 
 	def memory_params
-		params.require(:memory).permit(:spot, :body, :post_date, :user_id, :memory_photo_id, :title)
+		params.require(:memory).permit(:spot, :body, :post_date, :user_id, :memory_photo_id, :title, memory_photos_attributes: [:id, :image, :_destroy])
 	end
 
 def product_parameter

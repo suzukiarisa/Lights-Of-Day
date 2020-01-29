@@ -1,7 +1,6 @@
 
 <div class="container">
   <div class="row">
-    <div class="header">
 
       <nav>
          <ul class="nav navbar-nav navbar-center col-xs-7">
@@ -28,26 +27,23 @@
               <span class="current_user"><%= current_user.nickname %> さん</span>
               <br>
               <div class="header-menu">
-              <%= link_to(root_path) do %>
-              <span class="tops"> Top</span>
-              <% end %>
-              <%= link_to users_path, data: {"turbolinks" => false} do %>
-              <span class="users"> Users</span>
-              <% end %>
-              <%= link_to(festivals_path) do %>
-              <span class="festivals"> Festivals</span>
-              <% end %>
-              <%= link_to memories_path, data: {"turbolinks" => false} do %>
-              <span class="memories"> All Memories</span>
-              <% end %>
-              <%= link_to recommends_path, data: {"turbolinks" => false} do %>
-              <span class="recommends"> All Recommends</span>
-              <% end %>
-              <%= link_to(mypage_path(current_user.id)) do %>
-              <span class="mypage"> My Page</span>
-              <% end %>
-              <%= link_to(destroy_user_session_path, method: :delete) do %>
-              <span class="signout"> Sign Out</span>
+                <%= link_to users_path, data: {"turbolinks" => false} do %>
+                <span class="users"> User</span>
+                <% end %>
+                <%= link_to(festivals_path) do %>
+                <span class="festivals"> Festival</span>
+                <% end %>
+                <%= link_to memories_path, data: {"turbolinks" => false} do %>
+                <span class="memories"> Memory</span>
+                <% end %>
+                <%= link_to recommends_path, data: {"turbolinks" => false} do %>
+                <span class="recommends"> Recommend</span>
+                <% end %>
+                <%= link_to(mypage_path(current_user.id)) do %>
+                <span class="mypage"> My Page</span>
+                <% end %>
+                <%= link_to(destroy_user_session_path, method: :delete) do %>
+                <span class="signout"> Sign Out</span>
               </div>
               <% end %>
             <!-- 非ログイン時 -->
@@ -64,6 +60,5 @@
            <% end %>
          </ul>
       </nav>
-    </div>
   </div>
 </div>

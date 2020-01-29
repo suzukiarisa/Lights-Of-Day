@@ -7,8 +7,7 @@ class RecommendsController < ApplicationController
   end
 
   def index
-    @recommends = Recommend.all
-    @recommends = Recommend.page(params[:page]).per(12)
+    @recommends = Recommend.page(params[:page]).per(12).reverse_order
   end
 
   def create
@@ -16,9 +15,6 @@ class RecommendsController < ApplicationController
     respond_to do |format|
       if @recommend.save
         if params[:recommend_images]
-          params[:recommend_images][:images].each do |image|
-            @recommend.recommend_photos.create(image: image, recommend_id: @recommend.id)
-          end
               rc = Vision.get_image_data(@recommend.recommend_photos[0].image)
               p rc
            if rc["adult"] == "VERY_LIKELY" || rc["adult"] == "LIKELY" || 
@@ -46,7 +42,7 @@ class RecommendsController < ApplicationController
   private
 
   def recommend_params
-    params.require(:recommend).permit(:spot, :body, :post_date, :user_id, :recommmend_photo_id, :title)
+    params.require(:recommend).permit(:spot, :body, :post_date, :user_id, :recommmend_photo_id, :title, recommend_photos_attributes: [:id, :image, :_destroy])
   end
 
 def product_parameter

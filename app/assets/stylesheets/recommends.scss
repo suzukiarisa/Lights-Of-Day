@@ -3,18 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.recommend-index-tr{
-  vertical-align: initial;
-}
-
-.recommend-index-td{
-  padding-top: 50px;
-  height: 400px;
-  border-bottom: solid 1px #dadada;
-  width: 300px;
-  color:#888888;
-}
-
 .recommends-title{
     color:#FF8C00;
     font-size: 25px;
@@ -25,6 +13,17 @@
   	color: #95b3d0;
     position: relative;
     left: 97px;
+}
+
+.recommend-img {
+  width:  180px;
+  height: 180px;
+}
+
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /*RecommendNew*/

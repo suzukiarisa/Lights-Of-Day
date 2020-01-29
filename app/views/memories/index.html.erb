@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
 	<div class="memory-index">
-      <span class="memories-title">All Memories</span>
+      <span class="memories-title">Memories</span>
 	</div>
 	<div class="memory-new-link">
 	  <%= link_to new_memory_path,data: {"turbolinks" => false} do %>
@@ -9,8 +9,9 @@
 	  <% end %>
 	</div>
 	  <div class="row">
+	  	<% @memories.each do |memory| %>
 		  <div class="col-xs-3">
-		    <% if @memory.present? %>
+		    <% if memory.present? %>
 	          <% if memory.memory_photos.length == 0 %>
 	            <%= image_tag "/no_image.jpg", class: "memory-img" %>
 	          <% else %>
@@ -22,7 +23,7 @@
 			      <%= memory.user.nickname %>
 			    </div>
 				<div class="memory-index-created">
-			      <%= memory.created_at %>
+			      <%= l(memory.created_at, format: :short) %>
 				</div>
 				<div class="memory-index-spot">
 			      <%= memory.spot %>
@@ -35,6 +36,9 @@
 			    </div>
 	        <% end %>
 	      </div>
+	      <% end %>
 	  </div>
   </div>
 </div>
+
+<%= link_to "Back to top", root_path, class: 'btn btn-primary w-25' %>

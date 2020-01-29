@@ -19,7 +19,7 @@
 			    </div>
 
 				<div class="memory-post-date">
-					<%= memory.post_date %>
+					<%= memory.created_at %>
 				</div>
 
 				<div class="memory-spot">
@@ -44,7 +44,6 @@
 	  </div>
 
 		  <% if @recommend.present? %>
-	        <%#= link_to item_path(item1.id) do %>
             <% if recommend.recommend_photos.length == 0 %>
                <%= image_tag "/no_image.jpg", :size => '250x250' %>
             <% else %>
@@ -57,7 +56,7 @@
 			    </div>
 
 				<div class="recommend-post-date">
-					<%= recommend.post_date %>
+					<%= recommend.created_at %>
 				</div>
 
 				<div class="recommend-spot">

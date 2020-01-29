@@ -14,9 +14,11 @@
  *= require_self
  *= require jquery-ui/autocomplete
  */
- @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body{
+	height: 100vh;
+}
 
 /*Header*/
 
@@ -43,14 +45,7 @@
 	white-space: nowrap;
 }
 
-.header{
-	height: 90px;
-	margin-bottom:20px;
-	display:block;
-}
-
 .header-menu{
-	float: right;
 	margin: 10px, 0;
 }
 .mypage{
@@ -125,10 +120,14 @@ footer{
     background-color: #FFF;
     color: #FF8C00;
     text-align: center;
-    /*position: absolute;*/
-    /*←絶対位置*/
-    /*bottom: 0;*/
-     /*下に固定*/
+}
+
+/*Back to top*/
+.w-25 {
+	 width: 25% !important;
+	 margin-left: 38%;
+	 margin-top: 20px;
+	 margin-bottom: 50px;
 }
 
 /*Admin*/
@@ -136,7 +135,7 @@ footer{
 /*Admin Sidemenu*/
 
 ul {
-  padding: 0;
+   padding: 0;
 }
 
 .detail-list{
