@@ -1,4 +1,5 @@
-<div class="container h-50">
+<div class="container h-75">
+<h2>みんなにオススメしてみませんか？</h2>
   <div calss="row">
 　  <%= form_for @recommend do |f| %>
       <div class="field image">
@@ -22,29 +23,29 @@
 	  </div>
         <%= f.hidden_field :user_id, :value => @user_id %>
 		    <div class="recommend-date">
-	　　　　　　　  <%= @recommend.created_at %>
+	　　　　   <%= @recommend.created_at %>
 		    </div>
 
 			<div class="recommend-place-label">
-			  <%= f.label :spot, 'Place' %>
+			  <%= f.label :spot, 'Place :' %>
 			</div>
-			<div class="recommend-place-box">
-			  <%= f.text_field :spot %>
+			<div class="recommend-place-box form-control-lg">
+			  <%= f.text_field :spot, placeholder: "オススメしたい場所を入力してください", :size => "60*60" %>
 			</div>
 			<div class="recommend-title-label">
-			  <%= f.label :title, 'Title' %>
+			  <%= f.label :title, 'Title :' %>
 			</div>
-			<div class="recommend-title-box">
-		      <%= f.text_field :title %>
+			<div class="recommend-title-box form-control-lg">
+		      <%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "60*60" %>
 			</div>
 			<div class="recommend-text-label">
-		      <%= f.label :body, 'Text' %>
+		      <%= f.label :body, 'Text :' %>
 		    </div>
-		    <div class="recommend-text-box">
-			  <%= f.text_area :body %>
+		    <div class="recommend-text-box form-control-lg">
+			  <%= f.text_area :body, placeholder: "本文を入力してください", :size => "60*60" %>
 			</div>
 			<div class="recommend-post">
-		      <%= f.submit '投稿', class:'btn btn-warning' %>
+		      <%= f.submit '投稿', class:'btn btn-warning w-25' %>
 		    </div>
     <% end %>
   </div>

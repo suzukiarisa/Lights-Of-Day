@@ -4,43 +4,9 @@
 
 /*Festival*/
 
-.hokkaido-text-color{
+.region-text-color{
     color:#888888;
 }
-
-.tohoku-text-color{
-    color:#888888;
-}
-
-.kanto-text-color{
-　　color:#888888;
-}
-
-.chubu-text-color{
-　　color:#888888;
-}
-
-.kinki-text-color{
-　　color:#888888;
-}
-
-.chugoku-text-color{
-　　color:#888888;
-}
-
-.shikoku-text-color{
-　　color:#888888;
-}
-
-.kyushu-text-color{
-　　color:#888888;
-}
-
-.okinawa-text-color{
-　　color:#888888;
-}
-
-
 
 #hokkaido{
     color:#FF8C00;
@@ -134,31 +100,19 @@
 }
 
 .festival-location1 {
-    display: inline-block;
-    position: relative;
-    bottom: 200px;
-    left: 20px;
-}
+    margin-top: 230px;
+  }
 
 .festival-location2 {
-    display: inline-block;
-    position: relative;
-    bottom: 107px;
-    left: 100px;
+    margin-top: 134px;
 }
 
 .festival-location3 {
-    display: inline-block;
-    position: relative;
-    top: 15px;
-    left: 210px;
+    margin-top: 10px;
 }
 
 .festival-location4 {
-    display: inline-block;
-    position: relative;
-    bottom: 140px;
-    left: 290px;
+    margin-top: 165px;
 }
 
 .hokkaido-festival-text {
@@ -209,8 +163,12 @@
 .favorite-festival {
     font-size: 30px;
     position: relative;
-    bottom: 20px;
-    left: 185px;
+    bottom: 30px;
+    left: 197px;
+}
+
+.festival-event-date{
+     color: #777777;
 }
 
 .festival-name {
@@ -220,10 +178,12 @@
 
 .festival-place {
     font-size: 18px;
+    color: #777777;
     text-align: center;
 }
 
 .festival-body {
     font-size: 15px;
+    color: #777777;
     text-align: center;
 }

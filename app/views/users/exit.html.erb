@@ -1,27 +1,16 @@
-
-
-<div class="container">
+<div class="container h-100">
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-3">
-  	  <h3><i class="fas fa-exclamation-triangle"></i>下記の登録情報がすべてご利用できなくなります。</h3>
-        <div class="row">
-          <div class="col-xs-8 col-xs-offset-2">
-            <br><br>
-  	  	    <ul class="exit-list">
-    	  	    <li>投稿全て</li>
-    	  	    <li>フォロー</li>
-    	  	    <li>お気に入り一覧</li>
-    	  	    <li>自分のプロフィール</li>
-  	  	    </ul>
-          </div>
-        </div>
-      </div>
-
-        <div class="row">
-          <div class="col-xs-9 col-xs-offset-5">
-            <br>
-        	  <%= link_to '退会', user_registration_path, method: :delete, class: "btn btn-danger btn-lg" %>
-        	</div>
+	  <div class="exit-title"><i class="fas fa-exclamation-triangle"></i> 退会にあたっての注意事項</div>
+      <br>
+      <br>
+	      <ol class="exit-list">
+  	      <li>※ 退会すると、すべてのサービスをご利用でいただけなくなります</li>
+  	      <li>※ 退会すると、すべての情報・履歴が削除されます</li>
+          <li>※ 退会後は一定期間、再登録できなくなります</li>
+	      </ol>
+      <br>
+        <div class="exit-btn">
+  	      <%= link_to '退会', user_registration_path, method: :delete, data: { confirm: '本当に退会しますか?' }, class: "btn btn-danger btn-lg" %>
         </div>
   </div>
 </div>

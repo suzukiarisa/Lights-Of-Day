@@ -1,41 +1,24 @@
-<div class="signin-space-top"></div>
-
-
+<div class="signin-bg-img">
   <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
+    <div class="row">
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="signup-form">
-              <div class="row">
-                <div class="col-xs-6 col-xs-offset-3">
-                  <%= f.label :メールアドレス %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-auto form-control form-control-lg w-100 box-for-login" %>
-                </div>
-              </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="signin-form">
+          <%= f.label :Email_メールアドレス %><br />
+          <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class:"col-auto form-control form-control-lg  box-for-login" %>
 
-              <div class="row">
-                <div class="col-xs-6 col-xs-offset-3">
-                  <%= f.label :パスワード %><br />
-                  <%= f.password_field :password, autocomplete: "current-password", class:"col-auto form-control form-control-lg w-100" %>
-                </div>
-              </div>
-            </div>
+          <%= f.label :Password_パスワード %><br />
+          <%= f.password_field :password, placeholder: "6字以上のパスワード", autocomplete: "current-password", class:"col-auto form-control form-control-lg" %>
         </div>
 
-            <div class="actions col-xs-1 col-xs-offset-5">
-              <div class="signin-button-space">
-              <%= f.submit "サインイン", class:"btn btn-default btn-lg" %>
-              </div>
-           </div>
-      </div>
-  </div>
-          <% end %>
+          <div class="signin-create-account">
+            <%= f.submit "サインイン", class:"btn btn-warning btn-lg" %>
+          </div>
 
           <div class="link-to-signin">
-            <div class="col-xs-3 col-xs-offset-5">
-                <div class="signin-button-bottom-space">
-            新規登録の方は<%= link_to "こちら", new_user_registration_path  %>
-               </div>
-            </div>
+            新規登録の方は<%= link_to "こちら", new_user_registration_path, :style=>"color:#FF8C00;" %>
           </div>
+      <% end %>
+    </div>
+  </div>
+</div>

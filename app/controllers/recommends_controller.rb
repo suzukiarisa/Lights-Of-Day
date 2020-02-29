@@ -10,6 +10,18 @@ class RecommendsController < ApplicationController
     @recommends = Recommend.page(params[:page]).per(12).reverse_order
   end
 
+  def show
+    @recommend = Recommend.find(params[:id])
+  end
+
+  def edit
+     @recommend = Recommend.find(params[:id])
+     @user = @recommend.user
+    if current_user != @user
+      redirect_to recommends_path
+    end
+  end
+
   def create
     @recommend = Recommend.new(recommend_params)
     respond_to do |format|
@@ -35,8 +47,19 @@ class RecommendsController < ApplicationController
     end
   end
 
-  def edit
-     @recommend = Recommend.find(params[:id])
+   def update
+  @recommend = Recommend.find(params[:id])
+  if @recommend.update(recommend_params)
+    redirect_to recommends_path(@recommend), notice: 'Recommend was successfully updated.'
+  else
+    render :edit
+  end
+end
+
+  def destroy
+    @recommend = Recommend.find(params[:id])
+    @recommend.destroy
+    redirect_to recommends_path, notice: 'Recommend was successfully destroyed.'
   end
 
   private

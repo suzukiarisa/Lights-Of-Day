@@ -22,55 +22,54 @@ body{
 
 /*Header*/
 
+.bg-color {
+	background-color: #255483;
+}
+
 .signup{
 	color:#FF8C00;
 	margin-left: 450px;
 	line-height: 60px;
+	font-weight: bold;
 }
-.signin{
+.signin {
 	color:#FF8C00;
 	margin-left: 50px;
 	line-height: 60px;
+	font-weight: bold;
 }
 
 .about{
 	color:#FF8C00;
 	margin-left: 50px;
 	line-height: 60px;
+	font-weight: bold;
 }
 
-.navbar-center{
-	width: 73%;
-	padding-top:20px;
-	white-space: nowrap;
-}
-
-.header-menu{
-	margin: 10px, 0;
-}
 .mypage{
 	color:#FF8C00;
 	padding-left: 30px;
+	font-weight: bold;
 }
 .festivals{
 	color:#FF8C00;
 	padding-left: 30px;
+	font-weight: bold;
 }
 .recommends{
 	color:#FF8C00;
 	padding-left: 30px;
+	font-weight: bold;
 }
 .memories{
 	color:#FF8C00;
 	padding-left: 30px;
+	font-weight: bold;
 }
 .users{
 	color:#FF8C00;
 	padding-left: 30px;
-}
-.tops {
-	color:#FF8C00;
-	padding-left: 30px;
+	font-weight: bold;
 }
 .admin_festival{
 	color:#FF8C00;
@@ -88,14 +87,19 @@ body{
 	color:#FF8C00;
 	padding-left: 30px;
 	margin:0 0 0 auto;
+	font-weight: bold;
 }
 .current_user{
-	color: #888888;
-	position: relative;
-    left: 200px;
+	color: #FFF;
+}
+
+.current-user-img{
+	border-radius: 50%;
+	width:  55px;
+    height: 55px;
 }
 .admin_user{
-	color: #888888;
+	color: #FFF;
 	position: relative;
     left: 200px;
 }
@@ -117,9 +121,61 @@ body{
 
 footer{
     width: 100%;
-    background-color: #FFF;
     color: #FF8C00;
     text-align: center;
+    font-weight: bold;
+}
+
+/*About*/
+.about-bg-img {
+	background-image: url("IMG_9690.jpeg");
+	width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position:bottom;
+}
+
+.about-title {
+    color: #FFFFFF;
+    font-size: 35px;
+    margin-left: 10%;
+    font-weight: bold;
+}
+
+.about-subtitle {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 750px;
+    left: 325px;
+}
+
+.about-text{
+	color: #FFFFFF;
+    font-size: 25px;
+    font-family: monospace;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.about-text-big{
+	color: #FFFFFF;
+    font-size: 32px;
+    font-family: monospace;
+    text-align: center;
+}
+
+.about-sign-up{
+    position: absolute;
+    bottom: 180px;
+    left: 740px;
+}
+
+.about-sign-in{
+	position: absolute;
+    bottom: 180px;
+    left: 860px;
 }
 
 /*Back to top*/
@@ -157,9 +213,6 @@ ul {
 
 .side-list{
 	width: 100px;
-	position: relative;
-    top: 23px;
-    right: 80px;
 }
 
 /*Admin Places*/

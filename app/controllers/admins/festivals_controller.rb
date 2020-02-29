@@ -9,7 +9,6 @@ class Admins::FestivalsController < ApplicationController
     @shikoku_festivals = Festival.where(prefecture_id: [35, 36, 37, 38])
     @kyushu_festivals = Festival.where(prefecture_id: [39, 40, 41, 42, 43, 44, 45])
     @okinawa_festivals = Festival.where(prefecture_id: 46)
-
   end
 
   def edit

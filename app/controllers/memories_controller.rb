@@ -9,6 +9,18 @@ class MemoriesController < ApplicationController
     @memories = Memory.page(params[:page]).per(12).reverse_order
   end
 
+  def show
+    @memory = Memory.find(params[:id])
+  end
+
+  def edit
+     @memory = Memory.find(params[:id])
+     @user = @memory.user
+    if current_user != @user
+      redirect_to memories_path
+    end
+  end
+
   def create
     @memory = Memory.new(memory_params)
     respond_to do |format|
@@ -34,9 +46,20 @@ class MemoriesController < ApplicationController
     end
   end
 
-	def edit
-	   @memory = Memory.find(params[:id])
-	end
+  def update
+  @memory = Memory.find(params[:id])
+  if @memory.update(memory_params)
+    redirect_to memories_path(@memory), notice: 'Memory was successfully updated.'
+  else
+    render :edit
+  end
+end
+
+  def destroy
+    @memory = Memory.find(params[:id])
+    @memory.destroy
+    redirect_to memories_path, notice: 'Memory was successfully destroyed.'
+  end
 
 	private
 

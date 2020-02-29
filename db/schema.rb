@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_103217) do
     t.integer "prefecture_id"
     t.string "image"
     t.string "favorite_artists"
+    t.string "introduction"
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false

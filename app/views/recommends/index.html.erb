@@ -1,44 +1,48 @@
 <div class="container">
-  <div class="row">
-	<div class="recommend-index">
-      <span class="recommends-title">Recommends</span>
-	</div>
-	<div class="recommend-new-link">
-	  <%= link_to new_recommend_path,data: {"turbolinks" => false} do %>
-	    <span class="recommend-font"> オススメスポットを投稿する <i class="far fa-arrow-alt-circle-left"></i></span>
-	  <% end %>
-	</div>
+  <div class="recommend-index">
+    <span class="recommends-title">Recommends</span>
+  </div>
+	<%= link_to new_recommend_path,data: {"turbolinks" => false} do %>
+	  <span class="recommend-font"> Let's POST </span>
+	  <i class="far fa-arrow-alt-circle-left"></i>
+	<% end %>
+	<br>
+	<br>
+	<br>
 	  <div class="row">
 	  	<% @recommends.each do |recommend| %>
-		  <div class="col-xs-3">
-		    <% if recommend.present? %>
-	          <% if recommend.recommend_photos.length == 0 %>
-	            <%= image_tag "/no_image.jpg", class: "recommend-img" %>
-	          <% else %>
-	            <% recommend.recommend_photos.each do |photo| %>
-	              <%= image_tag photo.image.url, class: "recommend-img" %>
-	            <% end %>
-	          <% end %>
-	            <div class="recommend-index-name">
-			      <%= recommend.user.nickname %>
-			    </div>
-				<div class="recommend-index-created">
-			      <%= l(recommend.created_at, format: :short) %>
-				</div>
-				<div class="recommend-index-spot">
-			      <%= recommend.spot %>
-			    </div>
-			    <div class="recommend-index-title">
-			      <%= recommend.title %>
-			    </div>
-			    <div class="recommend-index-body">
-			      <%= recommend.body %>
-			    </div>
-	        <% end %>
+		  <div class="col-sm-4">
+		  	<div class="col-sm-12">
+			    <% if recommend.present? %>
+		          <% if recommend.recommend_photos.length == 0 %>
+		            <%= image_tag "/no_image.jpg", class: "recommend-img" %>
+		          <% else %>
+		            <% recommend.recommend_photos.each do |photo| %>
+		              <%= image_tag photo.image.url, class: "recommend-img" %>
+		            <% end %>
+		          <% end %>
+		            <div class="recommend-index-created">
+				      <%= l(recommend.created_at, format: :short) %>
+					</div>
+		            <div class="recommend-index-name">
+				      <%= link_to recommend.user.nickname, post_path(recommend.user), :style=>"color:#777777;" %> さんの投稿
+				    </div>
+					<div class="recommend-index-spot">
+				      <%= recommend.spot %>
+				    </div>
+				    <div class="recommend-index-title">
+				      <%= link_to recommend.title, recommend_path(recommend.id), :style=>"color:#777777;" %>
+				    </div>
+				    <div class="recommend-index-body">
+				      <%= recommend.body %>
+				    </div>
+		        <% end %>
+	        </div>
 	      </div>
-	      <% end %>
+	    <% end %>
 	  </div>
-  </div>
 </div>
 
-<%= link_to "Back to top", root_path, class: 'btn btn-primary w-25' %>
+<div class="recommend-pagenate"><%= paginate @recommends %></div>
+
+<%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>

@@ -1,76 +1,76 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-      <div class="memory-index">
-        <span class="memories-title">My Memory</span>
-      </div>
-
-		  <% if @memory.present? %>
-            <% if memory.memory_photos.length == 0 %>
-               <%= image_tag "/no_image.jpg", :size => '250x250' %>
-            <% else %>
-               <% memory.memory_photos.each do |photo| %>
-                  <%= image_tag photo.image.url, :size => '250x250' %>
-               <% end %>
-            <% end %>
-				<div class="memory-name">
-			        <%= memory.user.nickname %>
-			    </div>
-
-				<div class="memory-post-date">
-					<%= memory.created_at %>
-				</div>
-
-				<div class="memory-spot">
-			        <%= memory.spot %>
-			    </div>
-
-			    <div class="memory-title">
-			        <%= memory.title %>
-			    </div>
-
-			    <div class="memory-body">
-			        <%= memory.body %>
-			    </div>
-		  <% end %>
-	</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-3">
-	  <div class="recommend-index">
-	    <span class="recommends-title">My Recommend</span>
-	  </div>
-
-		  <% if @recommend.present? %>
-            <% if recommend.recommend_photos.length == 0 %>
-               <%= image_tag "/no_image.jpg", :size => '250x250' %>
-            <% else %>
-               <% recommend.recommend_photos.each do |photo| %>
-                  <%= image_tag photo.image.url, :size => '250x250' %>
-               <% end %>
-            <% end %>
-				<div class="recommend-name">
-			        <%= recommend.user.nickname %>
-			    </div>
-
-				<div class="recommend-post-date">
-					<%= recommend.created_at %>
-				</div>
-
-				<div class="recommend-spot">
-			        <%= recommend.spot %>
-			    </div>
-
-			    <div class="recommend-title">
-			        <%= recommend.title %>
-			    </div>
-
-			    <div class="recommend-body">
-			        <%= recommend.body %>
-			    </div>
-		  <% end %>
+  <div class="post-name"><%= @user.nickname %> ’s Post</div>
+    <div class="memory-index">
+	  <span class="posts-title">Memory</span>
     </div>
+  <br>
+  <br>
+  <br>
+    <div class="row">
+      <% @memories.each do |memory| %>
+        <div class="col-sm-3">
+          <div class="col-sm-12">
+		    <%= link_to (memory_path(memory.id)) do %>
+			  <% if memory.present? %>
+		        <% if memory.memory_photos.length == 0 %>
+		           <%= image_tag "/no_image.jpg", class: "post-img" %>
+		        <% else %>
+		           <% memory.memory_photos.each do |photo| %>
+		              <%= image_tag photo.image.url, class: "post-img" %>
+		           <% end %>
+		        <% end %>
+		      <% end %>
+		    <% end %>
+				<div class="my-post-date">
+				  <%= l(memory.created_at, format: :short) %>
+				</div>
+
+				<div class="my-post-spot">
+			      <%= link_to memory.spot, memory_path(memory.id), :style=>"color:#777777;" %>
+			    </div>
+
+			    <div class="my-post-title">
+			      <%= link_to memory.title, memory_path(memory.id), :style=>"color:#777777;" %>
+			    </div>
+	      </div>
+		</div>
+      <% end %>
+    </div>
+
+  <div class="recommend-index">
+    <span class="posts-title">Recommend</span>
   </div>
+  <br>
+  <br>
+  <br>
+    <div class="row">
+      <% @recommends.each do |recommend| %>
+        <div class="col-sm-3">
+          <div class="col-sm-12">
+	        <%= link_to (recommend_path(recommend.id)) do %>
+			  <% if recommend.present? %>
+	            <% if recommend.recommend_photos.length == 0 %>
+	               <%= image_tag "/no_image.jpg", class: "post-img" %>
+	            <% else %>
+	               <% recommend.recommend_photos.each do |photo| %>
+	                  <%= image_tag photo.image.url, class: "post-img" %>
+	               <% end %>
+	            <% end %>
+	          <% end %>
+            <% end %>
+				<div class="my-post-date">
+		          <%= l(recommend.created_at, format: :short) %>
+				</div>
+
+				<div class="my-post-spot">
+			      <%= link_to recommend.spot, recommend_path(recommend.id), :style=>"color:#777777;" %>
+			    </div>
+
+			    <div class="my-post-title">
+			      <%= link_to recommend.title, recommend_path(recommend.id), :style=>"color:#777777;" %>
+			    </div>
+		  </div>
+	    </div>
+	  <% end %>
+    </div>
 </div>

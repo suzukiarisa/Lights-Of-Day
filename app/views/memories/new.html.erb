@@ -1,4 +1,6 @@
-<div class="container h-50">
+<div class="container h-75">
+
+<h2>みんなにオススメしてみませんか？</h2>
   <div calss="row">
 　  <%= form_for @memory do |f| %>
 	  <div class="field image">
@@ -26,25 +28,25 @@
 		    </div>
 
 			<div class="memory-place-label">
-			  <%= f.label :spot, 'Place' %>
+			  <%= f.label :spot, 'Place :' %>
 			</div>
-			<div class="memory-place-box">
-			  <%= f.text_field :spot %>
+			<div class="memory-place-box form-control-lg">
+			  <%= f.text_field :spot, placeholder: "思い出の場所を入力してください", :size => "60*60" %>
 			</div>
 			<div class="memory-title-label">
-			  <%= f.label :title, 'Title' %>
+			  <%= f.label :title, 'Title :' %>
 			</div>
-			<div class="memory-title-box">
-		      <%= f.text_field :title %>
+			<div class="memory-title-box form-control-lg">
+		      <%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "60*60" %>
 			</div>
 			<div class="memory-text-label">
-		      <%= f.label :body, 'Text' %>
+		      <%= f.label :body, 'Text :' %>
 		    </div>
-		    <div class="memory-text-box">
-			  <%= f.text_area :body %>
+		    <div class="memory-text-box form-control-lg">
+			  <%= f.text_area :body, placeholder: "本文を入力してください", :size => "60*60" %>
 			</div>
 			<div class="memory-post">
-		      <%= f.submit '投稿', class:'btn btn-warning' %>
+		      <%= f.submit '投稿', class:'btn btn-warning w-25' %>
 		    </div>
     <% end %>
   </div>

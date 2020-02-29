@@ -1,73 +1,68 @@
+<div class="signup-bg-img">
+  <div class="container">
+    <div class="row">
 
+      <%# autofocus="true"とは?Web画面上で自動的にフォーカスを入れるという設定,trueにすると生成されるinputタグにautofocus="autofocus"が追加される%>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="signup-space-top"></div>
+        <div class="signup-form1">
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
+          <div class="signup-nickname">
+            <%= f.label :Nickname_ニックネーム %><br>
+            <%= f.text_field :nickname, placeholder: "10字以内", autofocus: true, class:"col-auto form-control form-control-lg" %>
+          </div>
 
-    <%# autofocus="true"とは?Web画面上で自動的にフォーカスを入れるという設定,trueにすると生成されるinputタグにautofocus="autofocus"が追加される%>
-         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="signup-favorite-artist">
+            <%= f.label :favorite_artist_好きなアーティスト %><br>
+            <%= f.text_field :favorite_artists, placeholder: "25字以内", autofocus: true, class:"col-auto form-control form-control-lg" %>
+          </div>
 
-              <div class="signin-form">
+          <div class="signup-prefecture">
+            <%= f.label :Residence_居住地 %><br>
+            <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
+          </div>
 
-                  <div class="col-xs-6 col-xs-offset-3">
-                      <%= f.label :ニックネーム, class: "float-left" %><br />
-                      <%= f.text_field :nickname, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
-                  </div>
-
-                      <div class="col-xs-6 col-xs-offset-3">
-                            <%= f.label :好きなアーティスト, class: "float-left" %><br />
-                            <%= f.text_field :favorite_artists, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
-                      </div>
-
-                            <div class="col-xs-3 col-xs-offset-3">
-                              <%= f.label :居住地, class: "float-left" %><br />
-                              <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
-                            </div>
-
-                                <div class="col-xs-6 col-xs-offset-3">
-                                  <%= f.label :メールアドレス %><br />
-                                  <%= f.email_field :email, autocomplete: "email", class:"col-auto form-control form-control-lg w-100" %>
-                                </div>
-
-                                      <div class="col-xs-6 col-xs-offset-3">
-                                        <%= f.label :パスワード %>
-                                        <% if @minimum_password_length %>
-                                        <em>(<%= @minimum_password_length %> characters minimum)</em>
-                                        <% end %><br />
-                                        <%= f.password_field :password, autocomplete: "new-password", class:"col-auto form-control form-control-lg w-100" %>
-                                      </div>
-
-                                <div class="col-xs-6 col-xs-offset-3">
-                                  <%= f.label :パスワード（確認） %><br />
-                                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-auto form-control form-control-lg w-100" %>
-                                </div>
-
-                                <div class="signup-image-position">
-                                  <div class="col-xs-6 col-xs-offset-1">
-                                      <br>
-                                      <%= f.file_field :image %>
-                                  </div>
-                                </div>
-
-                         <div class="signup-button-space">
-                            <div class="actions col-xs-6 col-xs-offset-3">
-                               <br>
-                               <%= f.submit "アカウントを作成", class:"btn btn-default btn-lg" %>
-                            </div>
-                         </div>
-                </div>
-
-                  <div class="link-to-signup">
-                    <div class="col-xs-6 col-xs-offset-4">
-                      <div class="signup-button-bottom-space">アカウントをお持ちの方は<%= link_to "こちら", new_user_session_path %></div>
-                    </div>
-                  </div>
-
+          <div class="signup-prefecture">
+            <%= f.label :Introduction_自己紹介 %><br>
+            <%= f.text_area :introduction, placeholder: "50字以内", autocomplete: "introduction", class:"col-auto form-control form-control-lg" %>
+          </div>
         </div>
-      </div>
-    </div>
 
-       <% end %>
+        <div class="signup-form2">
+
+          <div class="signup-email">
+            <%= f.label :Email_メールアドレス %><br>
+            <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", class:"col-auto form-control form-control-lg" %>
+          </div>
+
+          <div class="signup-password">
+            <%= f.label :Password_パスワード %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br>
+            <%= f.password_field :password, placeholder: "6字以上の英数字", autocomplete: "new-password", class:"col-auto form-control form-control-lg " %>
+          </div>
+
+          <div class="signup-password-check">
+            <%= f.label :Password_パスワード（Confirm） %><br>
+            <%= f.password_field :password_confirmation, placeholder: "6字以上の英数字", autocomplete: "new-password", class:"col-auto form-control form-control-lg" %>
+          </div>
+          <br>
+          <div class="signup-image-position">
+            <%= f.label :Foto_写真 %><br />
+            <%= f.file_field :image %>
+          </div>
+        </div>
+
+          <div class="signup-create-account">
+            <%= f.submit "アカウントを作成", class:"btn btn-info btn-lg" %>
+          </div>
+
+          <div class="link-to-signup">
+            アカウントをお持ちの方は<%= link_to "こちら", new_user_session_path, :style=>"color:#FF8C00;" %></div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 

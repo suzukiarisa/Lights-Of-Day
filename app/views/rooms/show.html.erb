@@ -1,12 +1,15 @@
 <div class="container">
-  <h1>Messages</h1>
-
+  <br>
+  <br>
+  <span class="room-title">Messages</span>
+  <br>
+  <br>
     <%= form_for(@message, url: rooms_path) do |f| %>
       <div class="message-user-image">
 	    <%= image_tag @to_user.image.url, :size => '180x180' %>
       </div>
 	  <div class="message-user">
-		<%= @to_user.nickname %>
+		<%= @to_user.nickname %> さん
       </div>
     <% end %>
 

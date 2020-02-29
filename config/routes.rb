@@ -33,8 +33,8 @@ Rails.application.routes.draw do
     get 'homes/about' => 'homes#about'
     mount ActionCable.server => '/cable'
     resources :tops, only: [:index]
-    resources :recommends, only: [:new, :index, :create, :update, :destroy]
-    resources :memories, only: [:new, :index, :create, :update, :destroy]
+    resources :recommends, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+    resources :memories, only: [:new, :index, :show, :edit, :create, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update] do
         resource :user_relationship, only: [:create, :destroy]
     end

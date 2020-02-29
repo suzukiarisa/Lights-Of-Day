@@ -1,14 +1,14 @@
-
-
 <div class="container">
-  <div class="row">
-	<div class="follow-index">
-	  <span class="follow-title-index">Follows</span>
-	</div>
-
-	  <div class="row">
-	   	<% @followings.each do |follow| %>
-		  <div class="col-xs-3">
+  <div class="follow-index">
+    <span class="follow-title">Follows</span>
+  </div>
+  <br>
+  <br>
+  <br>
+    <div class="row">
+	  <% @followings.each do |follow| %>
+	    <div class="col-sm-3">
+		  <div class="col-sm-12">
 		  	<div class="follow-index-box">
 	          <div class="follow-index-text">
 	            <div class="follow-index-image">
@@ -18,34 +18,29 @@
 	                  <%= image_tag "/no_image.jpg", class: "follow-img" %>
 	              <% end %>
 			    </div>
-
 	            <div class="follow-btn">
-				    <% if current_user != follow %>
-				        <% if follow.followed_by?(current_user) %>
-				            <p><%=link_to "Unfollow", user_user_relationship_path(follow.id), method: :delete %></p>
-				        <% else %>
-				            <p><%=link_to "Follow", user_user_relationship_path(follow.id), method: :post %></p>
-				        <% end %>
+			      <% if current_user != follow %>
+				    <% if follow.followed_by?(current_user) %>
+				      <p><%=link_to "Unfollow", user_user_relationship_path(follow.id), method: :delete %></p>
+				    <% else %>
+				      <p><%=link_to "Follow", user_user_relationship_path(follow.id), method: :post %></p>
 				    <% end %>
+				  <% end %>
 				</div>
-
-			        <%= link_to "DM", room_path("#{current_user.id}-#{follow.id}", to: follow.id), class: 'btn btn-default' %>
-
+			      <%= link_to "DM", room_path("#{current_user.id}-#{follow.id}", to: follow.id), class: 'btn btn-outline-primary' %>
 				<div class="follow-index-nickname">
 			        <%= follow.nickname %>
 			    </div>
-
 				<div class="user-index-favorite-artist">
 					Favorite Artist: <%= follow.favorite_artists %>
 				</div>
-
 				<div class="user-index-prefecture">
 			        Residence: <%= follow.prefecture.name %>
 			    </div>
 			  </div>
 			</div>
 		  </div>
+		</div>
 		<% end %>
 	  </div>
-  </div>
 </div>

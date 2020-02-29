@@ -30,23 +30,40 @@
 	background-image: url("IMG_5945.jpg");
 }
 
-.top-current-user {
-	color: #888888;
-	font-size: 18px;
+.top-caption {
+	color: #FF8C00;
+    padding: 0.5em 0;
+    border-top: solid 3px #777777;
+    border-bottom: solid 3px #777777;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
-.top-title {
-	 color:#FF8C00;
-    font-size: 20px;
-}
-
-.text-size {
+.top-date {
 	color: #888888;
-	font-size: 16px;
  }
 
- .text-size-body {
+ .top-current-user {
 	color: #888888;
-	font-size: 16px;
 	text-align: center;
+	font-size: 20px;
+}
+
+ .top-spot {
+	color: #888888;
+	text-align: center;
+ }
+
+ .top-title {
+ 	text-align: center;
+ 	font-size: 30px;
+ 	font-weight: bold;
+    border-bottom: dashed 2px #FF8C00;
+ }
+
+ .top-body{
+ 	text-align: center;
+ 	color: #777777;
+ 	margin-top: 10px;
  }

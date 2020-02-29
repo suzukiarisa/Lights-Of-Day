@@ -12,11 +12,9 @@ class UsersController < ApplicationController
 
       @follow_ranks = User.where(:id => UserRelationship.group(:follower_id).
                        order("count(*) desc").
-                       limit(5).
+                       limit(3).
                        count.
                        keys)
-
-      # group(:following_id).order('count(following_id) desc')
     end
 
     def index_result
@@ -68,7 +66,7 @@ class UsersController < ApplicationController
 
 private
     def user_params
-      params.require(:user).permit(:nickname, :prefecture_id, :image, :favorite_artists, :email)
+      params.require(:user).permit(:nickname, :prefecture_id, :image, :favorite_artists, :email, :introduction)
     end
 
     def password_params

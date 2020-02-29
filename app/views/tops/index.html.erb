@@ -14,63 +14,60 @@
 </div>
 <br>
 <br>
-<br>
-<div class="container">
-  <div class="row">
-    <span class="top-title">Memories/メモリー</span>
+    <span class="top-caption">Memories / メモリー</span>
+    <br>
     <br>
       <div class="row">
           <% @random_memories.each do |memory| %>
-            <div class="col-xs-3">
-              <div class="col-xs-9">
+            <div class="col-sm-4">
+              <div class="col-sm-12">
                 <%= link_to user_path(memory) do %>
                   <% if memory.memory_photos.length == 0 %>
-                        <% image_tag "/no_image.jpg", :size => '250x250' %>
+                        <% image_tag "/no_image.jpg", :size => '500x250' %>
                   <% else %>
                      <% memory.memory_photos.each do |photo| %>
-                        <%= image_tag photo.image.url, :size => '250x250' %>
+                        <%= image_tag photo.image.url, :size => '500x250' %>
                      <% end %>
                   <% end %>
                 <% end %>
-                  <div class="text-size"><%= memory.created_at %></div>
-                  <div class="top-current-user"><%= memory.user.nickname %>さん</div>
-                  <div class="text-size">Spot: <%= memory.spot %></div>
-                  <div class="text-size">Title: <%= memory.title %></div>
-                  <div class="text-size-body"><%= memory.body %></div>
+                  <div class="top-date"><%= l(memory.created_at, format: :short) %></div>
+                  <div class="top-current-user"><%=  link_to memory.user.nickname, post_path(memory.user), :style=>"color:#777777;" %> さんの投稿</div>
+                  <div class="top-spot">現在地 : <%= memory.spot %></div>
+                  <div class="top-title"><%= link_to memory.title, memory_path(memory.id), :style=>"color:#777777;" %></div>
+                  <div class="top-body"><%= memory.body %></div>
               </div>
             </div>
           <% end %>
       </div>
-  </div>
   <br>
   <br>
   <br>
-  <div class="row">
-    <span class="top-title">Recommends/オススメ</span>
+    <span class="top-caption">Recommends / オススメ</span>
+    <br>
     <br>
       <div class="row">
           <% @random_recommends.each do |recommend| %>
-            <div class="col-xs-3">
-              <div class="col-xs-9">
+            <div class="col-sm-4">
+              <div class="col-sm-12">
                 <%= link_to user_path(recommend) do %>
                   <% if recommend.recommend_photos.length == 0 %>
-                        <% image_tag "/no_image.jpg", :size => '150x150' %>
+                        <% image_tag "/no_image.jpg", :size => '500x250' %>
                   <% else %>
                      <% recommend.recommend_photos.each do |photo| %>
-                        <%= image_tag photo.image.url, :size => '150x150' %>
+                        <%= image_tag photo.image.url, :size => '500x250' %>
                      <% end %>
                   <% end %>
                 <% end %>
-                  <div class="text-size"><%= recommend.created_at %></div>
-                  <div class="top-current-user"><%= recommend.user.nickname %>さん</div>
-                  <div class="text-size">Recommend: <%= recommend.spot %></div>
-                  <div class="text-size">Title: <%= recommend.title %></div>
-                  <div class="text-size-body"><%= recommend.body %></div>
+                  <div class="top-date"><%= l(recommend.created_at, format: :short) %></div>
+                  <div class="top-current-user"><%= link_to recommend.user.nickname, post_path(recommend.user), :style=>"color:#777777;" %> さんの投稿</div>
+                  <div class="top-spot">オススメ : <%= recommend.spot %></div>
+                  <div class="top-title"><%= link_to recommend.title, recommend_path(recommend.id), :style=>"color:#777777;" %></div>
+                  <div class="top-body"><%= recommend.body %></div>
                   </div>
               </div>
           <% end %>
       </div>
-  </div>
-</div>
+      <br>
+      <br>
 
 

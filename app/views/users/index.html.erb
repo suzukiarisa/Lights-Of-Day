@@ -1,110 +1,135 @@
-<div class="search-box-user-index col-xs-8 col-xs-offset-3">
-　　<%= search_form_for @search, url: index_result_path do |f| %>
-  		<%= f.search_field :nickname_or_favorite_artists_cont, class:"search_field", placeholder: 'ユーザー名・お気に入りアーティスト名を入力' %>
-    	　　<span class="actions">
-    	　　　　<%= f.button :type => "submit", class:'btn btn-primary' do %>
-    		　　　　<i class="fas fa-search"></i>
-    		　　<% end %>
-    	　　</span>
+<br>
+<br>
+<div class="search-box-user-index">
+  <%= search_form_for @search, url: index_result_path do |f| %>
+    <%= f.search_field :nickname_or_favorite_artists_cont, class:"search_field", placeholder: 'ユーザー名・お気に入りアーティスト名を入力' %>
+      <span class="actions">
+        <%= f.button :type => "submit", class:'btn btn-primary' do %>
+    	  <i class="fas fa-search"></i>
+        <% end %>
+      </span>
     <% end %>
 </div>
-
+<br>
+<br>
+<br>
 <div class="container">
-  <div class="row">
-	<div class="user-index">
-	  <span class="users-title-index">Follow Ranking</span>
-	</div>
-
+  <div class="user-index">
+	<span class="users-title-index">Follow Ranking</span>
+  </div>
+  <br>
+  <br>
+    <div class="row">
 	  <% @follow_ranks.each do |user| %>
-	    <div class="col-xs-3">
-		  <div class="user-index-box">
-	        <div class="user-index-text">
-	          <div class="user-index-image">
-			    <% if user.image.blank? %>
-	              <%= image_tag "/no_image.jpg", class: "user-img"  %>
-	            <% else %>
-	              <%= image_tag "#{user.image}", class: "user-img" %>
-	            <% end %>
-			  </div>
+	    <div class="col-sm-4">
+	      <div class="col-sm-12">
+			  <div class="user-index-box">
+		        <div class="user-index-text">
+		          <div class="user-index-image">
+				    <% if user.image.blank? %>
+		              <%= image_tag "/no_image.jpg", class: "user-img"  %>
+		            <% else %>
+		              <%= image_tag "#{user.image}", class: "user-img" %>
+		            <% end %>
+				  </div>
+				  <br>
+				  <div class="follow-btn">
+				    <% if current_user != user %>
+				      <% if user.followed_by?(current_user) %>
+				        <p><%=link_to "Unfollow", user_user_relationship_path(user.id), method: :delete %></p>
+				      <% else %>
+				        <p><%=link_to "Follow", user_user_relationship_path(user.id), method: :post %></p>
+				      <% end %>
+				    <% end %>
+				  </div>
 
-			  <div class="follow-btn">
-			    <% if current_user != user %>
-			      <% if user.followed_by?(current_user) %>
-			        <p><%=link_to "Unfollow", user_user_relationship_path(user.id), method: :delete %></p>
-			      <% else %>
-			        <p><%=link_to "Follow", user_user_relationship_path(user.id), method: :post %></p>
-			      <% end %>
-			    <% end %>
-			  </div>
+				    <%= link_to "DM", room_path("#{current_user.id}-#{user.id}", to: user.id), class: 'btn btn-outline-primary' %>
 
-			    <%= link_to "DM", room_path("#{current_user.id}-#{user.id}", to: user.id), class: 'btn btn-default' %>
+			      <div class="user-index-nickname">
+				    <%= user.nickname %>
+				  </div>
 
-		      <div class="user-index-nickname">
-			    <%= user.nickname %>
-			  </div>
+				  <div class="user-follow-count">
+				  	 Follower: <%= user.followers.count%>
+				  </div>
 
-			  <div class="user-follow-count">
-			  	 Follower: <%= user.followers.count%>
-			  </div>
+			      <div class="user-index-favorite-artist">
+				    Favorite Artist: <%= user.favorite_artists %>
+			      </div>
 
-		      <div class="user-index-favorite-artist">
-			    Favorite Artist: <%= user.favorite_artists %>
+			      <div class="user-index-prefecture">
+	                Residence: <%= user.prefecture.name %>
+				  </div>
+
+				  <div class="user-index-prefecture">
+	                  Introduction: <%= user.introduction %>
+				  </div>
+				</div>
 		      </div>
-
-		      <div class="user-index-prefecture">
-                Residence: <%= user.prefecture.name %>
-			  </div>
-			</div>
-	      </div>
+		  </div>
 		</div>
 	  <% end %>
+	</div>
+	 <div class="user-index-border"></div>
+	<br>
+	<br>
 
-	    <div class="user-index-border"></div>
-
-	  <div class="user-index">
-	    <span class="users-title-index">All Users</span>
-	  </div>
+    <div class="user-index">
+      <span class="users-title-index">All Users</span>
+    </div>
+    <br>
+    <br>
+	  <div class="row">
 	   	<% @users.each do |user| %>
-		  <div class="col-xs-3">
-		    <div class="user-index-box">
-	          <div class="user-index-text">
-	            <div class="user-index-image">
-			      <% if user.image.blank? %>
-	                  <%= image_tag "/no_image.jpg", class: "user-img"  %>
-	              <% else %>
-	                  <%= image_tag "#{user.image}", class: "user-img" %>
-	              <% end %>
-			    </div>
+		  <div class="col-sm-3">
+		  	<div class="col-sm-12">
+			    <div class="user-index-box">
+		          <div class="user-index-text">
+		            <div class="user-index-image">
+				      <% if user.image.blank? %>
+		                  <%= image_tag "/no_image.jpg", class: "user-img"  %>
+		              <% else %>
+		                  <%= image_tag "#{user.image}", class: "user-img" %>
+		              <% end %>
+				    </div>
+				    <br>
+				    <div class="follow-btn">
+				      <% if current_user != user %>
+				        <% if user.followed_by?(current_user) %>
+				            <p><%=link_to "Unfollow", user_user_relationship_path(user.id), method: :delete %></p>
+				        <% else %>
+				            <p><%=link_to "Follow", user_user_relationship_path(user.id), method: :post %></p>
+				        <% end %>
+				      <% end %>
+				    </div>
 
+				    <%= link_to "DM", room_path("#{current_user.id}-#{user.id}", to: user.id), class: 'btn btn-outline-primary' %>
 
-			   <div class="follow-btn">
-			     <% if current_user != user %>
-			        <% if user.followed_by?(current_user) %>
-			            <p><%=link_to "Unfollow", user_user_relationship_path(user.id), method: :delete %></p>
-			        <% else %>
-			            <p><%=link_to "Follow", user_user_relationship_path(user.id), method: :post %></p>
-			        <% end %>
-			    <% end %>
-			   </div>
+					<div class="user-index-nickname">
+				      <%= user.nickname %>
+				    </div>
 
-			    <%= link_to "DM", room_path("#{current_user.id}-#{user.id}", to: user.id), class: 'btn btn-default' %>
+				    <div class="user-follow-count">
+				  	 Follower: <%= user.followers.count%>
+				    </div>
 
-				<div class="user-index-nickname">
-			      <%= user.nickname %>
-			    </div>
+					<div class="user-index-favorite-artist">
+				      Favorite Artist: <%= user.favorite_artists %>
+					</div>
 
-				<div class="user-index-favorite-artist">
-			      Favorite Artist: <%= user.favorite_artists %>
+					<div class="user-index-prefecture">
+	                  Residence: <%= user.prefecture.name %>
+				    </div>
+
+				    <div class="user-index-prefecture">
+	                  Introduction: <%= user.introduction %>
+				    </div>
+				  </div>
 				</div>
-
-				<div class="user-index-prefecture">
-                  Residence: <%= user.prefecture.name %>
-			    </div>
-			  </div>
-			</div>
+		    </div>
 		  </div>
 		<% end %>
-  </div>
+	  </div>
 </div>
 
-  <%= link_to "Back to top", root_path, class: 'btn btn-primary w-25' %>
+  <%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>

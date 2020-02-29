@@ -2,20 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .favorite-title {
-    color:#FF8C00;
-    font-size: 25px;
-}
-
-.favorite-festival-index {
-	height: 400px;
-    width: 260px;
-    margin: 15px;
-    color: #777777;
-	float: left;
-	position: relative;
-    left: 30px;
+    color: #FF8C00;/*文字色*/
+    padding: 0.5em 0;/*上下の余白*/
+    border-top: solid 3px #777777;/*上線*/
+    border-bottom: solid 3px #777777;/*下線*/
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    width: 10%;
+    margin: 50px 300px;
 }
 
 .favorite-festival-name {
@@ -34,22 +30,20 @@
 }
 
 .destroy-favorite-box {
-    font-size: 18px;
-    position: relative;
-    top: 220px;
-    left: 720px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 38%;
+    margin-bottom: 20px;
 }
 
 .favorite-pagenate {
-    font-size: 25px;
-    position: relative;
-    top: 200px;
-    left: 755px;
+    font-size: 28px;
+    margin-left: 42%;
 }
 
 .checkbox-size {
     transform: scale(1.5);
     position: relative;
     bottom: 10px;
-    left: 190px;
+    left: 170px;
 }

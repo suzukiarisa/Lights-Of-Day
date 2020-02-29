@@ -7,10 +7,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :nickname, presence: true, length: { maximum: 10 }
-  validates :favorite_artists, presence: true, length: { maximum: 30 }
+  validates :favorite_artists, presence: true, length: { maximum: 25 }
+  validates :introduction, length: { maximum: 50 }
   validates :email, presence: true
   validates :image, presence: true
-
 
   belongs_to :prefecture, optional: true
   has_many :favorites, dependent: :destroy

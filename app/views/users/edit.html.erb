@@ -1,59 +1,39 @@
+<div class="user-edit-bg-img">
+<br>
+<br>
+  <div class="user-edit-title">Editing / ﾍﾝｼｭｳ</div>
 
+    <div class="container">
+      <div class="row">
+      	<%= form_for(@user) do |f| %>
 
-<div class="container">
-  <div class="row">
-  	<h2 class="user-edit-title1">Editing </h2>
-     <div class="user-edit-title2">/ 編集</div>
-       <div class="col-xs-8 col-xs-offset-2">
-
-    		 <%= form_for(@user) do |f| %>
-
-              <div class="edit-image-position">
-                <div class="col-xs-3">
-                 <%= image_tag @user.image.url, :size => '270x270' %>
-                 <%= f.file_field :image %>
-                </div>
-              </div>
-
+          <div class="edit-image-position">
+              <%= image_tag @user.image.url, :size => '300x350' %></br>
+              <%= f.file_field :image %>
+          </div>
             <div class="edit-form-position">
-              <div class="col-xs-3 col-xs-offset-3">
-                    <%= f.label :ニックネーム, class: "float-left" %><br />
-                    <%= f.text_field :nickname, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
-              </div>
+              <%= f.label :Email %></br>
+              <%= f.email_field :email, autocomplete: "email", class:"col-auto form-control form-control-lg w-100" %>
 
-              <div class="col-xs-3">
-                  <%= f.label :好きなアーティスト, class: "float-left" %><br />
-                  <%= f.text_field :favorite_artists, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
-              </div>
+              <%= f.label :Nickname %></br>
+              <%= f.text_field :nickname, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
 
-              <div class="col-xs-3 col-xs-offset-3">
-                <%= f.label :居住地, class: "float-left" %><br />
-                <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
-              </div>
+              <%= f.label :Favorite_Artist %></br>
+              <%= f.text_field :favorite_artists, autofocus: true, class:"col-auto form-control form-control-lg w-100" %>
 
-              <div class="col-xs-6 col-xs-offset-3">
-                <%= f.label :メールアドレス %><br />
-                <%= f.email_field :email, autocomplete: "email", class:"col-auto form-control form-control-lg w-100" %>
-              </div>
+              <%= f.label :Residence %></br>
+              <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %></br>
 
-              <div class="col-xs-6 col-xs-offset-3">
-                <%= f.label :パスワード %>
-                <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password", class:"col-auto form-control form-control-lg w-100" %>
-              </div>
+              <%= f.label :Introduction %>
+              <%= f.text_area :introduction, autocomplete: "introduction", class:"col-auto form-control form-control-lg w-100" %>
 
-              <div class="col-xs-6 col-xs-offset-3">
-                <%= f.label :パスワード（確認） %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-auto form-control form-control-lg w-100" %>
-              </div>
-
-              <div class="edit-push">
-                <%= f.submit "更新", class: "btn btn-default mx-auto btn-lg" %>
+              <div class="edit-update">
+                <br>
+                <br>
+                <%= f.submit "Update", class: "btn btn-primary btn-lg w-100" %>
               </div>
             </div>
-    	   <% end %>
-       </div>
-  </div>
+        <% end %>
+      </div>
+    </div>
 </div>
