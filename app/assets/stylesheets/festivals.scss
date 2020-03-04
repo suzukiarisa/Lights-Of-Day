@@ -4,13 +4,11 @@
 
 /*Festival*/
 
-.region-text-color{
-    color:#888888;
-}
-
 #hokkaido{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .hok{
@@ -20,7 +18,9 @@
 
 #tohoku{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 
 }
 
@@ -31,7 +31,9 @@
 
 #kanto{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .kan{
@@ -41,7 +43,9 @@
 
 #chubu{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .chub{
@@ -51,7 +55,9 @@
 
 #kinki{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .kin{
@@ -61,7 +67,9 @@
 
 #chugoku{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .chug{
@@ -71,7 +79,9 @@
 
 #shikoku{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .shi{
@@ -81,7 +91,9 @@
 
 #kyushu{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .kyu{
@@ -91,7 +103,9 @@
 
 #okinawa{
     color:#FF8C00;
-    font-size: 25px;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 
 .oki{
@@ -161,10 +175,10 @@
 }
 
 .favorite-festival {
-    font-size: 30px;
+    font-size: 35px;
     position: relative;
-    bottom: 30px;
-    left: 197px;
+    bottom: 15px;
+    left: 270px;
 }
 
 .festival-event-date{
@@ -172,7 +186,7 @@
 }
 
 .festival-name {
-    font-size: 25px;
+    font-size: 23px;
     text-align: center;
 }
 

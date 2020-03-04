@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 10 }
   validates :favorite_artists, presence: true, length: { maximum: 25 }
-  validates :introduction, length: { maximum: 50 }
+  validates :introduction, length: { maximum: 75 }
   validates :email, presence: true
   validates :image, presence: true
 

@@ -7,6 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # coding: utf-8
 
+User.create!([
+  { image:  Rails.root.join("db/fixtures/images/image1.jpg").open,
+    nickname: 'あり',
+    favorite_artists: '東京事変',
+    prefecture_id: '22',
+    introduction: '東京事変の他に、オーラル、フォーリミ、打首獄門同好会なども好きです！！京都大作戦に１人で参加予定ですが、どなたかで一緒に周りませんか？',
+    email: 'a@a',
+    password: '111111',
+  }
+])
+
+
 Admin.create!(
    email: 'admin@admin',
    password: 'adminadmin'
@@ -77,7 +89,29 @@ FestivalName.create!([
   { :id => 11, :name => "京都大作戦2020" },
   { :id => 12, :name => "MONSTER baSH 2020" },
   { :id => 13, :name => "NUMBER SHOT 2020" },
-  { :id => 14, :name => "Miyako Island Rock Festival 2020" }
+  { :id => 14, :name => "Miyako Island Rock Festival 2020" },
+  { :id => 15, :name => "ISHINOMAKI BUCHI ROCK" },
+  { :id => 16, :name => "OGA NAMAHAGE ROCK FESTIVAL" },
+  { :id => 17, :name => "リスアニ!LIVE" },
+  { :id => 18, :name => "COUNTDOWN JAPAN" },
+  { :id => 19, :name => "ビクターロック祭り" },
+  { :id => 20, :name => "ULTRA JAPAN" },
+  { :id => 21, :name => "MUSIC COMPLEX" },
+  { :id => 22, :name => "SUMMER SONIC" },
+  { :id => 23, :name => "氣志團万博" },
+  { :id => 24, :name => "マグロック" },
+  { :id => 25, :name => "森、道、市場 2019" },
+  { :id => 26, :name => "TREASURE05X" },
+  { :id => 27, :name => "中津川 THE SOLAR BUDOKAN" },
+  { :id => 28, :name => "音楽と髭達" },
+  { :id => 29, :name => "RADIO CRAZY" },
+  { :id => 30, :name => "ポルノ超特急" },
+  { :id => 31, :name => "HIGH! HIGH! HIGH!" },
+  { :id => 32, :name => "RUSH BALL" },
+  { :id => 33, :name => "OTODAMA" },
+  { :id => 34, :name => "桃太郎フェス" },
+  { :id => 35, :name => "WILD BUNCH FEST." },
+  { :id => 36, :name => "Sky Jamboree" }
 ])
 
  Place.create!([
@@ -109,7 +143,7 @@ Festival.create!([
     環境問題について学べるブースに至るまで、ステージ上で音が鳴っていない時間も楽しめる要素が満載。
     会場内にテントを張って一夜を明かせることも大きな特徴として挙げられます。'
   },
-  { image:  Rails.root.join("db/fixtures/images/image6.jpg").open,
+  { image:  Rails.root.join("db/fixtures/images/image2.jpg").open,
     festival_name_id: '1',
     place_id: '1',
     event_date: '2020/07/11(土)-07/12(日)',
