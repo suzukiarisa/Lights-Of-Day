@@ -1,0 +1,39 @@
+<div class="memory-edit-caption">Edit / ﾍﾝｼｭｳ</div>
+  <div class="row">
+	<div class="memory-post-edit-img">
+		<% if @memory.present? %>
+	      <% if @memory.memory_photos.length == 0 %>
+	        <%= image_tag "/no_image.jpg", :size => '520x370' %>
+	    <% else %>
+	      <% @memory.memory_photos.each do |photo| %>
+	        <%= image_tag photo.image.url, :size => '520x370' %>
+	      <% end %>
+	      <% end %>
+	    <% end %>
+	</div>
+
+	<div class="memory-edit-name">
+		<%= image_tag @memory.user.image.url, class: "current-user-img" %>
+	    <%= link_to @memory.user.nickname,  post_path(@memory.user) %> さんの投稿
+	</div>
+
+	<div class="memory-edit-create-date">
+		<%= l(@memory.created_at, format: :short) %>
+	</div>
+      <%= form_for(@memory) do |f| %>
+		<div class="memory-edit-spot">
+	      Place : <br><%= f.text_field :spot, autofocus: true, placeholder: "思い出の場所を入力してください", :size => "80*20", class: "form-control" %>
+		</div>
+
+		<div class="memory-edit-title">
+		  Title : <br><%= f.text_field :title, autofocus: true, placeholder: "タイトルを入力してください", :size => "80*20", class: "form-control" %>
+		</div>
+
+		<div class="memory-edit-body">
+		  Text : <br><%= f.text_area :body, autofocus: true, placeholder: "本文を入力してください", :size => "80*40", class: "form-control" %>
+	    </div>
+	    <div class="memory-update-btn">
+	      <%= f.submit "Update", class: "btn btn-outline-primary btn-lg" %>
+	    </div>
+	<% end %>
+  </div>

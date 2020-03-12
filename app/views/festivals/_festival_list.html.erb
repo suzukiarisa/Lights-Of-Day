@@ -1,0 +1,31 @@
+<% festivals.each do |festival| %>
+    <div class="col-sm-3">
+		  <div class="col-sm-11">
+        <div class="festival-image">
+	    <%= attachment_image_tag festival, :image, :fill, 330, 230, format: 'jpg', fallback: "no_image.jpg" %>
+        </div>
+
+		<div class="festival-event-date">
+	        <%= festival.event_date %>
+	    </div>
+
+	    <div class="favorite-festival">
+	      <div id="favorite_buttons_<%= festival.id %>">
+	     	<%= render 'layouts/favorite_button', festival: festival %>
+	      </div>
+	    </div>
+
+		<div class="festival-name">
+			<%= festival.festival_name.name %>
+		</div>
+
+		<div class="festival-place">
+	        @ <%= festival.place.name %>
+	    </div>
+
+	    <div class="festival-body">
+	        <%= festival.body %>
+	    </div>
+      </div>
+    </div>
+  <% end %>

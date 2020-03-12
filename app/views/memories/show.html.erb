@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="memory-post-show-img">
+		<% if @memory.present? %>
+	      <% if @memory.memory_photos.length == 0 %>
+	        <%= image_tag "/no_image.jpg", :size => '520x370' %>
+	    <% else %>
+	      <% @memory.memory_photos.each do |photo| %>
+	        <%= image_tag photo.image.url, :size => '520x370' %>
+	      <% end %>
+	    <% end %>
+	</div>
+
+	<div class="memory-show-name">
+		<%= image_tag @memory.user.image.url, class: "current-user-img" %>
+	    <%= link_to @memory.user.nickname,  post_path(@memory.user) %> さんの投稿
+	</div>
+
+	<div class="memory-show-create-date">
+		<%= l(@memory.created_at, format: :short) %>
+	</div>
+
+	<div class="memory-show-spot">
+	    <%= @memory.spot %>
+	</div>
+
+	<div class="memory-show-title">
+	    <%= @memory.title %>
+	</div>
+
+	<div class="memory-show-body">
+	  <div id="text-container" style="height: 250px; width: 800px; overflow: scroll; margin: 20px; padding: 10px; background-color:#f0f8ff;">
+	    <%= @memory.body %>
+	  </div>
+    </div>
+	<% end %>
+</div>
+
+<% if current_user == @memory.user %>
+  <%= link_to 'Edit', edit_memory_path(@memory) %> |
+  <%= link_to 'Destroy', memory_path, method: :delete, data: { confirm: '本当に消しますか?' } %>
+<% end %>
+
