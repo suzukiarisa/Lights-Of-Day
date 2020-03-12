@@ -8,14 +8,15 @@ class FavoritesController < ApplicationController
       	@festival = Festival.find(params[:festival_id])
         @favorite = current_user.favorites.new(festival_id: @festival.id)
         @favorite.save
-        redirect_to festivals_path(@festival), notice: "お気に入りに登録しました"
+        flash[:notice] = "お気に入りに登録しました"
+        # redirect_to festivals_path(@festival), notice: 
       end
 
       def destroy
         @festival = Festival.find(params[:festival_id])
         @favorite = current_user.favorites.find_by(festival_id: @festival.id)
         @favorite.destroy
-        redirect_to festivals_path(@festival)
+        # redirect_to festivals_path(@festival)
      end
 
      def destroy_all
