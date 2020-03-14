@@ -1,55 +1,54 @@
-<div class="container h-75">
+<div class="bg-color-gray h-100">
+　　<div class="container">
+	<!-- <h2>みんなにオススメしてみませんか？</h2> -->
+	  <div calss="row">
+	　  <%= form_for @memory do |f| %>
+		  <div class="field image">
+		    <%= f.label '＜下枠をクリックして写真を選択＞' %>
 
-<!-- <h2>みんなにオススメしてみませんか？</h2> -->
-  <div calss="row">
-　  <%= form_for @memory do |f| %>
-	  <div class="field image">
-	    <%= f.label '＜下枠をクリックして写真を選択＞' %>
+		      <!--id "file"で、fileとdivを紐付けクリック時に連動 -->
+		      <div id="img_field" onClick="$('#file').click()" >
 
-	      <!--id "file"で、fileとdivを紐付けクリック時に連動 -->
-	      <div id="img_field" onClick="$('#file').click()" >
+		        <!-- 画像があるときは画像を表示する -->
+		        <% if @memory.memory_photos.first.blank? %>
+		          <%= image_tag(@memory.memory_photos.first.image.url) %>
+		        <% else %>
+		          <i class="fas fa-image"></i>
+		        <% end %>
 
-	        <!-- 画像があるときは画像を表示する -->
-	        <% if @memory.memory_photos.first.blank? %>
-	          <%= image_tag(@memory.memory_photos.first.image.url) %>
-	        <% else %>
-	          <i class="fas fa-image "></i>
-	        <% end %>
-
+			  </div>
+		        <!-- id "file"をつけ、「display:none;」で隠す -->
+		        <%= f.fields_for :memory_photos do |mf| %>
+		          <%= mf.file_field :image, class: "image", style: "display:none;", id: "file"%>
+		        <% end %>
 		  </div>
-	        <!-- id "file"をつけ、「display:none;」で隠す -->
-	        <%= f.fields_for :memory_photos do |mf| %>
-	          <%= mf.file_field :image, class: "image", style: "display:none;", id: "file"%>
-	        <% end %>
-	  </div>
-          <%= f.hidden_field :user_id, :value => @user_id %>
-		    <div class="memory-date">
-　　　　　　　  <%= @memory.created_at %>
-		    </div>
+	          <%= f.hidden_field :user_id, :value => @user_id %>
+			    <div class="post-new-date">
+	　　　　　　　  <%= @memory.created_at %>
+			    </div>
 
-			<div class="memory-place-label">
-			  <%= f.label :spot, 'Place :' %>
-			</div>
-			<div class="memory-place-box form-control-lg">
-			  <%= f.text_field :spot, placeholder: "思い出の場所を入力してください", :size => "60*60" %>
-			</div>
-			<div class="memory-title-label">
-			  <%= f.label :title, 'Title :' %>
-			</div>
-			<div class="memory-title-box form-control-lg">
-		      <%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "60*60" %>
-			</div>
-			<div class="memory-text-label">
-		      <%= f.label :body, 'Text :' %>
-		    </div>
-		    <div class="memory-text-box form-control-lg">
-			  <%= f.text_area :body, placeholder: "本文を入力してください", :size => "60*60" %>
-			</div>
-			<div class="memory-post">
-		      <%= f.submit '投稿', class:'btn btn-warning w-25' %>
-		    </div>
-    <% end %>
-  </div>
+				<div class="post-new-place-label">
+				  <%= f.label :spot, 'Location / ﾛｹｰｼｮﾝ' %>
+				</div>
+				<div class="post-new-place-box form-control-lg">
+				  <%= f.text_field :spot, placeholder: "思い出の場所を入力してください", :size => "60*60" %>
+				</div>
+				<div class="post-new-title-label">
+				  <%= f.label :title, 'Title / ﾀｲﾄﾙ' %>
+				</div>
+				<div class="post-new-title-box form-control-lg">
+			      <%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "60*60" %>
+				</div>
+				<div class="post-new-text-label">
+			      <%= f.label :body, 'Content / ﾅｲﾖｳ' %>
+			    </div>
+			    <div class="post-new-text-box form-control-lg">
+				  <%= f.text_area :body, placeholder: "本文を入力してください", :style=>"width:555px; height:100px;" %>
+				</div>
+				<div class="post-post-new">
+			      <%= f.submit 'Post', class:'btn btn-warning btn-lg', :style=>"width:270px; height:50px;" %>
+			    </div>
+	    <% end %>
+      </div>
+	</div>
 </div>
-
-<%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>

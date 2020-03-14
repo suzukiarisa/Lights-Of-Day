@@ -1,54 +1,54 @@
-<div class="container h-75">
-<!-- <h2>みんなにオススメしてみませんか？</h2>
- -->  <div calss="row">
-　  <%= form_for @recommend do |f| %>
-      <div class="field image">
-	    <%= f.label '＜下枠をクリックして写真を選択＞' %>
+<div class="bg-color-gray h-100">
+　　<div class="container">
+	<!-- <h2>みんなにオススメしてみませんか？</h2> -->
+	  <div calss="row">
+	　  <%= form_for @recommend do |f| %>
+		  <div class="field image">
+		    <%= f.label '＜下枠をクリックして写真を選択＞' %>
 
-	      <!--id "file"で、fileとdivを紐付けクリック時に連動 -->
-	      <div id="img_field" onClick="$('#file').click()" >
+		      <!--id "file"で、fileとdivを紐付けクリック時に連動 -->
+		      <div id="img_field" onClick="$('#file').click()" >
 
-	        <!-- 画像があるときは画像を表示する -->
-	        <% if @recommend.recommend_photos.first.blank? %>
-	          <%= image_tag(@recommend.recommend_photos.first.image.url) %>
-	        <% else %>
-	          <i class="fas fa-image"></i>
-	        <% end %>
+		        <!-- 画像があるときは画像を表示する -->
+		        <% if @recommend.recommend_photos.first.blank? %>
+		          <%= image_tag(@recommend.recommend_photos.first.image.url) %>
+		        <% else %>
+		          <i class="fas fa-image"></i>
+		        <% end %>
 
+			  </div>
+		        <!-- id "file"をつけ、「display:none;」で隠す -->
+		        <%= f.fields_for :recommend_photos do |mf| %>
+		          <%= mf.file_field :image, class: "image", style: "display:none;", id: "file"%>
+		        <% end %>
 		  </div>
-	        <!-- id "file"をつけ、「display:none;」で隠す -->
-	        <%= f.fields_for :recommend_photos do |mf| %>
-	          <%= mf.file_field :image, class: "image", style: "display:none;", id: "file"%>
-	        <% end %>
+	          <%= f.hidden_field :user_id, :value => @user_id %>
+			    <div class="post-new-date">
+	　　　　　　　  <%= @recommend.created_at %>
+			    </div>
+
+				<div class="post-new-place-label">
+				  <%= f.label :spot, 'Spot / ｵｽｽﾒｽﾎﾟｯﾄ' %>
+				</div>
+				<div class="post-new-place-box form-control-lg">
+				  <%= f.text_field :spot, placeholder: "オススメを入力してください", :size => "60*60" %>
+				</div>
+				<div class="post-new-title-label">
+				  <%= f.label :title, 'Title / ﾀｲﾄﾙ' %>
+				</div>
+				<div class="post-new-title-box form-control-lg">
+			      <%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "60*60" %>
+				</div>
+				<div class="post-new-text-label">
+			      <%= f.label :body, 'Content / ﾅｲﾖｳ' %>
+			    </div>
+			    <div class="post-new-text-box form-control-lg">
+				  <%= f.text_area :body, placeholder: "本文を入力してください", :style=>"width:555px; height:100px;" %>
+				</div>
+				<div class="post-post-new">
+			      <%= f.submit 'Post', class:'btn btn-warning btn-lg', :style=>"width:270px; height:50px;" %>
+			    </div>
+	    <% end %>
 	  </div>
-        <%= f.hidden_field :user_id, :value => @user_id %>
-		    <div class="recommend-date">
-	　　　　   <%= @recommend.created_at %>
-		    </div>
-
-			<div class="recommend-place-label">
-			  <%= f.label :spot, 'Place :' %>
-			</div>
-			<div class="recommend-place-box form-control-lg">
-			  <%= f.text_field :spot, placeholder: "オススメしたい場所を入力してください", :size => "60*60" %>
-			</div>
-			<div class="recommend-title-label">
-			  <%= f.label :title, 'Title :' %>
-			</div>
-			<div class="recommend-title-box form-control-lg">
-		      <%= f.text_field :title, placeholder: "タイトルを入力してください", :size => "60*60" %>
-			</div>
-			<div class="recommend-text-label">
-		      <%= f.label :body, 'Text :' %>
-		    </div>
-		    <div class="recommend-text-box form-control-lg">
-			  <%= f.text_area :body, placeholder: "本文を入力してください", :size => "60*60" %>
-			</div>
-			<div class="recommend-post">
-		      <%= f.submit '投稿', class:'btn btn-warning w-25' %>
-		    </div>
-    <% end %>
-  </div>
+	</div>
 </div>
-
-<%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>

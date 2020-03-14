@@ -2,13 +2,13 @@
 <div class="container">
 	<div class="row">
 	  <% @favorites.each do |favorite| %>
-	    <div class="col-sm-3">
+	    <div class="col-sm-4">
 		  <div class="checkbox-size">
 		    <%= check_box_tag 'favorites[]', favorite.id, false, {id: favorite.id, form: "formtag"}%>
 		  </div>
 
             <div class="favorite-festival-image">
-		    <%= attachment_image_tag favorite.festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+		    <%= attachment_image_tag favorite.festival, :image, :fill, 350, 230, format: 'jpg', fallback: "no_image.jpg" %>
             </div>
 
 			<div class="festival-event-date">

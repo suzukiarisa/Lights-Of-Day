@@ -1,37 +1,40 @@
-<div class="container">
-  <br>
-  <br>
-  <span class="room-title">Messages</span>
-  <br>
-  <br>
-    <%= form_for(@message, url: rooms_path) do |f| %>
-      <div class="message-user-image">
-	    <%= image_tag @to_user.image.url, :size => '180x180' %>
-      </div>
-	  <div class="message-user">
-		<%= @to_user.nickname %> さん
-      </div>
-    <% end %>
-
-  <div class="message-box">
+<div class="bg-color-gray h-100">
+  <div class="container">
+	  <br>
+	  <br>
+	    <span class="room-title">Messages</span>
+	  <br>
+	  <br>
 	    <%= form_for(@message, url: rooms_path) do |f| %>
-		<%= f.hidden_field :from_id, :value => current_user.id %>
-		<%= f.hidden_field :to_id, :value => @to_user.id %>
-		<%= f.hidden_field :room_id, :value => @room_id %>
-	  <form class="form-inline">
-	    <label class="say-something">Say something:</label><br>
-		  <input type="text" value="" placeholder="送信したい文を入力してください"class="message-form" id="chat-input" ></input>
-	  </form>
-	  <div id="message-container" style="height: 450px; overflow: scroll; margin: 30px; padding: 20px; background-color:#f0f8ff; border-radius: 25px;">
-	    <div id="messages" data-from-id='<%= current_user.id %>'>
-		  <ul>
-		    <li>
-			  <%= render :partial => "message", :collection => @messages %>
-			</li>
-		  </ul>
-		</div>
+	      <div class="message-user-image">
+		    <%= image_tag @to_user.image.url, :size => '230x180' %>
+	      </div>
+		  <div class="message-user">
+			<%= @to_user.nickname %> ｻﾝ
+	      </div>
+	    <% end %>
+
+	  <div class="message-box">
+		    <%= form_for(@message, url: rooms_path) do |f| %>
+			<%= f.hidden_field :from_id, :value => current_user.id %>
+			<%= f.hidden_field :to_id, :value => @to_user.id %>
+			<%= f.hidden_field :room_id, :value => @room_id %>
+		  <form class="form-inline">
+		    <label class="say-something">Say something:</label><br>
+			  <input type="text" value="" placeholder="送信したい文を入力してください"class="message-form" id="chat-input" ></input>
+		  </form>
+		  <div id="message-container" style="height: 385px; overflow: scroll; margin: 35px 100px; padding: 40px 70px; background-color:#FFF; border-radius: 25px;">
+		    <div id="messages" data-from-id='<%= current_user.id %>'>
+			  <ul>
+			    <li>
+				  <%= render :partial => "message", :collection => @messages %>
+				</li>
+			  </ul>
+			</div>
+		  </div>
+			 <% end %>
 	  </div>
-		 <% end %>
   </div>
 </div>
+
 

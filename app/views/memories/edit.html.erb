@@ -1,39 +1,51 @@
-<div class="memory-edit-caption">Edit / ﾍﾝｼｭｳ</div>
-  <div class="row">
-	<div class="memory-post-edit-img">
-		<% if @memory.present? %>
-	      <% if @memory.memory_photos.length == 0 %>
-	        <%= image_tag "/no_image.jpg", :size => '520x370' %>
-	    <% else %>
-	      <% @memory.memory_photos.each do |photo| %>
-	        <%= image_tag photo.image.url, :size => '520x370' %>
-	      <% end %>
-	      <% end %>
-	    <% end %>
-	</div>
+<div class="bg-edit-color-gray h-100">
+	<div class="post-edit-caption">Edit / ﾍﾝｼｭｳ</div>
+	  <div class="row">
+	  	<div class="bg-edit-box-white">
+			<div class="post-edit-img">
+				<% if @memory.present? %>
+			      <% if @memory.memory_photos.length == 0 %>
+			        <%= image_tag "/no_image.jpg", :size => '600x350' %>
+			    <% else %>
+			      <% @memory.memory_photos.each do |photo| %>
+			        <%= image_tag photo.image.url, :size => '600x350' %>
+			      <% end %>
+			      <% end %>
+			    <% end %>
+			</div>
 
-	<div class="memory-edit-name">
-		<%= image_tag @memory.user.image.url, class: "current-user-img" %>
-	    <%= link_to @memory.user.nickname,  post_path(@memory.user) %> さんの投稿
-	</div>
+			<div class="post-edit-name">
+			    <%= link_to @memory.user.nickname,  post_path(@memory.user), :style=>"color:#000000;" %> ’s Post
+			</div>
 
-	<div class="memory-edit-create-date">
-		<%= l(@memory.created_at, format: :short) %>
-	</div>
-      <%= form_for(@memory) do |f| %>
-		<div class="memory-edit-spot">
-	      Place : <br><%= f.text_field :spot, autofocus: true, placeholder: "思い出の場所を入力してください", :size => "80*20", class: "form-control" %>
-		</div>
+			<div class="post-edit-date-label">Date / ﾄｳｺｳﾋﾞ</div>
 
-		<div class="memory-edit-title">
-		  Title : <br><%= f.text_field :title, autofocus: true, placeholder: "タイトルを入力してください", :size => "80*20", class: "form-control" %>
-		</div>
+			<div class="post-edit-date">
+				<%= l(@memory.created_at, format: :short) %>
+			</div>
 
-		<div class="memory-edit-body">
-		  Text : <br><%= f.text_area :body, autofocus: true, placeholder: "本文を入力してください", :size => "80*40", class: "form-control" %>
+			<div class="post-edit-spot-label">Location / ﾛｹｰｼｮﾝ</div>
+
+		    <%= form_for(@memory) do |f| %>
+				<div class="post-edit-spot">
+			      <%= f.text_field :spot, autofocus: true, placeholder: "思い出の場所を入力してください", :size => "80*20", class: "form-control" %>
+				</div>
+
+				<div class="post-edit-title-label">Title / ﾀｲﾄﾙ</div>
+
+				<div class="post-edit-title">
+				  <%= f.text_field :title, autofocus: true, placeholder: "タイトルを入力してください", :size => "80*20", class: "form-control" %>
+				</div>
+
+				<div class="post-edit-body-label">Content / ﾅｲﾖｳ</div>
+
+				<div class="post-edit-body">
+				  <%= f.text_area :body, autofocus: true, placeholder: "本文を入力してください", :style=>"width:1040px; height:180px;", class: "form-control" %>
+			    </div>
+			    <div class="post-update-btn">
+			      <%= f.submit "Update", class: "btn btn-outline-secondary btn-lg" %>
+			    </div>
+			<% end %>
 	    </div>
-	    <div class="memory-update-btn">
-	      <%= f.submit "Update", class: "btn btn-outline-primary btn-lg" %>
-	    </div>
-	<% end %>
-  </div>
+	  </div>
+</div>

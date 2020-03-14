@@ -1,69 +1,67 @@
-<br>
-<br>
-<div class="search-box-user-index">
+<div class="bg-color-gray">
   <%= search_form_for @search, url: index_result_path do |f| %>
-    <%= f.search_field :nickname_or_favorite_artists_cont, class:"search_field", placeholder: 'ユーザー名・お気に入りアーティスト名を入力' %>
-	  <span class="actions">
-		<%= f.button :type => "submit", class:'btn btn-primary' do %>
-		  <i class="fas fa-search"></i>
-		<% end %>
-	  </span>
-	<% end %>
-</div>
+    <%= f.search_field :nickname_or_favorite_artists_cont, class:"search_field", placeholder: 'ユーザー名・お気に入りアーティスト名を入力', :style=>"width:550px; height:45px;" %>
+      <span class="actions">
+        <%= f.button :type => "submit", class:'btn btn-primary btn-lg' do %>
+    	  <i class="fas fa-search"></i>
+        <% end %>
+      </span>
+    <% end %>
+	<br>
+	<br>
+	<div class="container">
+	  <div class="index-index-result">
+	    " <%= params[:q][:nickname_or_favorite_artists_cont] %> " の検索結果　<%= @users.count %>件
+	  </div>
+	  <br>
+	  <div class="row">
+		   	<% @users.each do |user| %>
+			  <div class="col-sm-6 col-md-3">
+			    <div class="card img-thumbnail">
+			      <% if user.image.blank? %>
+		              <%= image_tag "/no_image.jpg", class: "user-index-img"  %>
+		          <% else %>
+		              <%= image_tag "#{user.image}", class: "user-index-img" %>
+		          <% end %>
 
-<div class="container">
-  <div class="index-index-result">
-    <span class="index-index-text">"<%= params[:q][:nickname_or_favorite_artists_cont] %>"の検索結果　<%= @users.count %>件</span>
-  </div>
-    <div class="row">
-	   	<% @users.each do |user| %>
-		  <div class="col-sm-3">
-		  	<div class="col-sm-12">
-			    <div class="user-index-box">
-		          <div class="user-index-text">
-		            <div class="user-index-image">
-				      <% if user.image.blank? %>
-		                  <%= image_tag "/no_image.jpg", class: "user-img"  %>
-		              <% else %>
-		                  <%= image_tag "#{user.image}", class: "user-img" %>
-		              <% end %>
+	              <div class="card-body px-2 py-3">
+					<div class="user-index-nickname">
+				      <%= user.nickname %>
 				    </div>
 
+				    <div class="user-content">
+				  	 Follower: <%= user.followers.count%>
+				    </div>
 
-				   <div class="follow-btn">
-				     <% if current_user != user %>
+					<div class="user-content">
+				      Favorite Artist: <%= user.favorite_artists %>
+					</div>
+
+					<div class="user-content">
+		              Residence: <%= user.prefecture.name %>
+				    </div>
+
+				    <div class="user-content">
+		              Introduction: <%= user.introduction %>
+				    </div>
+				    <div class="follow-btn-index">
+				      <% if current_user != user %>
 				        <% if user.followed_by?(current_user) %>
 				            <p><%=link_to "Unfollow", user_user_relationship_path(user.id), method: :delete %></p>
 				        <% else %>
 				            <p><%=link_to "Follow", user_user_relationship_path(user.id), method: :post %></p>
 				        <% end %>
-				    <% end %>
-				   </div>
-
-				    <%= link_to "DM", room_path("#{current_user.id}-#{user.id}", to: user.id), class: 'btn btn-outline-primary' %>
-
-					<div class="user-index-nickname">
-				      <%= user.nickname %>
+				      <% end %>
 				    </div>
-
-				    <div class="user-follow-count">
-					  Follower: <%= user.followers.count%>
-					</div>
-
-					<div class="user-index-favorite-artist">
-				      Favorite Artist: <%= user.favorite_artists %>
-					</div>
-
-					<div class="user-index-prefecture">
-	                  Residence: <%= user.prefecture.name %>
-				    </div>
+				      <%= link_to "DM", room_path("#{current_user.id}-#{user.id}", to: user.id), class: 'btn btn-outline-primary btn-lg' %>
 				  </div>
-				</div>
-		    </div>
+			    </div>
+			  </div>
+			<% end %>
 		  </div>
-		<% end %>
+		  <br>
+		  <div class="user-index-border"></div>
 	</div>
-</div>
-	  <div class="user-index-border"></div>
+	<br>
+      <%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>
  </div>
-<%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>

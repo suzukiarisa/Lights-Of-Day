@@ -13,40 +13,38 @@ li {
 }
 
 .say-something {
-  font-size: 22px;
-  color: #777777;
+  font-size: 27px;
+  color: #333;
+  font-weight: 300;
   position: absolute;
-  left: 310px;
-  top: 58%;
+  left: 400px;
+  top: 53%;
 }
 
 .room-title {
   color: #FF8C00;
-  padding: 0.5em 0;
-  border-top: solid 3px #777777;
-  border-bottom: solid 3px #777777;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 35px;
+  font-weight: 200;
+  margin-left: 50px;
 }
 
 .message-form{
-  width: 900px;
-  height: 35px;
-  margin-left: 190px;
+  width: 700px;
+  height: 45px;
+  margin-left: 300px;
 }
 
 .message-user-image{
-  margin-top: 30px;
-  margin-left: 40px;
-  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 120px;
 }
 
 .message-user{
-  font-size: 20px;
-  color: #777777;
+  font-size: 25px;
+  color: #333;
   position: absolute;
-  left: 525px;
-  top: 40%;
+  left: 670px;
+  top: 35%;
 }
 
 .message-box{
@@ -55,4 +53,5 @@ li {
 
 .message-size{
   font-size: 22px;
+  font-weight: 300;
 }

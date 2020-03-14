@@ -1,24 +1,37 @@
-<div class="container">
-  <div class="follow-index">
-    <span class="follow-title">Follows</span>
-  </div>
-  <br>
-  <br>
-  <br>
-    <div class="row">
-	  <% @followings.each do |follow| %>
-	    <div class="col-sm-3">
-		  <div class="col-sm-12">
-		  	<div class="follow-index-box">
-	          <div class="follow-index-text">
-	            <div class="follow-index-image">
-			      <% if follow.image %>
-	                  <%= image_tag follow.image.url, class: "follow-img" %>
-	              <% else %>
-	                  <%= image_tag "/no_image.jpg", class: "follow-img" %>
-	              <% end %>
+<div class="bg-color-gray">
+	<div class="container">
+	  <br>
+	    <span class="follow-title">Follows</span>
+	  <br>
+	  <br>
+	  <div class="row">
+	   	<% @followings.each do |follow| %>
+		  <div class="col-sm-6 col-md-3">
+		    <div class="card img-thumbnail">
+		      <% if follow.image %>
+	              <%= image_tag follow.image.url, class: "follow-img" %>
+	          <% else %>
+	              <%= image_tag "/no_image.jpg", class: "follow-img" %>
+	          <% end %>
+
+	          <div class="card-body px-2 py-2">
+				<div class="follow-index-nickname">
+			      <%= follow.nickname %>
 			    </div>
-	            <div class="follow-btn">
+
+				<div class="follow-follow-content">
+			      Favorite Artist: <%= follow.favorite_artists %>
+				</div>
+
+				<div class="follow-follow-content">
+	              Residence: <%= follow.prefecture.name %>
+			    </div>
+
+			    <div class="follow-follow-content">
+		          Introduction: <%= follow.introduction %>
+			    </div>
+
+			    <div class="follow-follow-btn">
 			      <% if current_user != follow %>
 				    <% if follow.followed_by?(current_user) %>
 				      <p><%=link_to "Unfollow", user_user_relationship_path(follow.id), method: :delete %></p>
@@ -26,21 +39,15 @@
 				      <p><%=link_to "Follow", user_user_relationship_path(follow.id), method: :post %></p>
 				    <% end %>
 				  <% end %>
-				</div>
-			      <%= link_to "DM", room_path("#{current_user.id}-#{follow.id}", to: follow.id), class: 'btn btn-outline-primary' %>
-				<div class="follow-index-nickname">
-			        <%= follow.nickname %>
-			    </div>
-				<div class="user-index-favorite-artist">
-					Favorite Artist: <%= follow.favorite_artists %>
-				</div>
-				<div class="user-index-prefecture">
-			        Residence: <%= follow.prefecture.name %>
-			    </div>
+			  　</div>
+		          <%= link_to "DM", room_path("#{current_user.id}-#{follow.id}", to: follow.id), class: 'btn btn-outline-primary btn-lg' %>
 			  </div>
-			</div>
+		    </div>
 		  </div>
-		</div>
 		<% end %>
 	  </div>
+	  <br>
+	  <div class="underline"></div>
+      <br>
+	</div>
 </div>

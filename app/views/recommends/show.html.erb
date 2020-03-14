@@ -1,41 +1,61 @@
-<div class="row">
-	<div class="recommend-post-show-img">
-		<% if @recommend.present? %>
-	      <% if @recommend.recommend_photos.length == 0 %>
-	        <%= image_tag "/no_image.jpg", :size => '520x370' %>
-	    <% else %>
-	      <% @recommend.recommend_photos.each do |photo| %>
-	        <%= image_tag photo.image.url, :size => '520x370' %>
-	      <% end %>
-	    <% end %>
-	</div>
+<div class="bg-color-gray h-100">
+  <div class="row">
+  	<div class="bg-box-white">
+		<div class="post-show-img">
+			<% if @recommend.present? %>
+		      <% if @recommend.recommend_photos.length == 0 %>
+		        <%= image_tag "/no_image.jpg", :size => '600x350' %>
+		    <% else %>
+		      <% @recommend.recommend_photos.each do |photo| %>
+		        <%= image_tag photo.image.url, :size => '600x350' %>
+		      <% end %>
+		    <% end %>
+		</div>
 
-	<div class="recommend-show-name">
-		<%= image_tag @recommend.user.image.url, class: "current-user-img" %>
-	    <%= link_to @recommend.user.nickname,  post_path(@recommend.user) %> さんの投稿
-	</div>
+		<div class="post-show-name">
+		    <%= link_to @recommend.user.nickname,  post_path(@recommend.user), :style=>"color:#000000;" %> ’s Post
+		</div>
 
-	<div class="recommend-show-create-date">
-		<%= l(@recommend.created_at, format: :short) %>
-	</div>
+		<div class="post-show-date-label">Date / ﾄｳｺｳﾋﾞ</div>
 
-	<div class="recommend-show-spot">
-	    <%= @recommend.spot %>
-	</div>
+		<div class="post-show-date">
+			<%= l(@recommend.created_at, format: :short) %>
+		</div>
 
-	<div class="recommend-show-title">
-	    <%= @recommend.title %>
-	</div>
+		<div class="post-show-spot-label">Spot / ｵｽｽﾒｽﾎﾟｯﾄ</div>
 
-	<div class="recommend-show-body">
-	  <div id="text-container" style="height: 250px; width: 800px; overflow: scroll; margin: 20px; padding: 10px; background-color:#f0f8ff;">
-	    <%= @recommend.body %>
-	  </div>
-    </div>
-	<% end %>
+		<div class="post-show-spot">
+		    <%= @recommend.spot %>
+		</div>
+
+		<div class="post-show-title-label">Title / ﾀｲﾄﾙ</div>
+
+		<div class="post-show-title">
+		    <%= @recommend.title %>
+		</div>
+
+		<div class="post-show-body-label">Content / ﾅｲﾖｳ</div>
+
+		<div class="post-show-body">
+		  <div id="text-container" style="height: 170px; width: 1070px; overflow: scroll; margin: 20px; padding: 10px; background-color:#FFF;">
+		    <%= @recommend.body %>
+		  </div>
+	    </div>
+		<% end %>
+	</div>
+  </div>
 </div>
 <% if current_user == @recommend.user %>
-  <%= link_to 'Edit', edit_recommend_path(@recommend) %> |
-  <%= link_to 'Destroy', recommend_path, method: :delete, data: { confirm: '本当に消しますか?' } %>
+<div class="post-show-link-edit">
+　　<i class="fa fa-edit"></i> <%= link_to 'Edit', edit_recommend_path(@recommend), :style=>"color:#000000;" %> |
+</div>
+<div class="post-show-link-destroy">
+　　<i class="far fa-trash-alt"></i> <%= link_to 'Destroy', recommend_path, method: :delete, data: { confirm: '本当に消しますか?' }, :style=>"color:#000000;" %>
+</div>
 <% end %>
+
+<div class="other-post">
+<%= link_to 'See other posts', post_path(@recommend.user), :style=>"color:#000000;" %> <i class="far fa-arrow-alt-circle-right"></i>
+</div>
+
 
