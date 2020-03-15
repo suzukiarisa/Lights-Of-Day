@@ -1,15 +1,8 @@
-
- <div class="col-xs-9">
-   <h3 class="registration-items">新規フェスの登録</h3>
-	 <div class="border"></div>
-
-	   <div class="registration-contents">
-		 <div class="row">
-		   <div class="col-xs-10 col-xs-offset-1">
-		     <%= render 'form', festival: @festival %>
-		   </div>
-		 </div>
-	   </div>
-  </div>
-
-<%= link_to "TOPへ", admins_festivals_path, class: 'btn btn-primary w-25' %>
+<div class="container h-75">
+	<div class="admin-name">フェスティバルの新規登録</div>
+	  <div class="underline"></div>
+	    <div class="admin-festival-box">
+          <%= render 'form', festival: @festival %>
+        </div>
+</div>
+<%= link_to "TOPへ", admins_festivals_path, class: 'btn btn-outline-secondary w-25' %>

@@ -8,60 +8,48 @@
 				    <%= f.attachment_field :image %>
 				</th>
 			</tr>
-
 			<tr>
 				<div class="field">
-					<th><label class="festival-name">フェス名</label></th>
+					<th><label class="admin-label">フェス名</label></th>
 					<th>
 						 <%= f.collection_select :festival_name_id, FestivalName.all, :id, :name %>
 					</th>
 				</div>
 			</tr>
-
 			<tr>
-				<div class="field">
-				  <th><label class="event-date">開催日</label></th>
-				    <th>
-					  <div class="form-group">
-						<div class="input-group date" id="date" date-target-input="nearest">
-						<%= f.text_field :event_date, class:"form-control datetimepicker-input", data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "YYYY/MM/DD" %>
-						</div>
-							<script type="text/javascript">
-								$(function () {
-					  			$(".datetimepicker-input").datetimepicker({
-					  				format:'YYYY/MM/DD'
-					  			});
-								});
-							</script>
-					  </div>
-				    </th>
-				</div>
+			  <th><label class="admin-label">開催日</label></th>
+			    <th>
+					<div class="input-group date" id="date" date-target-input="nearest">
+					  <%= f.text_field :event_date, class:"form-control datetimepicker-input", data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "YYYY/MM/DD" %>
+					</div>
+					<script type="text/javascript">
+						$(function () {
+			  			$(".datetimepicker-input").datetimepicker({
+			  				format:'YYYY/MM/DD'
+			  			});
+						});
+					</script>
+			    </th>
+		    </tr>
+			<tr>
+			  <th><label class="admin-label">開催地</label></th>
+			    <th>
+				  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
+				  <%= f.collection_select :place_id, Place.all, :id, :name, include_blank: '選択して下さい' %>
+			    </th>
 			</tr>
-
 			<tr>
-				<div class="field">
-				  <th><label class="place">開催地</label></th>
-				    <th>
-					  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %>
-					  <%= f.collection_select :place_id, Place.all, :id, :name, include_blank: '選択して下さい' %>
-				    </th>
-				</div>
-			</tr>
-
-			<tr>
-			  <div class="field">
 			    <th>
 				  <label class="body">内容</label>
 				</th>
 				<th>
-			      <%= f.text_area :body,class:"col-sm-12 contact-height" %>
+			      <%= f.text_area :body, :style=>"width:875px; height:130px;" %>
 				</th>
-			  </div>
 			</tr>
 		</tbody>
 	</table>
 
 	<div class="admin-festival-submit">
-		<%= f.submit "登録", class:"btn btn-primary" %>
+		<%= f.submit "登録", class:"btn btn-primary", :style=>"width:300px; height:50px;" %>
 	</div>
 <% end %>

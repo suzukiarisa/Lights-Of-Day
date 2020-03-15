@@ -1,49 +1,37 @@
 <div class="bg-img">
   <div class="container">
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-4">
-        <%= link_to post_path, class:'link-menu' do %>
-          <div class="jumbotron">
-            <div class="title-menu">My Post</div>
-            <div class="post-content"> ー 自分の投稿一覧が見れます ー </div>
-          </div>
-        <% end %>
-      </div>
+      <%= link_to post_path, class:'link-menu' do %>
+        <div class="jumbotron">
+          <div class="title-menu">My Post</div>
+          <div class="post-content"> ー 自分の投稿一覧が見れます ー </div>
+        </div>
+      <% end %>
     </div>
-
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <%= link_to follows_path(current_user.id), class:'link-menu' do %>
-          <div class="jumbotron">
-            <div class="title-menu">Follow</div>
-            <div class="follow-content"> ー フォローの確認と削除ができます ー </div>
-          </div>
-        <% end %>
-      </div>
+      <%= link_to follows_path(current_user.id), class:'link-menu' do %>
+        <div class="jumbotron">
+          <div class="title-menu">Follow</div>
+          <div class="follow-content"> ー フォローの確認と削除ができます ー </div>
+        </div>
+      <% end %>
     </div>
-
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-4">
-        <%= link_to favorites_path, class:'link-menu' do %>
-          <div class="jumbotron">
-            <div class="title-menu">Favorite Festivals</div>
-            <div class="favorite-content"> ー いいねしたフェスの確認と削除ができます ー </div>
-          </div>
-        <% end %>
-      </div>
+      <%= link_to favorites_path, class:'link-menu' do %>
+        <div class="jumbotron">
+          <div class="title-menu">Favorite Festivals</div>
+          <div class="favorite-content"> ー いいねしたフェスの確認と削除ができます ー </div>
+        </div>
+      <% end %>
     </div>
-
-    <div class="row ">
-      <div class="col-xs-8 col-xs-offset-4">
-        <%= link_to user_path(current_user.id), class:'link-menu' do %>
-          <div class="jumbotron">
-            <div class="title-menu">My Profile</div>
-            <div class="conform-content"> ー プロフィールの確認,変更ができます ー </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="row">
+      <%= link_to user_path(current_user.id), class:'link-menu' do %>
+        <div class="jumbotron">
+          <div class="title-menu">My Profile</div>
+          <div class="conform-content"> ー プロフィールの確認,変更ができます ー </div>
+        </div>
+      <% end %>
     </div>
-
-    <div class="mypage-exit"><%= link_to '退会', exit_path(current_user.id), class: "btn btn-danger btn-lg" %></div>
+    <div class="mypage-exit"><%= link_to '退会', exit_path(current_user.id), class: "btn btn-danger btn-lg", :style=>"width:100px; height:50px;" %></div>
   </div>
 </div>

@@ -49,7 +49,7 @@ class MemoriesController < ApplicationController
   def update
   @memory = Memory.find(params[:id])
   if @memory.update(memory_params)
-    redirect_to memories_path(@memory), notice: 'Memory was successfully updated.'
+    redirect_to memory_path(@memory), notice: 'Memory was successfully updated.'
   else
     render :edit
   end

@@ -21,6 +21,12 @@ body{
 	height: 100vh;
 }
 
+.brand-logo{
+	height: 60px;
+	position: absolute;
+    right: 83%;
+}
+
 /*PostNew*/
 
 #img_field {
@@ -119,6 +125,77 @@ body{
   margin-top: 50px;
   margin-left: 200px;
 }
+
+/*PostIndex*/
+
+.post-index-caption{
+  color: #FF8C00;
+  margin-left: 30px;
+  font-size: 33px;
+  font-weight: 200;
+}
+
+.post-index-font {
+  font-size: 25px;
+  font-weight: 350;
+  color:  #777777;
+  margin-left: 320px;
+}
+
+.fa-arrow-alt-circle-left{
+  font-size: 23px;
+  color:  #FF8C00;
+}
+
+.post-index-img {
+  width:  320px;
+  height: 180px;
+}
+
+.post-index-created{
+  color:#777777;
+}
+
+.post-index-name{
+  color:#777777;
+  font-size: 20px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.post-index-spot{
+  text-align: center;
+  font-weight: 200;
+  color: #777777;
+}
+
+.post-index-title{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  border-bottom: dashed 1px #333;
+}
+
+.post-index-body{
+  text-align: center;
+  color: #777777;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-bottom:50px;
+}
+
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.post-index-pagenate{
+  margin-top: 40px;
+  margin-left: 46%;
+  font-size: 25px;
+}
+
 
 /*PostShow*/
 
@@ -244,21 +321,15 @@ body{
   background-color: #FFF;
   width: 75%;
   height: 650px;
-  margin: 120px 250px;
+  margin: 50px 250px;
 }
 
 .post-edit-caption{
   color: #FF8C00;
-  padding: 0.5em 0;
-  border-top: solid 3px #777777;
-  border-bottom: solid 3px #777777;
+  margin-left: 250px;
+  padding-top: 40px;
   font-size: 30px;
-  text-align: center;
-  font-weight: bold;
-  width: 10%;
-  position: absolute;
-  left: 14%;
-  top: 14%;
+  font-weight: 200;
 }
 
 .post-edit-img {
@@ -344,7 +415,7 @@ body{
 .post-update-btn {
   position: absolute;
   left: 80%;
-  top: 905px;
+  top: 893px;
 }
 
 /*Header*/
@@ -368,6 +439,11 @@ body{
 .header-menu-li-out{
 	float: left;
     padding: 0px 0px 0px 720px;
+}
+
+.header-menu-li-admin{
+	float: left;
+    padding: 0px 0px 0px 620px;
 }
 
 .header-menu-li-name {
@@ -395,23 +471,10 @@ body{
 	width:  50px;
     height: 50px;
 }
+
 .admin_user{
-	color: #FFF;
-	position: relative;
-    left: 200px;
-}
-
-.admin_user-box{
-	margin-left: 400px;
-	margin-top: 15px;
-}
-
-.admin_signout-box{
-	margin-top: 40px;
-}
-.admin_signout{
-	color:#FF8C00;
-	line-height: 45px;
+	color: #333;
+	margin-left: 300px;
 }
 
 /*Footer*/
@@ -428,58 +491,6 @@ footer{
 	border-top: solid 1px #FF8C00;
 }
 
-/*About*/
-.about-bg-img {
-	background-image: url("IMG_9690.jpeg");
-	width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position:bottom;
-}
-
-.about-title {
-    color: #FFFFFF;
-    font-size: 35px;
-    margin-left: 10%;
-    font-weight: bold;
-}
-
-.about-subtitle {
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: bold;
-    position: absolute;
-    bottom: 750px;
-    left: 325px;
-}
-
-.about-text{
-	color: #FFFFFF;
-    font-size: 25px;
-    font-family: monospace;
-    text-align: center;
-    margin-top: 40px;
-}
-
-.about-text-big{
-	color: #FFFFFF;
-    font-size: 32px;
-    font-family: monospace;
-    text-align: center;
-}
-
-.about-sign-up{
-    position: absolute;
-    bottom: 180px;
-    left: 740px;
-}
-
-.about-sign-in{
-	position: absolute;
-    bottom: 180px;
-    left: 860px;
-}
-
 /*Back to top*/
 .w-25 {
 	 width: 25% !important;
@@ -490,6 +501,58 @@ footer{
 
 /*Admin*/
 
+.admin-signin-create-account {
+	margin-top: 50px;
+	margin-bottom: 300px;
+	margin-left: 500px;
+}
+
+.admin-name{
+	text-align: center;
+	font-size: 25px;
+	font-weight: 300;
+}
+
+.admin-category-box{
+	margin-top: 100px;
+	margin-left: 380px;
+	margin-bottom: 100px;
+}
+
+.admin-festival-delete{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 75%;
+}
+
+.admin-festival-box{
+	width: 60%;
+	position: absolute;
+	top: 155px;
+    right: 630px;
+}
+
+.admin-festival-submit{
+	margin-left: 98%;
+	margin-top: 25px;
+}
+
+.admin-festival-location1{
+	margin-left:50px;
+}
+
+.admin-festival-location2{
+    margin-left:50px;
+}
+
+.admin-festival-location3{
+    margin-left:50px;
+}
+
+.admin-festival-location4{
+    margin-left:50px;
+}
+
 /*Admin Sidemenu*/
 
 ul {
@@ -497,9 +560,9 @@ ul {
 }
 
 .detail-list{
-  color: #404040;
-  border-left: solid 6px #4682B4;/*左側の線*/
-  border-bottom: solid 2px #dadada;/*下に灰色線*/
+  color: #333;
+  border-left: solid 6px #FF8C00;
+  border-bottom: solid 2px #dadada;
   background: whitesmoke;
   margin-bottom: 10px;/*下のバーとの余白*/
   line-height: 1.5;
@@ -515,42 +578,4 @@ ul {
 
 .side-list{
 	width: 100px;
-}
-
-/*Admin Places*/
-
-.label-place{
-	display: inline;
-	text-align: center;
-	margin-left: 260px;
-}
-
-.place-border {
-    width: 80%;
-    height: 2px;
-    background-color:#dadada;
-    margin: 0 auto;
-}
-
-.place-category-box{
-	margin-top: 100px;
-}
-
-/*Admin FestivalNames*/
-
-.label-festival-name{
-	display: inline;
-	text-align: center;
-	margin-left: 260px;
-}
-
-.festival-names-border {
-    width: 80%;
-    height: 2px;
-    background-color:#dadada;
-    margin: 0 auto;
-}
-
-.festival-name-category-box{
-	margin-top: 100px;
 }

@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="label-place">開催地の編集・削除</div>
-    <div class="place-border"></div>
+  <div class="admin-name">開催地の更新</div>
+    <div class="underline"></div>
       <div class="row">
-	    <div class="place-category-box">
+		<div class="admin-category-box">
 		  <%= form_for @place, url: admins_place_path do |f| %>
 
-		  <%= f.text_field :name, autofocus: true, :size => "40*40", placeholder: '変更する開催地名を入力' %>
+			<%= f.text_field :name, autofocus: true, :size => "40*40", placeholder: '変更する開催地名を入力' %>
 
-		  <%= f.submit '保存する', class: "btn btn-primary" %>
+		    <%= f.submit '更新', class: "btn btn-primary" %>
 
 		  <% end %>
 		</div>
 	  </div>
 </div>
+
+<%= link_to "TOPへ", admins_festivals_path, class: 'btn btn-outline-secondary w-25' %>

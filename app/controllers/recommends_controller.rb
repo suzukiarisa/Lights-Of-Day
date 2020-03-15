@@ -50,7 +50,7 @@ class RecommendsController < ApplicationController
    def update
   @recommend = Recommend.find(params[:id])
   if @recommend.update(recommend_params)
-    redirect_to recommends_path(@recommend), notice: 'Recommend was successfully updated.'
+    redirect_to recommend_path(@recommend), notice: 'Recommend was successfully updated.'
   else
     render :edit
   end

@@ -1,48 +1,46 @@
-<div class="container">
-  <div class="memory-index">
-    <span class="memories-title">Memories</span>
-  </div>
-	<%= link_to new_memory_path,data: {"turbolinks" => false} do %>
-	  <span class="memory-font"> Let's POST </span>
-	  <i class="far fa-arrow-alt-circle-left"></i>
-	<% end %>
-	<br>
-	<br>
-	<br>
-	  <div class="row">
-	  	<% @memories.each do |memory| %>
-		  <div class="col-sm-4">
-		  	<div class="col-sm-12">
-			  	<% if memory.present? %>
-		          <% if memory.memory_photos.length == 0 %>
-		            <%= image_tag "/no_image.jpg", class: "memory-img" %>
-		          <% else %>
-		            <% memory.memory_photos.each do |photo| %>
-		              <%= image_tag photo.image.url, class: "memory-img" %>
-		            <% end %>
-		          <% end %>
-		            <div class="memory-index-created">
-				      <%= l(memory.created_at, format: :short) %>
-					</div>
-		            <div class="memory-index-name">
-				      <%= link_to memory.user.nickname, post_path(memory.user), :style=>"color:#777777;" %> さんの投稿
-				    </div>
-					<div class="memory-index-spot">
-				      <%= memory.spot %>
-				    </div>
-				    <div class="memory-index-title">
-				      <%= link_to memory.title, memory_path(memory.id), :style=>"color:#777777;" %>
-				    </div>
-				    <div class="memory-index-body">
-				      <%= memory.body %>
-				    </div>
-		        <% end %>
-	        </div>
-	      </div>
-	    <% end %>
-	  </div>
+<div class="bg-color-gray">
+	<div class="container">
+	  <span class="post-index-caption">Memories</span>
+		<%= link_to new_memory_path,data: {"turbolinks" => false} do %>
+		  <span class="post-index-font"> Let's POST </span>
+		  <i class="far fa-arrow-alt-circle-left"></i>
+		<% end %>
+		<br>
+		<br>
+		<br>
+		  <div class="row">
+		  	<% @memories.each do |memory| %>
+			  <div class="col-sm-4">
+			  	<div class="col-sm-12">
+				  	<% if memory.present? %>
+			          <% if memory.memory_photos.length == 0 %>
+			            <%= image_tag "/no_image.jpg", class: "post-index-img" %>
+			          <% else %>
+			            <% memory.memory_photos.each do |photo| %>
+			              <%= image_tag photo.image.url, class: "post-index-img" %>
+			            <% end %>
+			          <% end %>
+			            <div class="post-index-created">
+					      <%= l(memory.created_at, format: :short) %>
+						</div>
+			            <div class="post-index-name">
+					      <%= link_to memory.user.nickname, post_path(memory.user), :style=>"color:#777777;" %> 's Post
+					    </div>
+						<div class="post-index-spot">
+					      <%= memory.spot %>
+					    </div>
+					    <div class="post-index-title">
+					      <%= link_to memory.title, memory_path(memory.id), :style=>"color:#333;" %>
+					    </div>
+					    <div class="post-index-body">
+					      <%= memory.body %>
+					    </div>
+			        <% end %>
+		        </div>
+		      </div>
+		    <% end %>
+		  </div>
+	</div>
+    <div class="post-index-pagenate"><%= paginate @memories %></div>
+    <%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>
 </div>
-
-<div class="memory-pagenate"><%= paginate @memories %></div>
-
-<%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>

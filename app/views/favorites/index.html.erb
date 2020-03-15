@@ -3,38 +3,38 @@
 	<div class="row">
 	  <% @favorites.each do |favorite| %>
 	    <div class="col-sm-4">
-		  <div class="checkbox-size">
-		    <%= check_box_tag 'favorites[]', favorite.id, false, {id: favorite.id, form: "formtag"}%>
+	      <div class="col-sm-12">
+			  <div class="checkbox-size">
+			    <%= check_box_tag 'favorites[]', favorite.id, false, {id: favorite.id, form: "formtag"}%>
+			  </div>
+
+	            <div class="favorite-festival-image">
+			    <%= attachment_image_tag favorite.festival, :image, :fill, 350, 230, format: 'jpg', fallback: "no_image.jpg" %>
+	            </div>
+
+				<div class="festival-event-date">
+			        <%= favorite.festival.event_date %>
+			    </div>
+
+				<div class="favorite-festival-name">
+					<%= favorite.festival.festival_name.name %>
+				</div>
+
+				<div class="favorite-festival-place">
+			        @ <%= favorite.festival.place.name %>
+			    </div>
+
+			    <div class="favorite-festival-body">
+			        <%= favorite.festival.body %>
+			    </div>
 		  </div>
-
-            <div class="favorite-festival-image">
-		    <%= attachment_image_tag favorite.festival, :image, :fill, 350, 230, format: 'jpg', fallback: "no_image.jpg" %>
-            </div>
-
-			<div class="festival-event-date">
-		        <%= favorite.festival.event_date %>
-		    </div>
-
-			<div class="favorite-festival-name">
-				<%= favorite.festival.festival_name.name %>
-			</div>
-
-			<div class="favorite-festival-place">
-		        @ <%= favorite.festival.place.name %>
-		    </div>
-
-		    <div class="favorite-festival-body">
-		        <%= favorite.festival.body %>
-		    </div>
 		</div>
 	  <% end %>
     </div>
-
-　　　　	<%= form_tag(destroy_all_path, method: :delete, id:"formtag") do %>
-		  <div class="destroy-favorite-box">
-		    <%= submit_tag "チェックしたアイテムを削除" %>
-		  </div>
-	    <% end %>
-
-        <div class="favorite-pagenate"><%= paginate @favorites %></div>
-    </div>
+　　　 <%= form_tag(destroy_all_path, method: :delete, id:"formtag") do %>
+		<div class="destroy-favorite-box">
+		  <%= submit_tag "チェックしたアイテムを削除" %>
+	    </div>
+	  <% end %>
+  <div class="favorite-pagenate"><%= paginate @favorites %></div>
+</div>

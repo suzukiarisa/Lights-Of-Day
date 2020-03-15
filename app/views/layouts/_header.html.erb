@@ -1,23 +1,37 @@
 <!-- アドミンでログイン -->
 <% if admin_signed_in? %>
-  <span class="admin_user">管理者　ｻﾏ</span>
   <ul class="header-menu">
-    <%= link_to(new_admins_festival_path) do %>
-  <span class="admin_festival"> Festival</span>
-  <% end %>
-  <%= link_to(new_admins_festival_name_path) do %>
-  <span class="admin_festival_name"> Festival Name</span>
-  <% end %>
-  <%= link_to(new_admins_place_path) do %>
-  <span class="admin_place"> Place</span>
-  <% end %>
-  <%= link_to(destroy_admin_session_path, method: :delete) do %>
-  <span class="signout"> Sign Out</span>
-  <% end %>
+    <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
+    <li class="header-menu-li-admin">
+      <%= link_to(new_admins_festival_path) do %>
+        <div class="menu-name-e">Festival</div>
+        <div class="menu-name-j">ｼﾝｷ ﾌｪｽﾃｨﾊﾞﾙ</div>
+      <% end %>
+    </li>
+    <li class="header-menu-li">
+      <%= link_to(new_admins_festival_name_path) do %>
+        <div class="menu-name-e">Festival Name</div>
+        <div class="menu-name-j">ｼﾝｷ ﾌｪｽﾒｲ</div>
+      <% end %>
+    </li>
+    <li class="header-menu-li">
+      <%= link_to(new_admins_place_path) do %>
+        <div class="menu-name-e">Place</div>
+        <div class="menu-name-j">ｼﾝｷ ｶｲｻｲﾁ</div>
+      <% end %>
+    </li>
+    <li class="header-menu-li">
+      <%= link_to(destroy_admin_session_path, method: :delete) do %>
+        <div class="menu-name-e">Sign Out</div>
+        <div class="menu-name-j">ｻｲﾝｱｳﾄ</div>
+      <% end %>
+    </li>
+      <span class="admin_user">管理者　ｻﾏ</span>
   </ul>
 <!-- エンドユーザーでログイン -->
 <% elsif user_signed_in?%>
   <ul class="header-menu">
+    <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
     <li class="header-menu-li-in">
       <%= link_to users_path, data: {"turbolinks" => false} do %>
         <div class="menu-name-e">Comrade</div>
@@ -62,6 +76,7 @@
 <!-- 非ログイン時 -->
 <% else %>
   <ul class="header-menu">
+    <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
     <li class="header-menu-li-out">
       <%= link_to(new_user_registration_path) do %>
         <div class="menu-name-e">Sign Up</div>
@@ -76,8 +91,8 @@
     </li>
     <li class="header-menu-li">
       <%= link_to(homes_about_path) do %>
-        <div class="menu-name-e">Home</div>
-        <div class="menu-name-j">ﾎｰﾑ</div>
+        <div class="menu-name-e">How To</div>
+        <div class="menu-name-j">ﾂｶｲｶﾀ</div>
       <% end %>
     </li>
   </ul>

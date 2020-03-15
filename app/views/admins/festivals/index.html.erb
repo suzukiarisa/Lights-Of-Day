@@ -1,7 +1,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="festival-location1">
+		<div class="admin-festival-location1">
 			<a href="#hokkaido" class="hok">Hokkaido / 北海道</a>
 			<div class="hokkaido-festival-text">RISING SUN ROCK FESTIVAL</div>
 			<div class="hokkaido-festival-text">JOIN ALIVE</div>
@@ -10,7 +10,7 @@
 			<div class="tohoku-festival-text">ISHINOMAKI BUCHI ROCK</div>
 			<div class="tohoku-festival-text">OGA NAMAHAGE ROCK FESTIVAL</div>
 		</div>
-		<div class="festival-location2">
+		<div class="admin-festival-location2">
 			<a href="#kanto" class="kan">Kanto / 関東</a>
 			<div class="kanto-festival-text">リスアニ!LIVE</div>
 			<div class="kanto-festival-text">COUNTDOWN JAPAN</div>
@@ -24,7 +24,7 @@
 			<div class="kanto-festival-text">SUMMER SONIC</div>
 			<div class="kanto-festival-text">氣志團万博</div>
 		</div>
-		<div class="festival-location3">
+		<div class="admin-festival-location3">
 			<a href="#chubu" class="chub">Chubu / 中部</a>
 			<div class="chubu-festival-text">YON FES 2020</div>
 			<div class="chubu-festival-text">マグロック</div>
@@ -44,7 +44,7 @@
 			<div class="kinki-festival-text">OTODAMA</div>
 			<div class="kinki-festival-text">京都大作戦</div>
 		</div>
-		<div class="festival-location4">
+		<div class="admin-festival-location4">
 			<a href="#chugoku" class="chug">Chugoku / 中国</a>
 			<div class="chugoku-festival-text">桃太郎フェス</div>
 			<div class="chugoku-festival-text">WILD BUNCH FEST.</div>
@@ -64,39 +64,37 @@
 	  	<a id="hokkaido">Hokkaido / 北海道</a>
 	  </div>
 	  <div class="row">
-
    		<% @hokkaido_festivals.each do |festival| %>
 	   		<div class="col-sm-4">
 	   		  <div class="col-sm-2">
 	   		    <%= render 'admins/sidemenu',festival: festival %>
 	   		  </div>
-	   		  <div class="prefecture-box">
-		      <div class="col-sm-10">
-	            <div class="text-size">
-			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-	            </div>
+	   		    <div class="prefecture-box">
+			      <div class="col-sm-10">
+		            <div class="festival-image">
+					  <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				     </div>
 
-				<div class="text-size">
-			        <%= festival.event_date %>
+					<div class="festival-event-date">
+				        <%= festival.event_date %>
+				    </div>
+
+					<div class="festival-name">
+						<%= festival.festival_name.name %>
+					</div>
+
+					<div class="festival-place">
+				        @ <%= festival.place.name %>
+				    </div>
+
+				    <div class="festival-body">
+				        <%= festival.body %>
+				    </div>
+				  </div>
 			    </div>
-
-				<div class="text-size">
-					<%= festival.festival_name.name %>
-				</div>
-
-				<div class="text-size">
-			        <%= festival.place.name %>
-			    </div>
-
-			    <div class="text-size">
-			        <%= festival.body %>
-			    </div>
-			  </div>
 		    </div>
-		</div>
         <% end %>
 	  </div>
- 
 <br>
 <br>
 <br>
@@ -111,24 +109,24 @@
 		       <%= render 'admins/sidemenu',festival: festival %>
 		     </div>
 		     <div class="prefecture-box">
-			 <div class="col-sm-10">
-			    <div class="text-size">
-			    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-			    </div>
+			   <div class="col-sm-10">
+			     <div class="festival-image">
+				   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				 </div>
 
-				<div class="text-size">
+				<div class="festival-event-date">
 			        <%= festival.event_date %>
 			    </div>
 
-				<div class="text-size">
+				<div class="festival-name">
 					<%= festival.festival_name.name %>
 				</div>
 
-				<div class="text-size">
-			        <%= festival.place.name %>
+				<div class="festival-place">
+			        @ <%= festival.place.name %>
 			    </div>
 
-			    <div class="text-size">
+			    <div class="festival-body">
 			        <%= festival.body %>
 			    </div>
 			 </div>
@@ -150,29 +148,29 @@
    		       <%= render 'admins/sidemenu',festival: festival %>
    		     </div>
    		     <div class="prefecture-box">
-             <div class="col-sm-10">
-	                <div class="text-size">
-				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-		            </div>
+               <div class="col-sm-10">
+                 <div class="festival-image">
+				   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+			      </div>
 
-					<div class="text-size">
-				        <%= festival.event_date %>
-				    </div>
+				 <div class="festival-event-date">
+			       <%= festival.event_date %>
+			     </div>
 
-					<div class="text-size">
-						<%= festival.festival_name.name %>
-					</div>
+				 <div class="festival-name">
+				   <%= festival.festival_name.name %>
+				 </div>
 
-					<div class="text-size">
-				        <%= festival.place.name %>
-				    </div>
+				 <div class="festival-place">
+			       @ <%= festival.place.name %>
+			     </div>
 
-				    <div class="text-size">
-				        <%= festival.body %>
-				    </div>
+			     <div class="festival-body">
+			       <%= festival.body %>
 			     </div>
 			   </div>
-			</div>
+			  </div>
+			   </div>
            <% end %>
         </div>
 <br>
@@ -184,34 +182,34 @@
 
         <div class="row">
    		   <% @chubu_festivals.each do |festival| %>
-           <div class="col-sm-4">
-		     <div class="col-sm-2">
-   		       <%= render 'admins/sidemenu',festival: festival %>
-   		     </div>
-   		     <div class="prefecture-box">
-   		       <div class="col-sm-10">
-	                <div class="text-size">
-				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-		            </div>
+	           <div class="col-sm-4">
+			     <div class="col-sm-2">
+	   		       <%= render 'admins/sidemenu',festival: festival %>
+	   		     </div>
+	   		     <div class="prefecture-box">
+	   		       <div class="col-sm-10">
+	                 <div class="festival-image">
+					   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				     </div>
 
-					<div class="text-size">
-				        <%= festival.event_date %>
-				    </div>
+					 <div class="festival-event-date">
+				       <%= festival.event_date %>
+				     </div>
 
-					<div class="text-size">
-						<%= festival.festival_name.name %>
-					</div>
+					 <div class="festival-name">
+				       <%= festival.festival_name.name %>
+					 </div>
 
-					<div class="text-size">
-				        <%= festival.place.name %>
-				    </div>
+					 <div class="festival-place">
+				       @ <%= festival.place.name %>
+				     </div>
 
-				    <div class="text-size">
-				        <%= festival.body %>
-				    </div>
+				     <div class="festival-body">
+				       <%= festival.body %>
+				     </div>
+				   </div>
+				 </div>
 			   </div>
-			</div>
-		    </div>
            <% end %>
         </div>
 <br>
@@ -229,25 +227,25 @@
 		     </div>
 		     <div class="prefecture-box">
                <div class="col-sm-10">
-	                <div class="text-size">
-				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-		            </div>
+	                <div class="festival-image">
+					   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				     </div>
 
-					<div class="text-size">
-				        <%= festival.event_date %>
-				    </div>
+					 <div class="festival-event-date">
+				       <%= festival.event_date %>
+				     </div>
 
-					<div class="text-size">
-						<%= festival.festival_name.name %>
-					</div>
+					 <div class="festival-name">
+				       <%= festival.festival_name.name %>
+					 </div>
 
-					<div class="text-size">
-				        <%= festival.place.name %>
-				    </div>
+					 <div class="festival-place">
+				       @ <%= festival.place.name %>
+				     </div>
 
-				    <div class="text-size">
-				        <%= festival.body %>
-				    </div>
+				     <div class="festival-body">
+				       <%= festival.body %>
+				     </div>
 			   </div>
 			</div>
 		   </div>
@@ -262,34 +260,32 @@
 
         <div class="row">
    		   <% @chugoku_festivals.each do |festival| %>
-   		   <div class="col-sm-4">
-		     <div class="col-sm-2">
-   		       <%= render 'admins/sidemenu',festival: festival %>
-   		     </div>
-   		     <div class="prefecture-box">
-   		       <div class="col-sm-10">
-	                <div class="text-size">
-				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-		            </div>
+	   	     <div class="col-sm-4">
+			   <div class="col-sm-2">
+	   		     <%= render 'admins/sidemenu',festival: festival %>
+	   		   </div>
+	   		     <div class="col-sm-10">
+	                <div class="festival-image">
+					   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				     </div>
 
-					<div class="text-size">
-				        <%= festival.event_date %>
-				    </div>
+					 <div class="festival-event-date">
+				       <%= festival.event_date %>
+				     </div>
 
-					<div class="text-size">
-						<%= festival.festival_name.name %>
-					</div>
+					 <div class="festival-name">
+				       <%= festival.festival_name.name %>
+					 </div>
 
-					<div class="text-size">
-				        <%= festival.place.name %>
-				    </div>
+					 <div class="festival-place">
+				       @ <%= festival.place.name %>
+				     </div>
 
-				    <div class="text-size">
-				        <%= festival.body %>
-				    </div>
-			   </div>
-		   </div>
-		</div>
+				     <div class="festival-body">
+				       <%= festival.body %>
+				     </div>
+			     </div>
+			 </div>
            <% end %>
         </div>
 <br>
@@ -299,7 +295,6 @@
     		<a id="shikoku">Shikoku / 四国</a>
     	</div>
 
-
         <div class="row">
    		   <% @shikoku_festivals.each do |festival| %>
    		   <div class="col-sm-4">
@@ -308,27 +303,27 @@
    		     </div>
    		     <div class="prefecture-box">
                <div class="col-sm-10">
-	                <div class="text-size">
-				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-		            </div>
+	                <div class="festival-image">
+					   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				     </div>
 
-					<div class="text-size">
-				        <%= festival.event_date %>
-				    </div>
+					 <div class="festival-event-date">
+				       <%= festival.event_date %>
+				     </div>
 
-					<div class="text-size">
-						<%= festival.festival_name.name %>
-					</div>
+					 <div class="festival-name">
+				       <%= festival.festival_name.name %>
+					 </div>
 
-					<div class="text-size">
-				        <%= festival.place.name %>
-				    </div>
+					 <div class="festival-place">
+				       @ <%= festival.place.name %>
+				     </div>
 
-				    <div class="text-size">
-				        <%= festival.body %>
-				    </div>
+				     <div class="festival-body">
+				       <%= festival.body %>
+				     </div>
 			   </div>
-			</div>
+			 </div>
 		   </div>
            <% end %>
         </div>
@@ -347,25 +342,25 @@
    		     </div>
    		     <div class="prefecture-box">
                <div class="col-sm-10">
-	                <div class="text-size">
-				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-		            </div>
+	                <div class="festival-image">
+					   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				     </div>
 
-					<div class="text-size">
-				        <%= festival.event_date %>
-				    </div>
+					 <div class="festival-event-date">
+				       <%= festival.event_date %>
+				     </div>
 
-					<div class="text-size">
-						<%= festival.festival_name.name %>
-					</div>
+					 <div class="festival-name">
+				       <%= festival.festival_name.name %>
+					 </div>
 
-					<div class="text-size">
-				        <%= festival.place.name %>
-				    </div>
+					 <div class="festival-place">
+				       @ <%= festival.place.name %>
+				     </div>
 
-				    <div class="text-size">
-				        <%= festival.body %>
-				    </div>
+				     <div class="festival-body">
+				       <%= festival.body %>
+				     </div>
 			   </div>
 			</div>
 		   </div>
@@ -386,25 +381,25 @@
    	         </div>
    	         <div class="prefecture-box">
                <div class="col-sm-10">
-	                <div class="text-size">
-				    <%= attachment_image_tag festival, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
-		            </div>
+	                <div class="festival-image">
+					   <%= attachment_image_tag festival, :image, :fill, 250, 230, format: 'jpg', fallback: "no_image.jpg" %>
+				     </div>
 
-					<div class="text-size">
-				        <%= festival.event_date %>
-				    </div>
+					 <div class="festival-event-date">
+				       <%= festival.event_date %>
+				     </div>
 
-					<div class="text-size">
-						<%= festival.festival_name.name %>
-					</div>
+					 <div class="festival-name">
+				       <%= festival.festival_name.name %>
+					 </div>
 
-					<div class="text-size">
-				        <%= festival.place.name %>
-				    </div>
+					 <div class="festival-place">
+				       @ <%= festival.place.name %>
+				     </div>
 
-				    <div class="text-size">
-				        <%= festival.body %>
-				    </div>
+				     <div class="festival-body">
+				       <%= festival.body %>
+				     </div>
 			   </div>
 			</div>
 		   </div>

@@ -1,17 +1,17 @@
-<%= render 'admins/sidemenu',festival: @festival_name %>
-
 <div class="container">
-  <div class="label-festival-name">フェス名の編集</div>
-    <div class="festival-names-border"></div>
+  <div class="admin-name">フェス名の更新</div>
+    <div class="underline"></div>
       <div class="row">
-	    <div class="festival-name-category-box">
+		<div class="admin-category-box">
 		  <%= form_for @festival_name, url: admins_festival_name_path do |f| %>
 
-		  <%= f.text_field :name, autofocus: true, :size => "40*40", placeholder: '変更するフェス名を入力' %>
+		    <%= f.text_field :name, autofocus: true, :size => "40*40", placeholder: '変更するフェス名を入力' %>
 
-		  <%= f.submit '保存する', class: "btn btn-primary" %>
+		    <%= f.submit '更新', class: "btn btn-primary" %>
 
 		  <% end %>
 		</div>
 	  </div>
 </div>
+
+<%= link_to "TOPへ", admins_festivals_path, class: 'btn btn-outline-secondary w-25' %>
