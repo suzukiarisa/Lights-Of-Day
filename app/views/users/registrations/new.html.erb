@@ -9,12 +9,12 @@
 
           <div class="signup-nickname">
             <%= f.label :Nickname_ニックネーム %><br>
-            <%= f.text_field :nickname, placeholder: "10字以内", autofocus: true, class:"col-auto form-control form-control-lg" %>
+            <%= f.text_field :nickname, placeholder: "nickname", autofocus: true, class:"col-auto form-control form-control-lg" %>
           </div>
 
           <div class="signup-favorite-artist">
             <%= f.label :favorite_artist_好きなアーティスト %><br>
-            <%= f.text_field :favorite_artists, placeholder: "25字以内", autofocus: true, class:"col-auto form-control form-control-lg" %>
+            <%= f.text_field :favorite_artists, placeholder: "limit 25", autofocus: true, class:"col-auto form-control form-control-lg" %>
           </div>
 
           <div class="signup-prefecture">
@@ -24,7 +24,7 @@
 
           <div class="signup-prefecture">
             <%= f.label :Introduction_自己紹介 %><br>
-            <%= f.text_area :introduction, placeholder: "75字以内", autocomplete: "introduction", class:"col-auto form-control form-control-lg" %>
+            <%= f.text_area :introduction, placeholder: "limit 75", autocomplete: "introduction", class:"col-auto form-control form-control-lg" %>
           </div>
         </div>
 
@@ -32,7 +32,7 @@
 
           <div class="signup-email">
             <%= f.label :Email_メールアドレス %><br>
-            <%= f.email_field :email, placeholder: "メールアドレス", autocomplete: "email", class:"col-auto form-control form-control-lg" %>
+            <%= f.email_field :email, placeholder: "email", autocomplete: "email", class:"col-auto form-control form-control-lg" %>
           </div>
 
           <div class="signup-password">
@@ -40,12 +40,12 @@
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br>
-            <%= f.password_field :password, placeholder: "6字以上の英数字", autocomplete: "new-password", class:"col-auto form-control form-control-lg " %>
+            <%= f.password_field :password, placeholder: "6 characters or more", autocomplete: "new-password", class:"col-auto form-control form-control-lg " %>
           </div>
 
           <div class="signup-password-check">
             <%= f.label :Password_パスワード（Confirm） %><br>
-            <%= f.password_field :password_confirmation, placeholder: "6字以上の英数字", autocomplete: "new-password", class:"col-auto form-control form-control-lg" %>
+            <%= f.password_field :password_confirmation, placeholder: "confirmation", autocomplete: "new-password", class:"col-auto form-control form-control-lg" %>
           </div>
           <br>
           <div class="signup-image-position">
@@ -55,11 +55,7 @@
         </div>
 
           <div class="signup-create-account">
-            <%= f.submit "アカウントを作成", class:"btn btn-info btn-lg" %>
-          </div>
-
-          <div class="link-to-signup">
-            アカウントをお持ちの方は<%= link_to "こちら", new_user_session_path, :style=>"color:#FF8C00;" %></div>
+            <%= f.submit "Create Account", class:"btn btn-info btn-lg" %>
           </div>
       <% end %>
     </div>

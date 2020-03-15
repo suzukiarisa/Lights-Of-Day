@@ -5,18 +5,14 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="signin-form">
           <%= f.label :Email_メールアドレス %><br />
-          <%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class:"col-auto form-control form-control-lg  box-for-login" %>
+          <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email", class:"col-auto form-control form-control-lg  box-for-login" %>
 
           <%= f.label :Password_パスワード %><br />
-          <%= f.password_field :password, placeholder: "6字以上のパスワード", autocomplete: "current-password", class:"col-auto form-control form-control-lg" %>
+          <%= f.password_field :password, placeholder: "6 characters or more", autocomplete: "current-password", class:"col-auto form-control form-control-lg" %>
         </div>
 
           <div class="signin-create-account">
-            <%= f.submit "サインイン", class:"btn btn-warning btn-lg" %>
-          </div>
-
-          <div class="link-to-signin">
-            新規登録の方は<%= link_to "こちら", new_user_registration_path, :style=>"color:#FF8C00;" %>
+            <%= f.submit "Sign In", class:"btn btn-warning btn-lg" %>
           </div>
       <% end %>
     </div>

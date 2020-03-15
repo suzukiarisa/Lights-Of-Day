@@ -27,42 +27,55 @@ body{
     right: 83%;
 }
 
+.post-explanation-text{
+	display: block;
+	font-size: 25px;
+	font-weight: 200;
+	margin-top: 70px;
+    margin-left: 46%;
+    height: auto;
+}
+
+.post-explanation{
+	display: block;
+    max-width: 45%;
+    margin-top: 32px;
+    margin-left: 28%;
+    height: auto;
+}
+
+.post-frame{
+	margin-left: 20%;
+	margin-top: 45px;
+	font-size: 20px;
+}
+
+
 /*PostNew*/
 
 #img_field {
   font-size: 15px;
-  margin-top: 10px;
   padding: 5px 8px;
   border: solid 1px #EDBC6C;
   color: #666;
-  position: relative;
+  margin-top: 65px;
   padding: 0;
   border-radius: 5px;
-  cursor: pointer;
   width: 500px;
   height: 350px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
   background-color: #fff;
-  overflow: hidden;
-  box-sizing: border-box;
-  transition: 0.3s ease-out;
 }
 
 #img_field i {
   font-size: 100px;
   color: #aaa;
   line-height: 250px;
-  transition: 0.3s ease-out;
 }
 
 #img_field i.add {
   display: none;
   font-size: 50px;
-  position: absolute;
-  top: -90px;
-  right: 15px;
+  padding: 20px;
 }
 
 #img_field:hover {
@@ -77,47 +90,29 @@ body{
   color: #fff;
 }
 
-.post-new-place-label{
-  font-size: 25px;
-  position: absolute;
-  bottom: 73%;
-  left: 48%;
+.post-content-box{
+	margin-left: 20px;
 }
 
-.post-new-place-box {
-  position: absolute;
-  bottom: 68%;
-  left: 47%;
+.post-new-place-label{
+  font-size: 25px;
+  margin-top: 10px;
 }
 
 .post-new-title-label {
   font-size: 25px;
-  position: absolute;
-  bottom: 61%;
-  left: 48%;
-}
-
-.post-new-title-box {
-  position: absolute;
-  bottom: 56%;
-  left: 47%;
+  margin-top: 20px;
 }
 
 .post-new-text-label {
   font-size: 25px;
-  position: absolute;
-  bottom: 50%;
-  left: 48%;
-}
-
-.post-new-text-box {
-  position: absolute;
-  bottom: 45%;
-  left: 47%;
+  margin-top: 20px;
 }
 
 .post-post-new {
-  margin-left: 800px;
+	position: absolute;
+    left: 63%;
+    top:72%;
 }
 
 .fa-image {

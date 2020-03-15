@@ -2,8 +2,7 @@
   <div claas="contaner">
 　　<div class="row">
       <div class="bg-about-box-white">
-        <div class="about-title">Lights Of Dayについて</div>
-    <!-- <div class="about-text-big">一緒にフェスに行く "フェス友" を作りませんか？</div> -->
+        <div class="about-title">Lights Of Day について</div>
           <div class="about-text">
             <p>このサイトは</p>
             <p>あなたの日々の中での光を見つけて</p>
@@ -13,18 +12,33 @@
           </div>
       </div>
     </div>
+    <div class="how-to">How To Use / ﾂｶｲｶﾀ</div>
     <div class="row">
-      <div class="how-to">How To Use / ﾂｶｲｶﾀ</div>
-        <div class="how-to-logo-first"><i class="fas fa-camera-retro"></i></div>
-          <div class="how-to-first">どのような雰囲気のフェスなのか投稿から確認できます<br>ぜひあなたのオススメや思い出をシェアしてみましょう！
-          </div>
-        <div class="how-to-logo-second"><i class="fas fa-hand-holding-heart"></i>
+      <div class="d-flex justify-content-start">
+        <div class="how-to-logo-first">
+          <i class="fas fa-camera-retro"></i>
         </div>
-          <div class="how-to-second">フェスをお気に入りできます</div>
-        <div class="how-to-logo-finaly"><i class="far fa-envelope"></i>
+        <div class="how-to-first">どのような雰囲気のフェスなのか投稿から確認できます<br>ぜひあなたのオススメや思い出をシェアしてみましょう！
         </div>
-          <div class="how-to-finaly">気になるお仲間にフォローやDMをしよう
-          </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <div class="how-to-second">フェスをお気に入りできます</div>
+        <div class="how-to-logo-second">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+      </div>
+      <div class="d-flex justify-content-start">
+        <div class="how-to-logo-finaly">
+          <i class="far fa-envelope"></i>
+        </div>
+        <div class="how-to-finaly">気になるお仲間にフォローやDMをしよう</div>
+      </div>
     </div>
+    <div class="about-friend-text">
+      "<%= link_to ' フェス仲間 ', new_user_registration_path, :style=>"color:#333;" %>" を作りませんか？
+    </div>
+    <br>
+    <br>
   </div>
 </div>
+
