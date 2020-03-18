@@ -1,4 +1,9 @@
 <div class="user-show-bg-img">
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <br>
   <br>
   <div class="user-confirm-title">

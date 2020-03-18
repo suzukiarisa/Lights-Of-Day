@@ -23,8 +23,8 @@ body{
 
 .brand-logo{
 	height: 60px;
-	position: absolute;
-  right: 83%;
+  width: 200px;
+  float: left;
 }
 
 .post-explanation-text{
@@ -52,7 +52,15 @@ body{
 
 /*flash-messages*/
 .flash{
-  height: 50px;
+  height: 55px;
+  width:310px;
+  padding:10px;
+  background-color: #b0c4de;
+  text-align: center;
+}
+
+.flash-alert{
+  height: 55px;
   width:310px;
   padding:10px;
   background-color: #b0c4de;
@@ -462,16 +470,22 @@ body{
 
 .header-menu-li-in{
 	  float: left;
-    padding: 0px 0px 0px 500px;
+    padding: 0px 0px 0px 310px;
 }
 
 .header-menu-li-out{
-	float: left;
-    padding: 0px 0px 0px 720px;
+	  float: left;
+    padding: 0px 0px 0px 490px;
+}
+
+.header-menu-li-admin{
+    float: left;
+    padding: 0px 0px 0px 460px;
 }
 
 .header-menu-li-name {
     float: right;
+    margin-right: 20px;
     color: #333;
 }
 

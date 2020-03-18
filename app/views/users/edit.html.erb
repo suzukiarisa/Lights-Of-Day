@@ -1,4 +1,9 @@
 <div class="user-edit-bg-img">
+  <% if flash[:alert] %>
+    <div class="flash-alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
 <br>
 <br>
   <div class="user-edit-title">Editing / ﾍﾝｼｭｳ</div>

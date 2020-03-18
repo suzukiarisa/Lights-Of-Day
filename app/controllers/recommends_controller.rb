@@ -38,7 +38,7 @@ class RecommendsController < ApplicationController
               return
            end
         end
-
+        flash[:notice] = "Recommend was successfully posted."
         format.html{redirect_to recommends_path}
       else
         @recommend.recommend_photos.build
@@ -60,6 +60,7 @@ end
   def destroy
     @recommend = Recommend.find(params[:id])
     @recommend.destroy
+    flash[:notice] = "Post deleted."
     redirect_to recommends_path
   end
 

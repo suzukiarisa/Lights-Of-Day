@@ -1,4 +1,9 @@
 <div class="bg-color-gray">
+	<% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
 	<div class="container">
 	  <span class="post-index-caption">Memories</span>
 		<%= link_to new_memory_path,data: {"turbolinks" => false} do %>
@@ -42,5 +47,5 @@
 		  </div>
 	</div>
     <div class="post-index-pagenate"><%= paginate @memories %></div>
-    <%= link_to "Back to top", root_path, class: 'btn btn-outline-secondary w-25' %>
+    <br>
 </div>

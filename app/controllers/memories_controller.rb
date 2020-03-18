@@ -37,7 +37,7 @@ class MemoriesController < ApplicationController
               return
            end
         end
-
+        flash[:notice] = "Memory was successfully posted."
         format.html{redirect_to memories_path}
       else
         @memory.memory_photos.build
@@ -59,6 +59,7 @@ end
   def destroy
     @memory = Memory.find(params[:id])
     @memory.destroy
+    flash[:notice] = "Post deleted."
     redirect_to memories_path
   end
 

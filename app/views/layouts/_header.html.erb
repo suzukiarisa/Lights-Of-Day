@@ -1,7 +1,9 @@
 <!-- アドミンでログイン -->
 <% if admin_signed_in? %>
   <ul class="header-menu">
-    <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
+    <a href="/">
+      <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
+    </a>
     <li class="header-menu-li-admin">
       <%= link_to(new_admins_festival_path) do %>
         <div class="menu-name-e">Festival</div>
@@ -31,7 +33,9 @@
 <!-- エンドユーザーでログイン -->
 <% elsif user_signed_in?%>
   <ul class="header-menu">
-    <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
+    <a href="/">
+      <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
+    </a>
     <li class="header-menu-li-in">
       <%= link_to users_path, data: {"turbolinks" => false} do %>
         <div class="menu-name-e">Comrade</div>
@@ -76,7 +80,9 @@
 <!-- 非ログイン時 -->
 <% else %>
   <ul class="header-menu">
-    <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
+    <a href="/">
+      <img alt="LightsOfDay icon" class="brand-logo left" src="/assets/logo.PNG">
+    </a>
     <li class="header-menu-li-out">
       <%= link_to(new_user_registration_path) do %>
         <div class="menu-name-e">Sign Up</div>

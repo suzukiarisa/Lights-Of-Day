@@ -12,6 +12,11 @@
     </div>
   </div>
 </div>
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
   <br>
   <br>
     <span class="top-caption">MEMORY</span>
