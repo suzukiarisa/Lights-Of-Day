@@ -3,12 +3,14 @@ class UserRelationshipsController < ApplicationController
   def create
     follow = current_user.active_relationships.build(follower_id: params[:user_id],following_id: current_user.id)
     follow.save
+    flash[:success] = 'Followed'
     redirect_to users_path
   end
 
   def destroy
     follow = current_user.active_relationships.find_by(follower_id: params[:user_id])
     follow.destroy
+    flash[:success] = 'Follow removed'
     redirect_to users_path
   end
 
