@@ -1,8 +1,8 @@
 <div class="signin-bg-img">
   <div class="container">
     <div class="row">
-
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
         <div class="signin-form">
           <%= f.label :Email_メールアドレス %><br />
           <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email", class:"col-auto form-control form-control-lg  box-for-login" %>
@@ -11,9 +11,9 @@
           <%= f.password_field :password, placeholder: "6 characters or more", autocomplete: "current-password", class:"col-auto form-control form-control-lg" %>
         </div>
 
-          <div class="signin-create-account">
-            <%= f.submit "Sign In", class:"btn btn-warning btn-lg" %>
-          </div>
+        <div class="signin-create-account">
+          <%= f.submit "Sign In", class:"btn btn-warning btn-lg" %>
+        </div>
       <% end %>
     </div>
   </div>

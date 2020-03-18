@@ -50,7 +50,8 @@ class RecommendsController < ApplicationController
    def update
   @recommend = Recommend.find(params[:id])
   if @recommend.update(recommend_params)
-    redirect_to recommend_path(@recommend), notice: 'Recommend was successfully updated.'
+    flash[:notice] = "Recommend was successfully updated."
+    redirect_to recommend_path(@recommend)
   else
     render :edit
   end
@@ -59,7 +60,7 @@ end
   def destroy
     @recommend = Recommend.find(params[:id])
     @recommend.destroy
-    redirect_to recommends_path, notice: 'Recommend was successfully destroyed.'
+    redirect_to recommends_path
   end
 
   private

@@ -50,6 +50,32 @@ body{
 	font-size: 20px;
 }
 
+/*flash-messages*/
+.flash{
+  height: 50px;
+  width:310px;
+  padding:10px;
+  background-color: #b0c4de;
+  text-align: center;
+}
+
+.error_signup{
+  width:580px;
+  margin-top: 25px;
+  margin-left:25%;
+  margin-bottom: 70px;
+}
+
+.error_signin{
+  width:580px;
+  margin-top: 25px;
+  margin-left:25%;
+  margin-bottom: 70px;
+}
+
+.error_messages{
+  font-size: 18px;
+}
 
 /*PostNew*/
 
@@ -427,8 +453,8 @@ body{
 }
 
 .header-menu-li-in{
-	float: left;
-    padding: 0px 0px 0px 530px;
+	  float: left;
+    padding: 0px 0px 0px 500px;
 }
 
 .header-menu-li-out{
@@ -436,14 +462,8 @@ body{
     padding: 0px 0px 0px 720px;
 }
 
-.header-menu-li-admin{
-	float: left;
-    padding: 0px 0px 0px 620px;
-}
-
 .header-menu-li-name {
-    float: left;
-    padding: 0px 0px 0px 200px;
+    float: right;
     color: #333;
 }
 
@@ -463,23 +483,19 @@ body{
 
 .current-user-img{
 	border-radius: 50%;
-	width:  50px;
-    height: 50px;
-}
-
-.admin_user{
-	color: #333;
-	margin-left: 300px;
+  margin-right: 40px;
+  margin-left: 15px;
+	width:  60px;
+  height: 60px;
 }
 
 /*Footer*/
 
-footer{
-    width: 100%;
-    color: #333;
-    padding-top: 15px;
-    text-align: center;
+.page-footer {
     font-weight: 200;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .bg-color-footer {

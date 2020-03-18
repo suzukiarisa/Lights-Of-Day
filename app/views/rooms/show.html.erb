@@ -6,11 +6,11 @@
 	  <br>
 	  <br>
 	    <%= form_for(@message, url: rooms_path) do |f| %>
+	      <div class="message-user">
+			<%= @to_user.nickname %> ｻﾝ
+	      </div>
 	      <div class="message-user-image">
 		    <%= image_tag @to_user.image.url, :size => '230x180' %>
-	      </div>
-		  <div class="message-user">
-			<%= @to_user.nickname %> ｻﾝ
 	      </div>
 	    <% end %>
 
@@ -23,7 +23,7 @@
 		    <label class="say-something">Say something:</label><br>
 			  <input type="text" value="" placeholder="送信したい文を入力してください"class="message-form" id="chat-input" ></input>
 		  </form>
-		  <div id="message-container" style="height: 385px; overflow: scroll; margin: 35px 100px; padding: 40px 70px; background-color:#FFF; border-radius: 25px;">
+		  <div id="message-container" style="height: 300px; overflow: scroll; margin: 5px 100px; padding: 40px 70px; background-color:#FFF; border-radius: 25px;">
 		    <div id="messages" data-from-id='<%= current_user.id %>'>
 			  <ul>
 			    <li>

@@ -49,7 +49,8 @@ class MemoriesController < ApplicationController
   def update
   @memory = Memory.find(params[:id])
   if @memory.update(memory_params)
-    redirect_to memory_path(@memory), notice: 'Memory was successfully updated.'
+    flash[:notice] = "Memory was successfully updated."
+    redirect_to memory_path(@memory)
   else
     render :edit
   end
@@ -58,7 +59,7 @@ end
   def destroy
     @memory = Memory.find(params[:id])
     @memory.destroy
-    redirect_to memories_path, notice: 'Memory was successfully destroyed.'
+    redirect_to memories_path
   end
 
 	private

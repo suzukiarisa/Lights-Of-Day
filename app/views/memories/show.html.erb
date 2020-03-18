@@ -1,4 +1,9 @@
 <div class="bg-color-gray h-100">
+	<% if flash[:notice] %>
+	  <div class="flash">
+	    <%= flash[:notice] %>
+	  </div>
+	<% end %>
 	<div class="row">
 	  <div class="bg-box-white">
 		<div class="post-show-img">

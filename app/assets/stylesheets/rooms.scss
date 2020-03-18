@@ -16,9 +16,7 @@ li {
   font-size: 27px;
   color: #333;
   font-weight: 300;
-  position: absolute;
-  left: 400px;
-  top: 53%;
+  margin-left: 120px;
 }
 
 .room-title {
@@ -29,9 +27,10 @@ li {
 }
 
 .message-form{
-  width: 700px;
+  width: 870px;
   height: 45px;
-  margin-left: 300px;
+  margin-left: 120px;
+  margin-bottom: 30px;
 }
 
 .message-user-image{
@@ -42,9 +41,8 @@ li {
 .message-user{
   font-size: 25px;
   color: #333;
-  position: absolute;
-  left: 670px;
-  top: 35%;
+  margin-left: 20%;
+  margin-top: 15px;
 }
 
 .message-box{

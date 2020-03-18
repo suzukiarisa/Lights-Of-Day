@@ -6,7 +6,6 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
         <div class="signup-form1">
-
           <div class="signup-nickname">
             <%= f.label :Nickname_ニックネーム %><br>
             <%= f.text_field :nickname, placeholder: "nickname", autofocus: true, class:"col-auto form-control form-control-lg" %>
@@ -54,9 +53,20 @@
           </div>
         </div>
 
-          <div class="signup-create-account">
-            <%= f.submit "Create Account", class:"btn btn-info btn-lg" %>
+        <% if @user.errors.any? %>
+          <div class="error_signup">
+            <h5><%= @user.errors.count %> errors prohibited this obj from being saved:</h5>
+            <ul class="error_messages">
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
           </div>
+        <% end %>
+
+        <div class="signup-create-account">
+          <%= f.submit "Create Account", class:"btn btn-info btn-lg" %>
+        </div>
       <% end %>
     </div>
   </div>

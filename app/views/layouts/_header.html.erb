@@ -26,7 +26,7 @@
         <div class="menu-name-j">ｻｲﾝｱｳﾄ</div>
       <% end %>
     </li>
-      <span class="admin_user">管理者　ｻﾏ</span>
+      <span class="header-menu-li-name">管理者　ｻﾏ</span>
   </ul>
 <!-- エンドユーザーでログイン -->
 <% elsif user_signed_in?%>
@@ -69,8 +69,8 @@
       <% end %>
     </li>
     <li class="header-menu-li-name">
-      <%= image_tag current_user.image.url, class: "current-user-img" %>
       <%= current_user.nickname %> ｻﾝ
+      <%= image_tag current_user.image.url, class: "current-user-img" %>
     </li>
   </ul>
 <!-- 非ログイン時 -->
