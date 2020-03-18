@@ -14,6 +14,7 @@
 .hok{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #tohoku{
@@ -27,6 +28,7 @@
 .toh{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #kanto{
@@ -39,6 +41,7 @@
 .kan{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #chubu{
@@ -51,6 +54,7 @@
 .chub{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #kinki{
@@ -63,6 +67,7 @@
 .kin{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #chugoku{
@@ -75,6 +80,7 @@
 .chug{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #shikoku{
@@ -87,6 +93,7 @@
 .shi{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #kyushu{
@@ -99,6 +106,7 @@
 .kyu{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 #okinawa{
@@ -111,6 +119,7 @@
 .oki{
     color:#FF8C00;
     font-size: 17px;
+    font-family: 'HanziPen TC',sans-serif;
 }
 
 .festival-location1 {
@@ -129,6 +138,11 @@
     margin-top: 165px;
 }
 
+.festival-text{
+    font-family: 'Avenir',sans-serif;
+    color: #979797;
+}
+
 .favorite-festival {
     font-size: 32px;
     position: relative;
@@ -138,18 +152,21 @@
 
 .festival-event-date{
      color: #777777;
+     font-family: 'Avenir',sans-serif;
 }
 
 .festival-name {
     font-size: 22px;
     font-weight: 300;
     text-align: center;
+    font-family: 'Avenir',sans-serif;
 }
 
 .festival-place {
     font-size: 16px;
     font-weight: 200;
     color: #777777;
+    font-family: 'Avenir',sans-serif;
     text-align: center;
 }
 
@@ -157,5 +174,6 @@
     font-size: 16px;
     font-weight: 200;
     color: #777777;
+    font-family: 'Avenir',sans-serif;
     text-align: center;
 }

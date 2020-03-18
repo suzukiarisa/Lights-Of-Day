@@ -1,4 +1,4 @@
-<div class="bg-color-gray h-100">
+<div class="bg-color-gray">
 	<% if flash[:notice] %>
 	  <div class="flash">
 	    <%= flash[:notice] %>
@@ -42,13 +42,16 @@
 		<div class="post-show-body-label">Content / ﾅｲﾖｳ</div>
 
 		<div class="post-show-body">
-		  <div id="text-container" style="height: 170px; width: 1070px; overflow: scroll; margin: 20px; padding: 10px; background-color:#FFF;">
+		  <div id="text-container" style="height: 150px; width: 1070px; overflow: scroll; margin: 20px; padding: 10px; background-color:#FFF;">
 		    <%= @recommend.body %>
 		  </div>
 	    </div>
 		<% end %>
 	</div>
   </div>
+  <div class="other-post">
+<%= link_to 'See other posts', post_path(@recommend.user), :style=>"color:#000000;" %> <i class="far fa-arrow-alt-circle-right"></i>
+ </div>
 </div>
 <% if current_user == @recommend.user %>
 <div class="post-show-link-edit">
@@ -58,9 +61,5 @@
 　　<i class="far fa-trash-alt"></i> <%= link_to 'Destroy', recommend_path, method: :delete, data: { confirm: '本当に消しますか?' }, :style=>"color:#000000;" %>
 </div>
 <% end %>
-
-<div class="other-post">
-<%= link_to 'See other posts', post_path(@recommend.user), :style=>"color:#000000;" %> <i class="far fa-arrow-alt-circle-right"></i>
-</div>
 
 
