@@ -32,6 +32,11 @@ class UsersController < ApplicationController
      @user = current_user
     end
 
+    def mypage
+     @user = User.find(params[:id])
+     @user = current_user
+    end
+
     def edit
       @user = User.find(params[:id])
       @user = current_user
